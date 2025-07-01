@@ -1,0 +1,45 @@
+{
+  "name": "kdsms",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.1.1",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20.11.5",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.17",
+    "axios": "^1.6.5",
+    "bcryptjs": "^2.4.3",
+    "jose": "^6.0.11",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.1.0",
+    "next": "14.1.0",
+    "postcss": "^8.4.33",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.3",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.1.0"
+  },
+  "description": "A comprehensive web-based application for managing daily milk sales, tracking inventory, and analyzing sales data for Karimnagar Dairy's distribution network.",
+  "main": "tailwind.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

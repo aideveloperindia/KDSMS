@@ -6,36 +6,55 @@ export async function POST(request: Request) {
   try {
     await connectDB();
 
-    const testUser = {
-      name: 'Test User',
-      phone: '9505009699', // Using the phone number from the screenshot
-      role: 'agent',
-      zone: 'Karimnagar',
-      isActive: true
-    };
+    const { phone, name, jobName, area, subArea, zone, district } = await request.json();
+
+    // Validate required fields
+    if (!phone || !name || !jobName || !district) {
+      return NextResponse.json(
+        { message: 'Missing required fields' },
+        { status: 400 }
+      );
+    }
+
+    // Validate phone number format
+    if (!/^[0-9]{10}$/.test(phone)) {
+      return NextResponse.json(
+        { message: 'Invalid phone number format' },
+        { status: 400 }
+      );
+    }
 
     // Check if user already exists
-    const existingUser = await User.findOne({ phone: testUser.phone });
+    const existingUser = await User.findOne({ phone });
     if (existingUser) {
-      return NextResponse.json({ message: 'Test user already exists' });
+      return NextResponse.json(
+        { message: 'User with this phone number already exists' },
+        { status: 400 }
+      );
     }
 
     // Create new user
-    const user = await User.create(testUser);
-
-    return NextResponse.json({ 
-      message: 'Test user created successfully',
-      user: {
-        name: user.name,
-        phone: user.phone,
-        role: user.role,
-        zone: user.zone
-      }
+    const user = new User({
+      phone,
+      name,
+      role: jobName,
+      area,
+      subArea,
+      zone,
+      district,
+      isActive: true
     });
-  } catch (error) {
-    console.error('Error creating test user:', error);
+
+    await user.save();
+
     return NextResponse.json(
-      { error: 'Failed to create test user' },
+      { message: 'User created successfully' },
+      { status: 201 }
+    );
+  } catch (error) {
+    console.error('User creation error:', error);
+    return NextResponse.json(
+      { message: 'Failed to create user' },
       { status: 500 }
     );
   }

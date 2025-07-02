@@ -1,219 +1,160 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { 
-  ArrowTrendingUpIcon,
-  ArrowTrendingDownIcon,
-  DocumentPlusIcon,
-  ChartBarIcon
-} from '@heroicons/react/24/outline';
-import DashboardLayout from '@/components/layout/DashboardLayout';
-
-interface User {
-  name: string;
-  role: string;
-  zone?: string;
-}
-
-interface DashboardStats {
-  totalSales: number;
-  todaySales: number;
-  activeAgents: number;
-  performance: number;
-}
+import Link from 'next/link';
 
 export default function DashboardPage() {
-  const router = useRouter();
-  const [user, setUser] = useState<User | null>(null);
-  const [stats, setStats] = useState<DashboardStats>({
-    totalSales: 0,
-    todaySales: 0,
-    activeAgents: 0,
-    performance: 0,
-  });
-
-  useEffect(() => {
-    const userData = localStorage.getItem('user');
-    if (!userData) {
-      router.push('/');
-      return;
-    }
-    setUser(JSON.parse(userData));
-
-    // TODO: Fetch actual stats from API
-    setStats({
-      totalSales: 150000,
-      todaySales: 5000,
-      activeAgents: 25,
-      performance: 92,
-    });
-  }, [router]);
-
-  if (!user) return null;
-
-  const renderRoleBasedContent = () => {
-    switch (user.role) {
-      case 'agent':
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-4">Today's Sales</h3>
-              <p className="text-3xl font-bold text-blue-600">₹{stats.todaySales}</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-4">Performance</h3>
-              <p className="text-3xl font-bold text-green-600">{stats.performance}%</p>
-            </div>
-          </div>
-        );
-
-      case 'executive':
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-4">Total Sales</h3>
-              <p className="text-3xl font-bold text-blue-600">₹{stats.totalSales}</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-4">Active Agents</h3>
-              <p className="text-3xl font-bold text-green-600">{stats.activeAgents}</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-4">Team Performance</h3>
-              <p className="text-3xl font-bold text-purple-600">{stats.performance}%</p>
-            </div>
-          </div>
-        );
-
-      case 'zonal_manager':
-        return (
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="text-lg font-semibold mb-4">Zone Sales</h3>
-                <p className="text-3xl font-bold text-blue-600">₹{stats.totalSales}</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="text-lg font-semibold mb-4">Active Executives</h3>
-                <p className="text-3xl font-bold text-green-600">{stats.activeAgents}</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="text-lg font-semibold mb-4">Zone Performance</h3>
-                <p className="text-3xl font-bold text-purple-600">{stats.performance}%</p>
-              </div>
-            </div>
-            {/* Add zone-specific charts and analytics here */}
-          </div>
-        );
-
-      case 'agm':
-      case 'management':
-        return (
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="text-lg font-semibold mb-4">Total Revenue</h3>
-                <p className="text-3xl font-bold text-blue-600">₹{stats.totalSales}</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="text-lg font-semibold mb-4">Active Zones</h3>
-                <p className="text-3xl font-bold text-green-600">5</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="text-lg font-semibold mb-4">Total Agents</h3>
-                <p className="text-3xl font-bold text-yellow-600">{stats.activeAgents}</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="text-lg font-semibold mb-4">Overall Performance</h3>
-                <p className="text-3xl font-bold text-purple-600">{stats.performance}%</p>
-              </div>
-            </div>
-            {/* Add company-wide analytics and charts here */}
-          </div>
-        );
-
-      default:
-        return <div>Invalid role</div>;
-    }
-  };
-
   return (
-    <DashboardLayout userRole={user.role} userName={user.name}>
-      <div className="space-y-6">
-        {/* Quick Actions */}
-        <div className="flex space-x-4">
-          <a
-            href="/sales/daily"
-            className="flex-1 card hover:shadow-lg transition-shadow cursor-pointer flex items-center justify-center space-x-2 py-4"
-          >
-            <DocumentPlusIcon className="w-6 h-6 text-primary-600" />
-            <span className="font-medium">New Sales Entry</span>
-          </a>
-          <a
-            href="/sales/history"
-            className="flex-1 card hover:shadow-lg transition-shadow cursor-pointer flex items-center justify-center space-x-2 py-4"
-          >
-            <ChartBarIcon className="w-6 h-6 text-primary-600" />
-            <span className="font-medium">View Sales History</span>
-          </a>
+    <div className="min-h-screen bg-gray-100">
+      {/* Top Navigation */}
+      <nav className="bg-white shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <h1 className="text-2xl font-bold text-gray-800">KDSMS Dashboard</h1>
+        </div>
+      </nav>
+
+      <div className="max-w-7xl mx-auto py-6 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Sales Section */}
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h2 className="text-xl font-bold mb-4">Sales Management</h2>
+            <div className="space-y-3">
+              <Link 
+                href="/sales/daily" 
+                className="block w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 text-center"
+              >
+                Daily Sales Entry
+              </Link>
+              <Link 
+                href="/sales/history" 
+                className="block w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 text-center"
+              >
+                Sales History
+              </Link>
+            </div>
+          </div>
+
+          {/* Agent Management */}
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h2 className="text-xl font-bold mb-4">Agent Management</h2>
+            <div className="space-y-3">
+              <Link 
+                href="/agents" 
+                className="block w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 text-center"
+              >
+                View Agents
+              </Link>
+              <Link 
+                href="/agents/performance" 
+                className="block w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 text-center"
+              >
+                Agent Performance
+              </Link>
+            </div>
+          </div>
+
+          {/* Executive Management */}
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h2 className="text-xl font-bold mb-4">Executive Management</h2>
+            <div className="space-y-3">
+              <Link 
+                href="/executives" 
+                className="block w-full bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-600 text-center"
+              >
+                View Executives
+              </Link>
+              <Link 
+                href="/executives/performance" 
+                className="block w-full bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-600 text-center"
+              >
+                Executive Performance
+              </Link>
+            </div>
+          </div>
+
+          {/* Zone Management */}
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h2 className="text-xl font-bold mb-4">Zone Management</h2>
+            <div className="space-y-3">
+              <Link 
+                href="/zones" 
+                className="block w-full bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 text-center"
+              >
+                View Zones
+              </Link>
+              <Link 
+                href="/zones/performance" 
+                className="block w-full bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 text-center"
+              >
+                Zone Performance
+              </Link>
+            </div>
+          </div>
+
+          {/* Reports */}
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h2 className="text-xl font-bold mb-4">Reports</h2>
+            <div className="space-y-3">
+              <Link 
+                href="/reports/sales" 
+                className="block w-full bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 text-center"
+              >
+                Sales Reports
+              </Link>
+              <Link 
+                href="/reports/performance" 
+                className="block w-full bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 text-center"
+              >
+                Performance Reports
+              </Link>
+              <Link 
+                href="/reports/analytics" 
+                className="block w-full bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 text-center"
+              >
+                Analytics
+              </Link>
+            </div>
+          </div>
+
+          {/* Settings */}
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h2 className="text-xl font-bold mb-4">Settings</h2>
+            <div className="space-y-3">
+              <Link 
+                href="/settings/profile" 
+                className="block w-full bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 text-center"
+              >
+                Profile Settings
+              </Link>
+              <Link 
+                href="/settings/system" 
+                className="block w-full bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 text-center"
+              >
+                System Settings
+              </Link>
+            </div>
+          </div>
         </div>
 
-        {/* Performance Metrics */}
-        {renderRoleBasedContent()}
-
-        {/* Recent Entries */}
-        <div className="card">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-medium text-gray-900">Recent Entries</h3>
-            <a
-              href="/sales/history"
-              className="text-primary-600 hover:text-primary-700 text-sm font-medium"
-            >
-              View all
-            </a>
+        {/* Quick Stats */}
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="text-lg font-semibold mb-2">Total Sales</h3>
+            <p className="text-3xl font-bold text-blue-600">₹150,000</p>
           </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Date
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Milk Type
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Quantity Sold
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Revenue
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {/* Mock data - replace with actual API data */}
-                {/* {performanceData.recentEntries.map((entry) => (
-                  <tr key={entry.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {new Date(entry.date).toLocaleDateString()}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {entry.milkType}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {entry.quantitySold}L
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      ₹{entry.revenue}
-                    </td>
-                  </tr>
-                ))} */}
-              </tbody>
-            </table>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="text-lg font-semibold mb-2">Active Agents</h3>
+            <p className="text-3xl font-bold text-green-600">25</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="text-lg font-semibold mb-2">Active Zones</h3>
+            <p className="text-3xl font-bold text-yellow-600">5</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="text-lg font-semibold mb-2">Performance</h3>
+            <p className="text-3xl font-bold text-purple-600">92%</p>
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </div>
   );
 } 

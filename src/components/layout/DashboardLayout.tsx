@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import Header from './Header';
 import Sidebar from './Sidebar';
 
@@ -43,6 +44,18 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     return null;
   }
 
+  // Get background image based on user role
+  const getBackgroundImage = (role: string) => {
+    const roleMap: { [key: string]: string } = {
+      Agent: '/kdsms agent.png',
+      Executive: '/kdsms executive.png',
+      ZM: '/kdsms zm.png',
+      AGM: '/kdsms agm.png',
+      Management: '/kdsms management.png'
+    };
+    return roleMap[role] || '';
+  };
+
   const menuItems = {
     agent: [
       { label: 'Daily Sales', href: '/sales/daily' },
@@ -72,14 +85,35 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     ],
   };
 
+  const roleKey = user.role.toLowerCase().replace('_', '');
+  const currentMenuItems = menuItems[roleKey as keyof typeof menuItems] || [];
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      <Header user={user} />
-      <div className="flex">
-        <Sidebar menuItems={menuItems[user.role as keyof typeof menuItems]} />
-        <main className="flex-1 p-6">
-          {children}
-        </main>
+    <div className="min-h-screen relative">
+      {/* Background Image */}
+      <div className="fixed inset-0 z-0">
+        <Image
+          src={getBackgroundImage(user.role)}
+          alt="Dashboard Background"
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+        />
+        {/* Subtle overlay for better content visibility */}
+        <div className="absolute inset-0 bg-black/10"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 min-h-screen flex flex-col">
+        <Header />
+        <div className="flex-1 flex">
+          <Sidebar menuItems={currentMenuItems} />
+          <main className="flex-1 p-6">
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-6">
+              {children}
+            </div>
+          </main>
+        </div>
       </div>
     </div>
   );

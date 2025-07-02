@@ -33,12 +33,35 @@ const SaleSchema = new mongoose.Schema({
   },
   unsoldQuantity: {
     type: Number,
-    required: true,
-    min: 0
+    min: 0,
+    default: 0
   },
-  remarks: {
+  agentRemarks: {
     type: String,
     trim: true
+  },
+  executiveRemarks: {
+    type: String,
+    trim: true
+  },
+  executiveId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  executiveRemarkTime: {
+    type: Date
+  },
+  subArea: {
+    type: String,
+    required: true
+  },
+  area: {
+    type: String,
+    required: true
+  },
+  zone: {
+    type: String,
+    required: true
   },
   createdAt: {
     type: Date,
@@ -60,4 +83,7 @@ SaleSchema.pre('save', function(next) {
 // Ensure one entry per day per user per milk type
 SaleSchema.index({ userId: 1, date: 1, milkType: 1 }, { unique: true });
 
-export default mongoose.models.Sale || mongoose.model('Sale', SaleSchema); 
+// Try to get existing model, or compile new model
+const Sale = mongoose.models.Sale || mongoose.model('Sale', SaleSchema);
+
+export default Sale; 

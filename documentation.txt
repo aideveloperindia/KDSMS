@@ -1,0 +1,50 @@
+while the system has the structure to support real-time operations, it's currently using test/dummy data. Here's a detailed breakdown:
+Database Structure:
+The User model (src/models/User.ts) has the proper hierarchy structure with:
+Roles (Agent, Executive, ZM, AGM, Management)
+Relationships (supervisor field)
+Zone, area, and sub-area fields
+But it's not fully populated with your 480 agents structure
+Sales Data:
+The Sale model (src/models/Sale.ts) has proper structure for:
+Real-time sales tracking
+Milk type tracking
+Quantity management
+But currently using test data
+Current Limitations:
+The setup-users route (src/app/api/auth/setup-users/route.ts) only creates test users
+The sales API (src/app/api/sales/route.ts) is using a test user ID
+Pages like ZM dashboard (src/app/zm/page.tsx) use hardcoded example data
+Management page (src/app/management/page.tsx) shows static statistics
+What's Missing for Real-Time Operation:
+Proper User Setup:
+Need to set up all 480 agents
+Configure 24 executives (4 under each ZM)
+Set up 6 ZMs
+Configure AGM and management users
+Establish proper hierarchical relationships
+Real Data Integration:
+Replace dummy data with real database queries
+Implement proper data aggregation for different hierarchy levels
+Set up real-time data synchronization
+Access Control:
+Implement proper role-based access control
+Configure zone/area-based data filtering
+Set up proper supervisor-subordinate relationships
+To make this system work in real-time with your actual structure:
+Database Setup Needed:
+Create proper user hierarchy setup script
+Configure all user relationships
+Set up proper zone assignments
+Code Updates Needed:
+Update API routes to use real data
+Implement proper data filtering based on roles
+Add real-time data synchronization
+Add proper authentication and authorization
+Features to Add:
+Real-time sales data aggregation
+Proper hierarchical reporting
+Zone-based access control
+Real-time notifications
+Currently, while the system has the basic structure, it's operating with dummy data and needs significant work to handle your actual scale of 480 agents and the complete hierarchical structure in real-time.     Replace the mockUserRole, mockZoneNumber, and mockAreaNumber with actual values from your authentication context
+Connect the data fetching functions to your actual API endpoints

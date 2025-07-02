@@ -1,0 +1,59 @@
+list out the pages which are not yet built !, There should be signup and login buttons on landing page top bar. the signup thing should be like this Mobile Number, Name, Job name , Area , sub area(only for agents),zone, District. and when these are entered, OTP should be asked , OTP is static 123456. Mobile numbers cn be anything. Once this signup is done, a profile should be created for this person, from next time login should be done to enter the site. The page that open after signup and login should be role based based on the job name they have given. The Job name slot in signup and login should have drawdown of Agent,Executive,ZM,AGM,Management only. There are many agents , precisely 480 agents, based on their sub area name, their profile should be tagged. there are 24 executives , based on their area name , their profile should be created, for ZMs, zone name should be taken into account. I hope you got my points and logics ? After signing up and logging in, an agent should get agent dashboard, executive should get executive dashboard with 20 agents under his area, zm should get zm dashboard with 80 agents and 4 executive under him, AGM should get AGM dashboard with all 480 agents, and 120 executive and 6 ZMs. tell me clearly
+
+
+Pages That Need to be Created/Modified:
+Landing Page (src/app/page.tsx) needs modification:
+Add Sign Up button in the top navigation bar
+Currently only has Login button
+Sign Up Page (New - src/app/auth/signup/page.tsx):
+Form fields:
+Mobile Number
+Name
+Job Name (dropdown with Agent, Executive, ZM, AGM, Management)
+Area
+Sub Area (only for agents)
+Zone
+District
+OTP verification (static: 123456)
+Login Page (src/app/auth/login/page.tsx):
+Needs to be modified to include:
+Mobile Number
+Job Name (dropdown)
+OTP verification
+Role-based Dashboards:
+Agent Dashboard (Modify src/app/agents/page.tsx)
+Personal profile
+Daily tasks
+Sales entry
+Performance metrics
+Executive Dashboard (Modify src/app/executives/page.tsx)
+Overview of 20 agents under their area
+Performance metrics
+Agent management
+ZM (Zone Manager) Dashboard (New - src/app/zm/page.tsx)
+Overview of 80 agents
+4 executives under them
+Zone performance metrics
+AGM Dashboard (Modify src/app/agm/page.tsx)
+Overview of all 480 agents
+24 executives
+6 ZMs
+Complete performance metrics
+Database Schema Updates Needed:
+Looking at the current User model:
+The User model needs to be updated to include:
+Area field
+Sub Area field (for agents)
+District field
+Here's what I'll do:
+First, let's modify the landing page to add the signup button
+Then create the signup page with all required fields
+Update the User model with new fields
+Create/modify the role-based dashboards
+Set up the authentication flow with OTP  
+
+Zones 1,2,3,4,5,6 , Executive Areas : 1 to 20 , Agents sub areas 1 to 480 numbers
+
+
+
+

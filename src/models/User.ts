@@ -16,20 +16,39 @@ const UserSchema = new mongoose.Schema({
   role: {
     type: String,
     required: true,
-    enum: ['agent', 'executive', 'zonal_manager', 'agm', 'management']
+    enum: ['Agent', 'Executive', 'ZM', 'AGM', 'Management']
+  },
+  area: {
+    type: String,
+    required: function() {
+      return ['Agent', 'Executive'].includes(this.role);
+    },
+    trim: true
+  },
+  subArea: {
+    type: String,
+    required: function() {
+      return this.role === 'Agent';
+    },
+    trim: true
   },
   zone: {
     type: String,
     required: function() {
-      return ['agent', 'executive', 'zonal_manager'].includes(this.role);
+      return ['Agent', 'Executive', 'ZM'].includes(this.role);
     },
+    trim: true
+  },
+  district: {
+    type: String,
+    required: true,
     trim: true
   },
   supervisor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: function() {
-      return this.role === 'agent';
+      return this.role === 'Agent';
     }
   },
   isActive: {

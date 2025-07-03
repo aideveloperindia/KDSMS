@@ -1,0 +1,54 @@
+Organizational Structure:
+Management (1 person)
+└── AGM (1 person)
+    └── Zonal Managers (6 ZMs, one per zone)
+        └── Executives (4 per zone = 24 total)
+            └── Agents (20 per executive = 480 total)
+Numbers Breakdown:
+1 Management
+1 AGM
+6 Zones/Zonal Managers
+24 Areas/Executives (4 per zone)
+480 Sub-areas/Agents (20 per executive)
+Access Rights & Features:
+Agents (Sub-area level):
+Can enter daily sales data
+Can add remarks about their business
+Can NOT view analytics/reports
+Only sees their own sub-area data
+Features to remove: Analytics access
+Executives (Area level):
+Manages 20 agents
+Can enter visit details for each agent
+Can add remarks for each agent visit
+Can view only their 20 agents' data
+Can NOT view analytics/reports
+Features to remove: Analytics access
+Zonal Managers:
+Access to 4 areas (executives) and 80 sub-areas (agents)
+Can view all reports and remarks from their:
+4 executives
+80 agents
+Can add their own remarks
+AGM:
+Access to all 6 zones
+Can view all reports from:
+6 zonal managers
+24 executives
+480 agents
+Complete analytics access
+Management:
+Same dashboard as AGM
+Additional feature: Password reset capability for all users
+Authentication Changes Needed:
+Remove OTP verification system
+Remove email verification
+Remove daily OTP login
+Simple username/password login
+Initial setup:
+Users register with:
+Name
+Phone number
+Employee ID
+Password can be preset by management
+Password reset only available in management dashboard

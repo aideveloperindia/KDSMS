@@ -8,16 +8,34 @@ interface MenuItem {
   href: string;
 }
 
-interface SidebarProps {
-  menuItems: MenuItem[];
+interface User {
+  name: string;
+  role: 'agent' | 'executive' | 'zm' | 'agm' | 'management';
+  zone?: number;
+  area?: number;
+  subArea?: number;
+  employeeId: string;
 }
 
-export default function Sidebar({ menuItems }: SidebarProps) {
+interface SidebarProps {
+  menuItems: MenuItem[];
+  user: User;
+}
+
+export default function Sidebar({ menuItems, user }: SidebarProps) {
   const pathname = usePathname();
 
   return (
     <aside className="w-64 min-h-screen bg-gray-800">
-      <nav className="mt-8">
+      <div className="p-4 border-b border-gray-700">
+        <div className="text-gray-300 text-sm">
+          <div>ID: {user.employeeId}</div>
+          {user.zone && <div>Zone: {user.zone}</div>}
+          {user.area && <div>Area: {user.area}</div>}
+          {user.subArea && <div>Sub-Area: {user.subArea}</div>}
+        </div>
+      </div>
+      <nav className="mt-4">
         <ul className="space-y-2">
           {menuItems.map((item) => (
             <li key={item.href}>

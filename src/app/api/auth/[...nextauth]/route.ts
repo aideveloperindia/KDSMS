@@ -1,37 +1,40 @@
 import NextAuth, { DefaultSession } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { verifyOTP } from '@/lib/utils';
 import User from '@/models/User';
 import connectDB from '@/lib/db';
 import { AuthOptions } from 'next-auth';
+import { Document } from 'mongoose';
 
-type UserRole = 'Agent' | 'Executive' | 'ZM' | 'AGM' | 'Management';
+type UserRole = 'agent' | 'executive' | 'zm' | 'agm' | 'management';
+
+interface IUserDocument extends Document {
+  _id: string;
+  name: string;
+  employeeId: string;
+  role: UserRole;
+  zone?: number;
+  area?: number;
+  subArea?: number;
+  comparePassword(candidatePassword: string): Promise<boolean>;
+}
 
 declare module 'next-auth' {
   interface Session extends DefaultSession {
     user: {
       role?: UserRole;
-      zone?: string;
-      area?: string;
-      subArea?: string;
-      phone?: string;
+      zone?: number;
+      area?: number;
+      subArea?: number;
+      employeeId?: string;
     } & DefaultSession['user']
   }
 
   interface User {
     role?: UserRole;
-    zone?: string;
-    area?: string;
-    subArea?: string;
-    phone?: string;
-  }
-
-  interface JWT {
-    role?: UserRole;
-    zone?: string;
-    area?: string;
-    subArea?: string;
-    phone?: string;
+    zone?: number;
+    area?: number;
+    subArea?: number;
+    employeeId?: string;
   }
 }
 
@@ -42,38 +45,53 @@ export const authOptions: AuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        phone: { label: "Phone Number", type: "text" },
-        otp: { label: "OTP", type: "text" }
+        employeeId: { label: "Employee ID", type: "text" },
+        password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        if (!credentials?.phone || !credentials?.otp) {
-          throw new Error('Missing credentials');
+        if (!credentials?.employeeId || !credentials?.password) {
+          console.log('Missing credentials');
+          return null;
         }
 
-        await connectDB();
+        try {
+          await connectDB();
+          console.log('Attempting login for:', credentials.employeeId);
 
-        // Verify OTP
-        const isValid = await verifyOTP(credentials.phone, credentials.otp);
-        if (!isValid) {
-          throw new Error('Invalid OTP');
+          // Get user from database
+          const user = await User.findOne({ employeeId: credentials.employeeId }) as IUserDocument | null;
+          
+          if (!user) {
+            console.log('User not found:', credentials.employeeId);
+            return null;
+          }
+
+          // Verify password
+          const isValid = await user.comparePassword(credentials.password);
+          
+          if (!isValid) {
+            console.log('Invalid password for:', credentials.employeeId);
+            return null;
+          }
+
+          console.log('Login successful for:', credentials.employeeId);
+
+          // Update last login
+          await User.findByIdAndUpdate(user._id, { lastLogin: new Date() });
+
+          return {
+            id: user._id.toString(),
+            name: user.name,
+            employeeId: user.employeeId,
+            role: user.role,
+            zone: user.zone,
+            area: user.area,
+            subArea: user.subArea
+          };
+        } catch (error) {
+          console.error('Auth error:', error);
+          return null;
         }
-
-        // Get user from database
-        const user = await User.findOne({ phone: credentials.phone });
-        if (!user) {
-          throw new Error('User not found');
-        }
-
-        return {
-          id: user._id.toString(),
-          name: user.name,
-          email: user.phone, // Use phone as email since we don't have email
-          phone: user.phone, // Add phone to the user object
-          role: user.role as UserRole,
-          zone: user.zone,
-          area: user.area,
-          subArea: user.subArea
-        };
       }
     })
   ],
@@ -88,37 +106,27 @@ export const authOptions: AuthOptions = {
         token.zone = user.zone;
         token.area = user.area;
         token.subArea = user.subArea;
-        token.phone = user.phone; // Add phone to the token
+        token.employeeId = user.employeeId;
       }
       return token;
     },
     async session({ session, token }) {
       if (token && session.user) {
         session.user.role = token.role as UserRole;
-        session.user.zone = token.zone as string;
-        session.user.area = token.area as string;
-        session.user.subArea = token.subArea as string;
-        session.user.phone = token.phone as string; // Add phone to the session
+        session.user.zone = token.zone as number;
+        session.user.area = token.area as number;
+        session.user.subArea = token.subArea as number;
+        session.user.employeeId = token.employeeId as string;
       }
       return session;
     }
   },
   pages: {
     signIn: '/auth/login',
+    error: '/auth/login'
   },
-  secret: process.env.NEXTAUTH_SECRET,
-  useSecureCookies: !isDevelopment,
-  cookies: {
-    sessionToken: {
-      name: 'next-auth.session-token',
-      options: {
-        httpOnly: true,
-        sameSite: 'lax',
-        path: '/',
-        secure: !isDevelopment
-      }
-    }
-  }
+  debug: isDevelopment,
+  secret: process.env.NEXTAUTH_SECRET || 'your-fallback-secret-key-here'
 };
 
 const handler = NextAuth(authOptions);

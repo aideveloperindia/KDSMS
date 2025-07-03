@@ -2,14 +2,40 @@
 
 A comprehensive web-based application for managing daily milk sales, tracking inventory, and analyzing sales data for Karimnagar Dairy's distribution network.
 
+## Organizational Structure
+
+1. **Management** (1 person)
+   - Complete system access
+   - User management
+   - Password reset capability
+
+2. **AGM** (1 person)
+   - Access to all 6 zones
+   - Monitor all zone managers
+   - View company-wide sales data
+
+3. **Zonal Managers** (6 persons, 1 per zone)
+   - Each manages 4 areas (total 24 areas)
+   - Monitor executives in their zone
+   - View zone-wide sales data
+
+4. **Executives** (24 persons, 4 per zone)
+   - Each manages 20 agents (total 480 agents)
+   - Can view their 20 agents' data
+   - Can add visit remarks
+
+5. **Agents** (480 persons, 20 per executive)
+   - Can only enter sales data
+   - Can add remarks to sales
+   - View their own sales history
+
 ## Features
 
-- Phone number-based authentication with OTP
-- Role-based access control (Agent, Executive, Zonal Manager, AGM, Management)
+- Password-based authentication
+- Role-based access control
 - Daily sales entry with automatic calculations
-- Sales history with filtering and export options
-- Performance analytics and reporting
-- Real-time data validation
+- Sales history with filtering
+- Visit remarks system
 - Responsive design for all devices
 
 ## Tech Stack
@@ -18,7 +44,7 @@ A comprehensive web-based application for managing daily milk sales, tracking in
 - TypeScript
 - Tailwind CSS
 - MongoDB
-- JWT Authentication
+- NextAuth.js
 - React Hook Form
 - Heroicons
 
@@ -44,64 +70,105 @@ A comprehensive web-based application for managing daily milk sales, tracking in
 3. Create a `.env.local` file in the root directory with the following variables:
    ```
    MONGODB_URI=mongodb://localhost:27017/kdsms
-   JWT_SECRET=your-secret-key-here-minimum-32-characters
+   NEXTAUTH_SECRET=your-secret-key-here-minimum-32-characters
+   NEXTAUTH_URL=http://localhost:3003
    NODE_ENV=development
    ```
 
-4. Start the development server:
+4. Set up initial users:
+   ```bash
+   npm run setup
+   ```
+   This will create:
+   - 1 Management user
+   - 1 AGM
+   - 6 Zonal Managers
+   - 24 Executives
+   - 480 Agents
+
+5. Start the development server:
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+6. Open [http://localhost:3003](http://localhost:3003) in your browser.
 
 ## Project Structure
 
 ```
 src/
 ├── app/                 # Next.js app router pages
-├── components/          # React components
-├── lib/                 # Utility functions and database connection
-├── models/             # MongoDB models
-└── middleware.ts       # Authentication middleware
+│   ├── agents/         # Agent dashboard and features
+│   ├── executives/     # Executive management
+│   ├── zm/            # Zonal Manager features
+│   ├── agm/           # AGM oversight
+│   └── management/    # System administration
+├── components/         # React components
+├── lib/               # Utility functions and database
+└── models/            # MongoDB models
 ```
 
-## User Roles and Permissions
+## User Roles and Access Rights
 
 1. **Agent**
-   - Record daily sales
+   - Enter daily sales data
+   - Add remarks to sales
    - View personal sales history
-   - Track performance metrics
 
 2. **Executive**
-   - View team performance
-   - Generate basic reports
-   - Manage agents
+   - View 20 assigned agents' data
+   - Add visit remarks
+   - Monitor agent performance
 
 3. **Zonal Manager**
-   - Analyze zone performance
-   - Handle agent assignments
-   - Territory management
+   - Access to 4 areas (80 agents)
+   - Monitor 4 executives
+   - View zone-wide data
 
-4. **AGM (Assistant General Manager)**
-   - Multi-zone oversight
-   - Comprehensive analytics
-   - Performance review
+4. **AGM**
+   - Access to all 6 zones
+   - Monitor all zone managers
+   - Company-wide view
 
 5. **Management**
    - Complete system access
-   - Strategic analytics
-   - System administration
+   - User management
+   - Password reset capability
 
 ## API Routes
 
 ### Authentication
-- `POST /api/auth/send-otp`: Send OTP to phone number
-- `POST /api/auth/verify-otp`: Verify OTP and generate session
+- `POST /api/auth/[...nextauth]`: NextAuth.js authentication
+- `POST /api/auth/setup-users`: Create initial user hierarchy
 
 ### Sales
 - `POST /api/sales`: Create new sales entry
 - `GET /api/sales`: Get sales history with filters
+- `POST /api/sales/remarks`: Add remarks to sales
+
+## Default Credentials
+
+After running the setup script, you can log in with these credentials:
+
+1. Management:
+   - Employee ID: MGMT001
+   - Password: password123
+
+2. AGM:
+   - Employee ID: AGM001
+   - Password: password123
+
+3. Zonal Managers:
+   - Employee ID: ZM001 to ZM006
+   - Password: password123
+
+4. Executives:
+   - Employee ID: EXEC001 to EXEC024
+   - Password: password123
+
+5. Agents:
+   - Employee ID: AGENT001 to AGENT480
+   - Password: password123
 
 ## Contributing
 
@@ -113,4 +180,4 @@ src/
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the ISC License. 

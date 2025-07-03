@@ -1,0 +1,2059 @@
+KDSMS Employee Login Credentials
+============================
+
+Default password for all users: password123
+
+Top Management
+-------------
+1. Management
+   - Name: Tarun
+   - ID: MGMT-001
+   - Role: Management
+
+2. AGM
+   - Name: Varun
+   - ID: AGM-001
+   - Role: Assistant General Manager
+
+Zone 1: Karimnagar Central
+-------------------------
+Zone Manager:
+- Name: Reddy Rajesh
+- ID: ZM-Z1-001
+- Role: Zone Manager
+
+Area 1: Kothirampur Colony
+Executive:
+- Name: B Anil
+- ID: EXE-Z1A1-001
+- Role: Executive
+
+Agents:
+1. Name: Ramesh Reddy
+   ID: AGT-Z1A1-001
+   Area: Vinayaka Nagar (76)
+
+2. Name: Reddy Manoj
+   ID: AGT-Z1A1-002
+   Area: Hanuman Nagar (30)
+
+3. Name: Sai Harika
+   ID: AGT-Z1A1-003
+   Area: Vani Nagar (92)
+
+4. Name: Reddy Pavan
+   ID: AGT-Z1A1-004
+   Area: Krishna Nagar (58)
+
+5. Name: Kiran Shetty
+   ID: AGT-Z1A1-005
+   Area: Nehrunagar (44)
+
+6. Name: Rajesh Prasad
+   ID: AGT-Z1A1-006
+   Area: Jyothi Nagar (12)
+
+7. Name: Sai Ajay
+   ID: AGT-Z1A1-007
+   Area: Sharada Nagar (6)
+
+8. Name: Mouli Nikhil
+   ID: AGT-Z1A1-008
+   Area: Bhagya Nagar (11)
+
+9. Name: S Ramesh
+   ID: AGT-Z1A1-009
+   Area: Vani Nagar (91)
+
+10. Name: N Arun
+    ID: AGT-Z1A1-010
+    Area: Vinayaka Nagar (30)
+
+11. Name: Sunil Shetty
+    ID: AGT-Z1A1-011
+    Area: Chaitanya Nagar (21)
+
+12. Name: Patel Sneha
+    ID: AGT-Z1A1-012
+    Area: Geetha Nagar (90)
+
+13. Name: Yadav Anil
+    ID: AGT-Z1A1-013
+    Area: Lakshmi Nagar (69)
+
+14. Name: Goud Harsha
+    ID: AGT-Z1A1-014
+    Area: Bhagya Nagar (35)
+
+15. Name: Pavan Patel
+    ID: AGT-Z1A1-015
+    Area: Prashanth Nagar (41)
+
+16. Name: Joshi Tarun
+    ID: AGT-Z1A1-016
+    Area: Mahalaxmi Nagar (28)
+
+17. Name: Kiran Sharma
+    ID: AGT-Z1A1-017
+    Area: Doctors Colony (19)
+
+18. Name: Lal Chaitanya
+    ID: AGT-Z1A1-018
+    Area: Sharada Nagar (96)
+
+19. Name: B Vamshi
+    ID: AGT-Z1A1-019
+    Area: Chaitanya Nagar (29)
+
+20. Name: T Sneha
+    ID: AGT-Z1A1-020
+    Area: Vivekananda Nagar (15)
+
+Area 2: Vavilalapalli
+Executive:
+- Name: Manoj Patel
+- ID: EXE-Z1A2-001
+- Role: Executive
+
+Agents:
+1. Name: Vamshi Verma
+   ID: AGT-Z1A2-001
+   Area: Bhagya Nagar (77)
+
+2. Name: Sai Rajesh
+   ID: AGT-Z1A2-002
+   Area: Bhavani Nagar (88)
+
+3. Name: Chaitanya Yadav
+   ID: AGT-Z1A2-003
+   Area: Raghavendra Colony (15)
+
+4. Name: Kiran Pavan
+   ID: AGT-Z1A2-004
+   Area: Bhavani Nagar (93)
+
+5. Name: Tejaswi Kiran
+   ID: AGT-Z1A2-005
+   Area: Jyothi Nagar (81)
+
+6. Name: Priyanka Yadav
+   ID: AGT-Z1A2-006
+   Area: Vani Nagar (20)
+
+7. Name: Tarun Reddy
+   ID: AGT-Z1A2-007
+   Area: Bhavani Nagar (77)
+
+8. Name: M Ramesh
+   ID: AGT-Z1A2-008
+   Area: Chaitanya Nagar (40)
+
+9. Name: Patel Tarun
+   ID: AGT-Z1A2-009
+   Area: Vinayaka Nagar (11)
+
+10. Name: Sai Tarun
+    ID: AGT-Z1A2-010
+    Area: Sai Nagar (17)
+
+11. Name: Shetty Chaitanya
+    ID: AGT-Z1A2-011
+    Area: Sharada Nagar (68)
+
+12. Name: Prasad Sneha
+    ID: AGT-Z1A2-012
+    Area: Vijaya Nagar (52)
+
+13. Name: V Anil
+    ID: AGT-Z1A2-013
+    Area: Teachers Colony (16)
+
+14. Name: Lal Anil
+    ID: AGT-Z1A2-014
+    Area: SR Nagar Colony (76)
+
+15. Name: Goud Sneha
+    ID: AGT-Z1A2-015
+    Area: Bhavani Nagar (10)
+
+16. Name: Srinivas Kiran
+    ID: AGT-Z1A2-016
+    Area: Shivaji Nagar (5)
+
+17. Name: Venkatesh Sai
+    ID: AGT-Z1A2-017
+    Area: Geetha Nagar (86)
+
+18. Name: Lavanya Iyer
+    ID: AGT-Z1A2-018
+    Area: Bank Colony (32)
+
+19. Name: Prasad Chaitanya
+    ID: AGT-Z1A2-019
+    Area: Jyothi Nagar (13)
+
+20. Name: Naik Ramesh
+    ID: AGT-Z1A2-020
+    Area: Rajeev Nagar (60)
+
+Area 3: Gopalapuram
+Executive:
+- Name: Bhavana Raj
+- ID: EXE-Z1A3-001
+- Role: Executive
+
+Agents:
+1. Name: C Naveen
+   ID: AGT-Z1A3-001
+   Area: Tulasi Nagar (25)
+
+2. Name: Ajay Sharma
+   ID: AGT-Z1A3-002
+   Area: Nehrunagar (24)
+
+3. Name: A Ramesh
+   ID: AGT-Z1A3-003
+   Area: Teachers Colony (71)
+
+4. Name: N Sandeep
+   ID: AGT-Z1A3-004
+   Area: Vinayaka Nagar (97)
+
+5. Name: Divya Goud
+   ID: AGT-Z1A3-005
+   Area: Bank Colony (28)
+
+6. Name: Pavan Singh
+   ID: AGT-Z1A3-006
+   Area: Bhagya Nagar (1)
+
+7. Name: Sai Lavanya
+   ID: AGT-Z1A3-007
+   Area: Nehrunagar (90)
+
+8. Name: A Nikhil
+   ID: AGT-Z1A3-008
+   Area: Police Colony (20)
+
+9. Name: Ramesh Goud
+   ID: AGT-Z1A3-009
+   Area: Vivekananda Nagar (96)
+
+10. Name: Goud Sandeep
+    ID: AGT-Z1A3-010
+    Area: Bank Colony (65)
+
+11. Name: T Manoj
+    ID: AGT-Z1A3-011
+    Area: Vinayaka Nagar (24)
+
+12. Name: D Divya
+    ID: AGT-Z1A3-012
+    Area: Tulasi Nagar (52)
+
+13. Name: M Chaitanya
+    ID: AGT-Z1A3-013
+    Area: Prashanth Nagar (80)
+
+14. Name: D Swathi
+    ID: AGT-Z1A3-014
+    Area: Mahalaxmi Nagar (34)
+
+15. Name: N Swathi
+    ID: AGT-Z1A3-015
+    Area: Sharada Nagar (51)
+
+16. Name: M Mahesh
+    ID: AGT-Z1A3-016
+    Area: Mahalaxmi Nagar (97)
+
+17. Name: Kiran Venkatesh
+    ID: AGT-Z1A3-017
+    Area: Jyothi Nagar (10)
+
+18. Name: V Divya
+    ID: AGT-Z1A3-018
+    Area: Sai Nagar (45)
+
+19. Name: Tejaswi Sai
+    ID: AGT-Z1A3-019
+    Area: Indira Nagar (21)
+
+20. Name: Naik Nikhil
+    ID: AGT-Z1A3-020
+    Area: Bhavani Nagar (86)
+
+Area 4: Rampur
+Executive:
+- Name: Rajesh Naik
+- ID: EXE-Z1A4-001
+- Role: Executive
+
+Agents:
+1. Name: Manoj Shetty
+   ID: AGT-Z1A4-001
+   Area: Sri Rama Nagar (35)
+
+2. Name: Verma Soumya
+   ID: AGT-Z1A4-002
+   Area: Hanuman Nagar (88)
+
+3. Name: S Srinivas
+   ID: AGT-Z1A4-003
+   Area: Police Colony (33)
+
+4. Name: Priyanka Chary
+   ID: AGT-Z1A4-004
+   Area: Prashanth Nagar (1)
+
+5. Name: Naik Mahesh
+   ID: AGT-Z1A4-005
+   Area: Sharada Nagar (21)
+
+6. Name: M Tejaswi
+   ID: AGT-Z1A4-006
+   Area: Sri Rama Nagar (70)
+
+7. Name: V Ramesh
+   ID: AGT-Z1A4-007
+   Area: Sri Rama Nagar (56)
+
+8. Name: T Swathi
+   ID: AGT-Z1A4-008
+   Area: Prashanth Nagar (46)
+
+9. Name: Iyer Divya
+   ID: AGT-Z1A4-009
+   Area: Jyothi Nagar (46)
+
+10. Name: K Lavanya
+    ID: AGT-Z1A4-010
+    Area: Sri Rama Nagar (31)
+
+11. Name: Raj Anusha
+    ID: AGT-Z1A4-011
+    Area: SR Nagar Colony (23)
+
+12. Name: D Soumya
+    ID: AGT-Z1A4-012
+    Area: Tulasi Nagar (35)
+
+13. Name: Nikhil Sharma
+    ID: AGT-Z1A4-013
+    Area: Vani Nagar (59)
+
+14. Name: S Arun
+    ID: AGT-Z1A4-014
+    Area: SR Nagar Colony (85)
+
+15. Name: Sunil Kiran
+    ID: AGT-Z1A4-015
+    Area: Shivaji Nagar (99)
+
+16. Name: C Divya
+    ID: AGT-Z1A4-016
+    Area: Raghavendra Colony (4)
+
+17. Name: V Manoj
+    ID: AGT-Z1A4-017
+    Area: Sharada Nagar (5)
+
+18. Name: Naik Vamshi
+    ID: AGT-Z1A4-018
+    Area: Mahalaxmi Nagar (56)
+
+19. Name: A Harika
+    ID: AGT-Z1A4-019
+    Area: Vani Nagar (33)
+
+20. Name: Srinivas Raj
+    ID: AGT-Z1A4-020
+    Area: Vani Nagar (47)
+
+Zone 2: Karimnagar East
+-----------------------
+Zone Manager:
+- Name: Naik Soumya
+- ID: ZM-Z2-001
+- Role: Zone Manager
+
+Area 5: Choppadandi Road
+Executive:
+- Name: Iyer Nikhil
+- ID: EXE-Z2A1-001
+- Role: Executive
+
+Agents:
+1. Name: Naveen Chary
+   ID: AGT-Z2A1-001
+   Area: Padmavathi Nagar (90)
+
+2. Name: Swathi Yadav
+   ID: AGT-Z2A1-002
+   Area: Rajeev Nagar (86)
+
+3. Name: Reddy Tejaswi
+   ID: AGT-Z2A1-003
+   Area: Vijaya Nagar (52)
+
+4. Name: Lavanya Lal
+   ID: AGT-Z2A1-004
+   Area: Indira Nagar (27)
+
+5. Name: Ajay Shetty
+   ID: AGT-Z2A1-005
+   Area: Mahalaxmi Nagar (60)
+
+6. Name: S Swathi
+   ID: AGT-Z2A1-006
+   Area: Bank Colony (95)
+
+7. Name: A Kiran
+   ID: AGT-Z2A1-007
+   Area: Raghavendra Colony (12)
+
+8. Name: Patel Soumya
+   ID: AGT-Z2A1-008
+   Area: Tulasi Nagar (61)
+
+9. Name: Joshi Venkatesh
+   ID: AGT-Z2A1-009
+   Area: Rajeev Nagar (81)
+
+10. Name: B Sneha
+    ID: AGT-Z2A1-010
+    Area: Padmavathi Nagar (32)
+
+11. Name: N Lavanya
+    ID: AGT-Z2A1-011
+    Area: Nehrunagar (29)
+
+12. Name: N Anusha
+    ID: AGT-Z2A1-012
+    Area: Vivekananda Nagar (72)
+
+13. Name: Sai Vamshi
+    ID: AGT-Z2A1-013
+    Area: Sai Nagar (60)
+
+14. Name: Manoj Kiran
+    ID: AGT-Z2A1-014
+    Area: Mahalaxmi Nagar (97)
+
+15. Name: Das Soumya
+    ID: AGT-Z2A1-015
+    Area: Teachers Colony (21)
+
+16. Name: R Tejaswi
+    ID: AGT-Z2A1-016
+    Area: Sharada Nagar (97)
+
+17. Name: B Pavan
+    ID: AGT-Z2A1-017
+    Area: Police Colony (81)
+
+18. Name: Harsha Raj
+    ID: AGT-Z2A1-018
+    Area: Indira Nagar (31)
+
+19. Name: C Anil
+    ID: AGT-Z2A1-019
+    Area: Vinayaka Nagar (18)
+
+20. Name: Chaitanya Raj
+    ID: AGT-Z2A1-020
+    Area: Hanuman Nagar (9)
+
+Area 6: Mankamma Thota
+Executive:
+- Name: Chaitanya Goud
+- ID: EXE-Z2A2-001
+- Role: Executive
+
+Agents:
+1. Name: Reddy Harika
+   ID: AGT-Z2A2-001
+   Area: Rajeev Nagar (50)
+
+2. Name: K Sunil
+   ID: AGT-Z2A2-002
+   Area: Bhagya Nagar (62)
+
+3. Name: Sai Bhavana
+   ID: AGT-Z2A2-003
+   Area: Rajeev Nagar (69)
+
+4. Name: N Pavan
+   ID: AGT-Z2A2-004
+   Area: Krishna Nagar (63)
+
+5. Name: Swathi Joshi
+   ID: AGT-Z2A2-005
+   Area: SR Nagar Colony (50)
+
+6. Name: Reddy Naveen
+   ID: AGT-Z2A2-006
+   Area: Doctors Colony (17)
+
+7. Name: Chary Chaitanya
+   ID: AGT-Z2A2-007
+   Area: SR Nagar Colony (11)
+
+8. Name: Arun Raj
+   ID: AGT-Z2A2-008
+   Area: Durga Nagar (7)
+
+9. Name: Priyanka Joshi
+   ID: AGT-Z2A2-009
+   Area: Doctors Colony (42)
+
+10. Name: R Tarun
+    ID: AGT-Z2A2-010
+    Area: Rajeev Nagar (33)
+
+11. Name: D Priyanka
+    ID: AGT-Z2A2-011
+    Area: Vivekananda Nagar (45)
+
+12. Name: Sharma Kiran
+    ID: AGT-Z2A2-012
+    Area: Vani Nagar (3)
+
+13. Name: N Santosh
+    ID: AGT-Z2A2-013
+    Area: Bank Colony (86)
+
+14. Name: Sandeep Mouli
+    ID: AGT-Z2A2-014
+    Area: Sharada Nagar (99)
+
+15. Name: M Nikhil
+    ID: AGT-Z2A2-015
+    Area: Sitaram Nagar (100)
+
+16. Name: Joshi Swathi
+    ID: AGT-Z2A2-016
+    Area: SR Nagar Colony (40)
+
+17. Name: Sharma Harika
+    ID: AGT-Z2A2-017
+    Area: Vani Nagar (10)
+
+18. Name: Naik Lavanya
+    ID: AGT-Z2A2-018
+    Area: Vijaya Nagar (88)
+
+19. Name: Raj Sneha
+    ID: AGT-Z2A2-019
+    Area: Prashanth Nagar (45)
+
+20. Name: T Chaitanya
+    ID: AGT-Z2A2-020
+    Area: Rajeev Nagar (63)
+
+Area 7: Ujwala Nagar
+Executive:
+- Name: Harika Chary
+- ID: EXE-Z2A3-001
+- Role: Executive
+
+Agents:
+1. Name: Verma Sneha
+   ID: AGT-Z2A3-001
+   Area: Durga Nagar (94)
+
+2. Name: Tejaswi Lal
+   ID: AGT-Z2A3-002
+   Area: Bank Colony (60)
+
+3. Name: D Pavan
+   ID: AGT-Z2A3-003
+   Area: Mahalaxmi Nagar (32)
+
+4. Name: C Tarun
+   ID: AGT-Z2A3-004
+   Area: Doctors Colony (73)
+
+5. Name: Lavanya Verma
+   ID: AGT-Z2A3-005
+   Area: Police Colony (28)
+
+6. Name: Verma Divya
+   ID: AGT-Z2A3-006
+   Area: Geetha Nagar (77)
+
+7. Name: K Srinivas
+   ID: AGT-Z2A3-007
+   Area: Bhavani Nagar (67)
+
+8. Name: T Harika
+   ID: AGT-Z2A3-008
+   Area: Police Colony (72)
+
+9. Name: D Srinivas
+   ID: AGT-Z2A3-009
+   Area: Police Colony (58)
+
+10. Name: V Nikhil
+    ID: AGT-Z2A3-010
+    Area: Padmavathi Nagar (89)
+
+11. Name: Iyer Sunil
+    ID: AGT-Z2A3-011
+    Area: Bank Colony (71)
+
+12. Name: Verma Ajay
+    ID: AGT-Z2A3-012
+    Area: Raghavendra Colony (46)
+
+13. Name: V Bhavana
+    ID: AGT-Z2A3-013
+    Area: Sharada Nagar (30)
+
+14. Name: Yadav Priyanka
+    ID: AGT-Z2A3-014
+    Area: Sitaram Nagar (96)
+
+15. Name: Pavan Lal
+    ID: AGT-Z2A3-015
+    Area: Hanuman Nagar (95)
+
+16. Name: R Nikhil
+    ID: AGT-Z2A3-016
+    Area: Indira Nagar (13)
+
+17. Name: Das Kiran
+    ID: AGT-Z2A3-017
+    Area: Sai Nagar (36)
+
+18. Name: Tarun Das
+    ID: AGT-Z2A3-018
+    Area: Bhavani Nagar (74)
+
+19. Name: B Arun
+    ID: AGT-Z2A3-019
+    Area: Raghavendra Colony (24)
+
+20. Name: S Lavanya
+    ID: AGT-Z2A3-020
+    Area: Vivekananda Nagar (20)
+
+Area 8: Deshrajpally
+Executive:
+- Name: R Anil
+- ID: EXE-Z2A4-001
+- Role: Executive
+
+Agents:
+1. Name: Mouli Lavanya
+   ID: AGT-Z2A4-001
+   Area: Rajeev Nagar (78)
+
+2. Name: Nikhil Lal
+   ID: AGT-Z2A4-002
+   Area: Bhagya Nagar (58)
+
+3. Name: Mouli Ramesh
+   ID: AGT-Z2A4-003
+   Area: Vijaya Nagar (73)
+
+4. Name: C Pavan
+   ID: AGT-Z2A4-004
+   Area: Hanuman Nagar (81)
+
+5. Name: Yadav Srinivas
+   ID: AGT-Z2A4-005
+   Area: Tulasi Nagar (23)
+
+6. Name: Das Manoj
+   ID: AGT-Z2A4-006
+   Area: Rajeev Nagar (58)
+
+7. Name: Harika Kumar
+   ID: AGT-Z2A4-007
+   Area: Prashanth Nagar (30)
+
+8. Name: T Anusha
+   ID: AGT-Z2A4-008
+   Area: Shivaji Nagar (88)
+
+9. Name: T Naveen
+   ID: AGT-Z2A4-009
+   Area: Vani Nagar (55)
+
+10. Name: C Srinivas
+    ID: AGT-Z2A4-010
+    Area: Sri Rama Nagar (35)
+
+11. Name: Lal Tejaswi
+    ID: AGT-Z2A4-011
+    Area: Vijaya Nagar (77)
+
+12. Name: Vamshi Sai
+    ID: AGT-Z2A4-012
+    Area: Teachers Colony (16)
+
+13. Name: Iyer Ramesh
+    ID: AGT-Z2A4-013
+    Area: Teachers Colony (11)
+
+14. Name: M Anil
+    ID: AGT-Z2A4-014
+    Area: Sharada Nagar (4)
+
+15. Name: Verma Tejaswi
+    ID: AGT-Z2A4-015
+    Area: SR Nagar Colony (98)
+
+16. Name: T Tarun
+    ID: AGT-Z2A4-016
+    Area: Prashanth Nagar (98)
+
+17. Name: T Santosh
+    ID: AGT-Z2A4-017
+    Area: Teachers Colony (36)
+
+18. Name: Sunil Iyer
+    ID: AGT-Z2A4-018
+    Area: Police Colony (12)
+
+19. Name: V Soumya
+    ID: AGT-Z2A4-019
+    Area: Mahalaxmi Nagar (86)
+
+20. Name: Nikhil Joshi
+    ID: AGT-Z2A4-020
+    Area: Rajeev Nagar (89)
+
+Zone 3: Karimnagar West
+-----------------------
+Zone Manager:
+- Name: Rajesh Joshi
+- ID: ZM-Z3-001
+- Role: Zone Manager
+
+Area 9: Ramnagar
+Executive:
+- Name: Sai Verma
+- ID: EXE-Z3A1-001
+- Role: Executive
+
+Agents:
+1. Name: Reddy Santosh
+   ID: AGT-Z3A1-001
+   Area: Vivekananda Nagar (83)
+
+2. Name: Sharma Vamshi
+   ID: AGT-Z3A1-002
+   Area: Vani Nagar (44)
+
+3. Name: Shetty Divya
+   ID: AGT-Z3A1-003
+   Area: Vivekananda Nagar (38)
+
+4. Name: Reddy Soumya
+   ID: AGT-Z3A1-004
+   Area: Vani Nagar (82)
+
+5. Name: Chary Sneha
+   ID: AGT-Z3A1-005
+   Area: Vivekananda Nagar (64)
+
+6. Name: Sai Srinivas
+   ID: AGT-Z3A1-006
+   Area: Vani Nagar (76)
+
+7. Name: Patel Harsha
+   ID: AGT-Z3A1-007
+   Area: Vivekananda Nagar (91)
+
+8. Name: Reddy Bhavana
+   ID: AGT-Z3A1-008
+   Area: Vani Nagar (15)
+
+9. Name: Sharma Sneha
+   ID: AGT-Z3A1-009
+   Area: Vivekananda Nagar (27)
+
+10. Name: Shetty Lavanya
+    ID: AGT-Z3A1-010
+    Area: Vani Nagar (68)
+
+11. Name: Chary Divya
+    ID: AGT-Z3A1-011
+    Area: Vivekananda Nagar (73)
+
+12. Name: Sai Tejaswi
+    ID: AGT-Z3A1-012
+    Area: Vani Nagar (29)
+
+13. Name: Patel Soumya
+    ID: AGT-Z3A1-013
+    Area: Vivekananda Nagar (56)
+
+14. Name: Reddy Priyanka
+    ID: AGT-Z3A1-014
+    Area: Vani Nagar (94)
+
+15. Name: Sharma Harika
+    ID: AGT-Z3A1-015
+    Area: Vivekananda Nagar (42)
+
+16. Name: Shetty Swathi
+    ID: AGT-Z3A1-016
+    Area: Vani Nagar (37)
+
+17. Name: Chary Anusha
+    ID: AGT-Z3A1-017
+    Area: Vivekananda Nagar (89)
+
+18. Name: Sai Nikhil
+    ID: AGT-Z3A1-018
+    Area: Vani Nagar (51)
+
+19. Name: Patel Tarun
+    ID: AGT-Z3A1-019
+    Area: Vivekananda Nagar (18)
+
+20. Name: Reddy Arun
+    ID: AGT-Z3A1-020
+    Area: Vani Nagar (63)
+
+Area 10: Sapthagiri Colony
+Executive:
+- Name: Sharma Raj
+- ID: EXE-Z3A2-001
+- Role: Executive
+
+Agents:
+1. Name: Shetty Anil
+   ID: AGT-Z3A2-001
+   Area: Vivekananda Nagar (12)
+
+2. Name: Chary Manoj
+   ID: AGT-Z3A2-002
+   Area: Vani Nagar (88)
+
+3. Name: Sai Ramesh
+   ID: AGT-Z3A2-003
+   Area: Vivekananda Nagar (35)
+
+4. Name: Patel Kiran
+   ID: AGT-Z3A2-004
+   Area: Vani Nagar (71)
+
+5. Name: Reddy Ajay
+   ID: AGT-Z3A2-005
+   Area: Vivekananda Nagar (59)
+
+6. Name: Sharma Pavan
+   ID: AGT-Z3A2-006
+   Area: Vani Nagar (25)
+
+7. Name: Shetty Santosh
+   ID: AGT-Z3A2-007
+   Area: Vivekananda Nagar (84)
+
+8. Name: Chary Vamshi
+   ID: AGT-Z3A2-008
+   Area: Vani Nagar (40)
+
+9. Name: Sai Divya
+   ID: AGT-Z3A2-009
+   Area: Vivekananda Nagar (17)
+
+10. Name: Patel Soumya
+    ID: AGT-Z3A2-010
+    Area: Vani Nagar (93)
+
+11. Name: Reddy Sneha
+    ID: AGT-Z3A2-011
+    Area: Vivekananda Nagar (50)
+
+12. Name: Sharma Srinivas
+    ID: AGT-Z3A2-012
+    Area: Vani Nagar (16)
+
+13. Name: Shetty Harsha
+    ID: AGT-Z3A2-013
+    Area: Vivekananda Nagar (75)
+
+14. Name: Chary Bhavana
+    ID: AGT-Z3A2-014
+    Area: Vani Nagar (49)
+
+15. Name: Sai Lavanya
+    ID: AGT-Z3A2-015
+    Area: Vivekananda Nagar (30)
+
+16. Name: Patel Tejaswi
+    ID: AGT-Z3A2-016
+    Area: Vani Nagar (85)
+
+17. Name: Reddy Harika
+    ID: AGT-Z3A2-017
+    Area: Vivekananda Nagar (95)
+
+18. Name: Sharma Swathi
+    ID: AGT-Z3A2-018
+    Area: Vani Nagar (22)
+
+19. Name: Shetty Anusha
+    ID: AGT-Z3A2-019
+    Area: Vivekananda Nagar (67)
+
+20. Name: Chary Nikhil
+    ID: AGT-Z3A2-020
+    Area: Vani Nagar (57)
+
+Area 11: Rekurthi
+Executive:
+- Name: Sai Kumar
+- ID: EXE-Z3A3-001
+- Role: Executive
+
+Agents:
+1. Name: Patel Tarun
+   ID: AGT-Z3A3-001
+   Area: Vivekananda Nagar (43)
+
+2. Name: Reddy Arun
+   ID: AGT-Z3A3-002
+   Area: Vani Nagar (78)
+
+3. Name: Sharma Anil
+   ID: AGT-Z3A3-003
+   Area: Vivekananda Nagar (26)
+
+4. Name: Shetty Manoj
+   ID: AGT-Z3A3-004
+   Area: Vani Nagar (65)
+
+5. Name: Chary Ramesh
+   ID: AGT-Z3A3-005
+   Area: Vivekananda Nagar (88)
+
+6. Name: Sai Kiran
+   ID: AGT-Z3A3-006
+   Area: Vani Nagar (14)
+
+7. Name: Patel Ajay
+   ID: AGT-Z3A3-007
+   Area: Vivekananda Nagar (61)
+
+8. Name: Reddy Pavan
+   ID: AGT-Z3A3-008
+   Area: Vani Nagar (39)
+
+9. Name: Sharma Santosh
+   ID: AGT-Z3A3-009
+   Area: Vivekananda Nagar (92)
+
+10. Name: Shetty Vamshi
+    ID: AGT-Z3A3-010
+    Area: Vani Nagar (87)
+
+11. Name: Chary Divya
+    ID: AGT-Z3A3-011
+    Area: Vivekananda Nagar (33)
+
+12. Name: Sai Soumya
+    ID: AGT-Z3A3-012
+    Area: Vani Nagar (70)
+
+13. Name: Patel Sneha
+    ID: AGT-Z3A3-013
+    Area: Vivekananda Nagar (98)
+
+14. Name: Reddy Srinivas
+    ID: AGT-Z3A3-014
+    Area: Vani Nagar (31)
+
+15. Name: Sharma Harsha
+    ID: AGT-Z3A3-015
+    Area: Vivekananda Nagar (69)
+
+16. Name: Shetty Bhavana
+    ID: AGT-Z3A3-016
+    Area: Vani Nagar (54)
+
+17. Name: Chary Lavanya
+    ID: AGT-Z3A3-017
+    Area: Vivekananda Nagar (24)
+
+18. Name: Sai Tejaswi
+    ID: AGT-Z3A3-018
+    Area: Vani Nagar (97)
+
+19. Name: Patel Harika
+    ID: AGT-Z3A3-019
+    Area: Vivekananda Nagar (79)
+
+20. Name: Reddy Swathi
+    ID: AGT-Z3A3-020
+    Area: Vani Nagar (46)
+
+Area 12: Bommakal
+Executive:
+- Name: Sharma Venkatesh
+- ID: EXE-Z3A4-001
+- Role: Executive
+
+Agents:
+1. Name: Shetty Anusha
+   ID: AGT-Z3A4-001
+   Area: Vivekananda Nagar (36)
+
+2. Name: Chary Nikhil
+   ID: AGT-Z3A4-002
+   Area: Vani Nagar (83)
+
+3. Name: Sai Tarun
+   ID: AGT-Z3A4-003
+   Area: Vivekananda Nagar (19)
+
+4. Name: Patel Arun
+   ID: AGT-Z3A4-004
+   Area: Vani Nagar (60)
+
+5. Name: Reddy Anil
+   ID: AGT-Z3A4-005
+   Area: Vivekananda Nagar (81)
+
+6. Name: Sharma Manoj
+   ID: AGT-Z3A4-006
+   Area: Vani Nagar (23)
+
+7. Name: Shetty Ramesh
+   ID: AGT-Z3A4-007
+   Area: Vivekananda Nagar (54)
+
+8. Name: Chary Kiran
+   ID: AGT-Z3A4-008
+   Area: Vani Nagar (92)
+
+9. Name: Sai Ajay
+   ID: AGT-Z3A4-009
+   Area: Vivekananda Nagar (15)
+
+10. Name: Patel Pavan
+    ID: AGT-Z3A4-010
+    Area: Vani Nagar (75)
+
+11. Name: Reddy Santosh
+    ID: AGT-Z3A4-011
+    Area: Vivekananda Nagar (48)
+
+12. Name: Sharma Vamshi
+    ID: AGT-Z3A4-012
+    Area: Vani Nagar (34)
+
+13. Name: Shetty Divya
+    ID: AGT-Z3A4-013
+    Area: Vivekananda Nagar (87)
+
+14. Name: Chary Soumya
+    ID: AGT-Z3A4-014
+    Area: Vani Nagar (67)
+
+15. Name: Sai Sneha
+    ID: AGT-Z3A4-015
+    Area: Vivekananda Nagar (28)
+
+16. Name: Patel Srinivas
+    ID: AGT-Z3A4-016
+    Area: Vani Nagar (96)
+
+17. Name: Reddy Harsha
+    ID: AGT-Z3A4-017
+    Area: Vivekananda Nagar (71)
+
+18. Name: Sharma Bhavana
+    ID: AGT-Z3A4-018
+    Area: Vani Nagar (45)
+
+19. Name: Shetty Lavanya
+    ID: AGT-Z3A4-019
+    Area: Vivekananda Nagar (32)
+
+20. Name: Chary Tejaswi
+    ID: AGT-Z3A4-020
+    Area: Vani Nagar (89)
+
+Area 13: Kothapalli
+Executive:
+- Name: Patel Shetty
+- ID: EXE-Z4A1-001
+- Role: Executive
+
+Agents:
+1. Name: Reddy Harika
+   ID: AGT-Z4A1-001
+   Area: Vivekananda Nagar (22)
+
+2. Name: Sharma Swathi
+   ID: AGT-Z4A1-002
+   Area: Vani Nagar (80)
+
+3. Name: Shetty Anusha
+   ID: AGT-Z4A1-003
+   Area: Vivekananda Nagar (65)
+
+4. Name: Chary Nikhil
+   ID: AGT-Z4A1-004
+   Area: Vani Nagar (41)
+
+5. Name: Sai Tarun
+   ID: AGT-Z4A1-005
+   Area: Vivekananda Nagar (94)
+
+6. Name: Patel Arun
+   ID: AGT-Z4A1-006
+   Area: Vani Nagar (13)
+
+7. Name: Reddy Anil
+   ID: AGT-Z4A1-007
+   Area: Vivekananda Nagar (57)
+
+8. Name: Sharma Manoj
+   ID: AGT-Z4A1-008
+   Area: Vani Nagar (86)
+
+9. Name: Shetty Ramesh
+   ID: AGT-Z4A1-009
+   Area: Vivekananda Nagar (20)
+
+10. Name: Chary Kiran
+    ID: AGT-Z4A1-010
+    Area: Vani Nagar (69)
+
+11. Name: Sai Ajay
+    ID: AGT-Z4A1-011
+    Area: Vivekananda Nagar (53)
+
+12. Name: Patel Pavan
+    ID: AGT-Z4A1-012
+    Area: Vani Nagar (38)
+
+13. Name: Reddy Santosh
+    ID: AGT-Z4A1-013
+    Area: Vivekananda Nagar (90)
+
+14. Name: Sharma Vamshi
+    ID: AGT-Z4A1-014
+    Area: Vani Nagar (27)
+
+15. Name: Shetty Divya
+    ID: AGT-Z4A1-015
+    Area: Vivekananda Nagar (63)
+
+16. Name: Chary Soumya
+    ID: AGT-Z4A1-016
+    Area: Vani Nagar (96)
+
+17. Name: Sai Sneha
+    ID: AGT-Z4A1-017
+    Area: Vivekananda Nagar (34)
+
+18. Name: Patel Srinivas
+    ID: AGT-Z4A1-018
+    Area: Vani Nagar (73)
+
+19. Name: Reddy Harsha
+    ID: AGT-Z4A1-019
+    Area: Vivekananda Nagar (99)
+
+20. Name: Sharma Bhavana
+    ID: AGT-Z4A1-020
+    Area: Vani Nagar (42)
+
+Area 14: Laxmipur
+Executive:
+- Name: Shetty Chary
+- ID: EXE-Z4A2-001
+- Role: Executive
+
+Agents:
+1. Name: Chary Lavanya
+   ID: AGT-Z4A2-001
+   Area: Vivekananda Nagar (47)
+
+2. Name: Sai Tejaswi
+   ID: AGT-Z4A2-002
+   Area: Vani Nagar (64)
+
+3. Name: Patel Harika
+   ID: AGT-Z4A2-003
+   Area: Vivekananda Nagar (93)
+
+4. Name: Reddy Swathi
+   ID: AGT-Z4A2-004
+   Area: Vani Nagar (35)
+
+5. Name: Sharma Anusha
+   ID: AGT-Z4A2-005
+   Area: Vivekananda Nagar (76)
+
+6. Name: Shetty Nikhil
+   ID: AGT-Z4A2-006
+   Area: Vani Nagar (98)
+
+7. Name: Chary Tarun
+   ID: AGT-Z4A2-007
+   Area: Vivekananda Nagar (39)
+
+8. Name: Sai Arun
+   ID: AGT-Z4A2-008
+   Area: Vani Nagar (71)
+
+9. Name: Patel Anil
+   ID: AGT-Z4A2-009
+   Area: Vivekananda Nagar (82)
+
+10. Name: Reddy Manoj
+    ID: AGT-Z4A2-010
+    Area: Vani Nagar (44)
+
+11. Name: Sharma Ramesh
+    ID: AGT-Z4A2-011
+    Area: Vivekananda Nagar (25)
+
+12. Name: Shetty Kiran
+    ID: AGT-Z4A2-012
+    Area: Vani Nagar (87)
+
+13. Name: Chary Ajay
+    ID: AGT-Z4A2-013
+    Area: Vivekananda Nagar (68)
+
+14. Name: Sai Pavan
+    ID: AGT-Z4A2-014
+    Area: Vani Nagar (30)
+
+15. Name: Patel Santosh
+    ID: AGT-Z4A2-015
+    Area: Vivekananda Nagar (51)
+
+16. Name: Reddy Vamshi
+    ID: AGT-Z4A2-016
+    Area: Vani Nagar (93)
+
+17. Name: Sharma Divya
+    ID: AGT-Z4A2-017
+    Area: Vivekananda Nagar (14)
+
+18. Name: Shetty Soumya
+    ID: AGT-Z4A2-018
+    Area: Vani Nagar (77)
+
+19. Name: Chary Sneha
+    ID: AGT-Z4A2-019
+    Area: Vivekananda Nagar (37)
+
+20. Name: Sai Srinivas
+    ID: AGT-Z4A2-020
+    Area: Vani Nagar (60)
+
+Area 15: Manakondur
+Executive:
+- Name: Patel Reddy
+- ID: EXE-Z4A3-001
+- Role: Executive
+
+Agents:
+1. Name: Reddy Harsha
+   ID: AGT-Z4A3-001
+   Area: Vivekananda Nagar (16)
+
+2. Name: Sharma Bhavana
+   ID: AGT-Z4A3-002
+   Area: Vani Nagar (55)
+
+3. Name: Shetty Lavanya
+   ID: AGT-Z4A3-003
+   Area: Vivekananda Nagar (88)
+
+4. Name: Chary Tejaswi
+   ID: AGT-Z4A3-004
+   Area: Vani Nagar (31)
+
+5. Name: Sai Harika
+   ID: AGT-Z4A3-005
+   Area: Vivekananda Nagar (70)
+
+6. Name: Patel Swathi
+   ID: AGT-Z4A3-006
+   Area: Vani Nagar (94)
+
+7. Name: Reddy Anusha
+   ID: AGT-Z4A3-007
+   Area: Vivekananda Nagar (43)
+
+8. Name: Sharma Nikhil
+   ID: AGT-Z4A3-008
+   Area: Vani Nagar (77)
+
+9. Name: Shetty Tarun
+   ID: AGT-Z4A3-009
+   Area: Vivekananda Nagar (26)
+
+10. Name: Chary Arun
+    ID: AGT-Z4A3-010
+    Area: Vani Nagar (50)
+
+11. Name: Sai Anil
+    ID: AGT-Z4A3-011
+    Area: Vivekananda Nagar (89)
+
+12. Name: Patel Manoj
+    ID: AGT-Z4A3-012
+    Area: Vani Nagar (33)
+
+13. Name: Reddy Ramesh
+    ID: AGT-Z4A3-013
+    Area: Vivekananda Nagar (72)
+
+14. Name: Sharma Kiran
+    ID: AGT-Z4A3-014
+    Area: Vani Nagar (96)
+
+15. Name: Shetty Ajay
+    ID: AGT-Z4A3-015
+    Area: Vivekananda Nagar (45)
+
+16. Name: Chary Pavan
+    ID: AGT-Z4A3-016
+    Area: Vani Nagar (79)
+
+17. Name: Sai Santosh
+    ID: AGT-Z4A3-017
+    Area: Vivekananda Nagar (28)
+
+18. Name: Patel Vamshi
+    ID: AGT-Z4A3-018
+    Area: Vani Nagar (52)
+
+19. Name: Reddy Divya
+    ID: AGT-Z4A3-019
+    Area: Vivekananda Nagar (91)
+
+20. Name: Sharma Soumya
+    ID: AGT-Z4A3-020
+    Area: Vani Nagar (35)
+
+Area 16: Thimmapur
+Executive:
+- Name: Shetty Sharma
+- ID: EXE-Z4A4-001
+- Role: Executive
+
+Agents:
+1. Name: Chary Sneha
+   ID: AGT-Z4A4-001
+   Area: Vivekananda Nagar (62)
+
+2. Name: Sai Srinivas
+   ID: AGT-Z4A4-002
+   Area: Vani Nagar (47)
+
+3. Name: Patel Harsha
+   ID: AGT-Z4A4-003
+   Area: Vivekananda Nagar (85)
+
+4. Name: Reddy Bhavana
+   ID: AGT-Z4A4-004
+   Area: Vani Nagar (28)
+
+5. Name: Sharma Lavanya
+   ID: AGT-Z4A4-005
+   Area: Vivekananda Nagar (58)
+
+6. Name: Shetty Tejaswi
+   ID: AGT-Z4A4-006
+   Area: Vani Nagar (91)
+
+7. Name: Chary Harika
+   ID: AGT-Z4A4-007
+   Area: Vivekananda Nagar (31)
+
+8. Name: Sai Swathi
+   ID: AGT-Z4A4-008
+   Area: Vani Nagar (64)
+
+9. Name: Patel Anusha
+   ID: AGT-Z4A4-009
+   Area: Vivekananda Nagar (74)
+
+10. Name: Reddy Nikhil
+    ID: AGT-Z4A4-010
+    Area: Vani Nagar (37)
+
+11. Name: Sharma Tarun
+    ID: AGT-Z4A4-011
+    Area: Vivekananda Nagar (97)
+
+12. Name: Shetty Arun
+    ID: AGT-Z4A4-012
+    Area: Vani Nagar (20)
+
+13. Name: Chary Anil
+    ID: AGT-Z4A4-013
+    Area: Vivekananda Nagar (80)
+
+14. Name: Sai Manoj
+    ID: AGT-Z4A4-014
+    Area: Vani Nagar (53)
+
+15. Name: Patel Ramesh
+    ID: AGT-Z4A4-015
+    Area: Vivekananda Nagar (43)
+
+16. Name: Reddy Kiran
+    ID: AGT-Z4A4-016
+    Area: Vani Nagar (86)
+
+17. Name: Sharma Ajay
+    ID: AGT-Z4A4-017
+    Area: Vivekananda Nagar (26)
+
+18. Name: Shetty Pavan
+    ID: AGT-Z4A4-018
+    Area: Vani Nagar (59)
+
+19. Name: Chary Santosh
+    ID: AGT-Z4A4-019
+    Area: Vivekananda Nagar (69)
+
+20. Name: Sai Vamshi
+    ID: AGT-Z4A4-020
+    Area: Vani Nagar (32)
+
+Zone 5: Karimnagar South
+------------------------
+Zone Manager:
+- Name: Patel Chary
+- ID: ZM-Z5-001
+- Role: Zone Manager
+
+Area 17: Alugunur
+Executive:
+- Name: Reddy Shetty
+- ID: EXE-Z5A1-001
+- Role: Executive
+
+Agents:
+1. Name: Sharma Divya
+   ID: AGT-Z5A1-001
+   Area: Vivekananda Nagar (55)
+
+2. Name: Shetty Soumya
+   ID: AGT-Z5A1-002
+   Area: Vani Nagar (90)
+
+3. Name: Chary Sneha
+   ID: AGT-Z5A1-003
+   Area: Vivekananda Nagar (23)
+
+4. Name: Sai Srinivas
+   ID: AGT-Z5A1-004
+   Area: Vani Nagar (66)
+
+5. Name: Patel Harsha
+   ID: AGT-Z5A1-005
+   Area: Vivekananda Nagar (96)
+
+6. Name: Reddy Bhavana
+   ID: AGT-Z5A1-006
+   Area: Vani Nagar (29)
+
+7. Name: Sharma Lavanya
+   ID: AGT-Z5A1-007
+   Area: Vivekananda Nagar (69)
+
+8. Name: Shetty Tejaswi
+   ID: AGT-Z5A1-008
+   Area: Vani Nagar (42)
+
+9. Name: Chary Harika
+   ID: AGT-Z5A1-009
+   Area: Vivekananda Nagar (82)
+
+10. Name: Sai Swathi
+    ID: AGT-Z5A1-010
+    Area: Vani Nagar (15)
+
+11. Name: Patel Anusha
+    ID: AGT-Z5A1-011
+    Area: Vivekananda Nagar (55)
+
+12. Name: Reddy Nikhil
+    ID: AGT-Z5A1-012
+    Area: Vani Nagar (88)
+
+13. Name: Sharma Tarun
+    ID: AGT-Z5A1-013
+    Area: Vivekananda Nagar (28)
+
+14. Name: Shetty Arun
+    ID: AGT-Z5A1-014
+    Area: Vani Nagar (61)
+
+15. Name: Chary Anil
+    ID: AGT-Z5A1-015
+    Area: Vivekananda Nagar (91)
+
+16. Name: Sai Manoj
+    ID: AGT-Z5A1-016
+    Area: Vani Nagar (34)
+
+17. Name: Patel Ramesh
+    ID: AGT-Z5A1-017
+    Area: Vivekananda Nagar (74)
+
+18. Name: Reddy Kiran
+    ID: AGT-Z5A1-018
+    Area: Vani Nagar (47)
+
+19. Name: Sharma Ajay
+    ID: AGT-Z5A1-019
+    Area: Vivekananda Nagar (87)
+
+20. Name: Shetty Pavan
+    ID: AGT-Z5A1-020
+    Area: Vani Nagar (20)
+
+Area 18: Chintakunta
+Executive:
+- Name: Chary Reddy
+- ID: EXE-Z5A2-001
+- Role: Executive
+
+Agents:
+1. Name: Sai Santosh
+   ID: AGT-Z5A2-001
+   Area: Vivekananda Nagar (40)
+
+2. Name: Patel Vamshi
+   ID: AGT-Z5A2-002
+   Area: Vani Nagar (73)
+
+3. Name: Reddy Divya
+   ID: AGT-Z5A2-003
+   Area: Vivekananda Nagar (93)
+
+4. Name: Sharma Soumya
+   ID: AGT-Z5A2-004
+   Area: Vani Nagar (26)
+
+5. Name: Shetty Sneha
+   ID: AGT-Z5A2-005
+   Area: Vivekananda Nagar (66)
+
+6. Name: Chary Srinivas
+   ID: AGT-Z5A2-006
+   Area: Vani Nagar (89)
+
+7. Name: Sai Harsha
+   ID: AGT-Z5A2-007
+   Area: Vivekananda Nagar (39)
+
+8. Name: Patel Bhavana
+   ID: AGT-Z5A2-008
+   Area: Vani Nagar (72)
+
+9. Name: Reddy Lavanya
+   ID: AGT-Z5A2-009
+   Area: Vivekananda Nagar (92)
+
+10. Name: Sharma Tejaswi
+    ID: AGT-Z5A2-010
+    Area: Vani Nagar (35)
+
+11. Name: Shetty Harika
+    ID: AGT-Z5A2-011
+    Area: Vivekananda Nagar (75)
+
+12. Name: Chary Swathi
+    ID: AGT-Z5A2-012
+    Area: Vani Nagar (48)
+
+13. Name: Sai Anusha
+    ID: AGT-Z5A2-013
+    Area: Vivekananda Nagar (88)
+
+14. Name: Patel Nikhil
+    ID: AGT-Z5A2-014
+    Area: Vani Nagar (21)
+
+15. Name: Reddy Tarun
+    ID: AGT-Z5A2-015
+    Area: Vivekananda Nagar (61)
+
+16. Name: Sharma Arun
+    ID: AGT-Z5A2-016
+    Area: Vani Nagar (84)
+
+17. Name: Shetty Anil
+    ID: AGT-Z5A2-017
+    Area: Vivekananda Nagar (34)
+
+18. Name: Chary Manoj
+    ID: AGT-Z5A2-018
+    Area: Vani Nagar (67)
+
+19. Name: Sai Ramesh
+    ID: AGT-Z5A2-019
+    Area: Vivekananda Nagar (97)
+
+20. Name: Patel Kiran
+    ID: AGT-Z5A2-020
+    Area: Vani Nagar (30)
+
+Area 19: Kothapalli
+Executive:
+- Name: Reddy Sharma
+- ID: EXE-Z5A3-001
+- Role: Executive
+
+Agents:
+1. Name: Sharma Ajay
+   ID: AGT-Z5A3-001
+   Area: Vivekananda Nagar (27)
+
+2. Name: Shetty Pavan
+   ID: AGT-Z5A3-002
+   Area: Vani Nagar (60)
+
+3. Name: Chary Santosh
+   ID: AGT-Z5A3-003
+   Area: Vivekananda Nagar (83)
+
+4. Name: Sai Vamshi
+   ID: AGT-Z5A3-004
+   Area: Vani Nagar (16)
+
+5. Name: Patel Divya
+   ID: AGT-Z5A3-005
+   Area: Vivekananda Nagar (56)
+
+6. Name: Reddy Soumya
+   ID: AGT-Z5A3-006
+   Area: Vani Nagar (79)
+
+7. Name: Sharma Sneha
+   ID: AGT-Z5A3-007
+   Area: Vivekananda Nagar (29)
+
+8. Name: Shetty Srinivas
+   ID: AGT-Z5A3-008
+   Area: Vani Nagar (62)
+
+9. Name: Chary Harsha
+   ID: AGT-Z5A3-009
+   Area: Vivekananda Nagar (85)
+
+10. Name: Sai Bhavana
+    ID: AGT-Z5A3-010
+    Area: Vani Nagar (18)
+
+11. Name: Patel Lavanya
+    ID: AGT-Z5A3-011
+    Area: Vivekananda Nagar (58)
+
+12. Name: Reddy Tejaswi
+    ID: AGT-Z5A3-012
+    Area: Vani Nagar (81)
+
+13. Name: Sharma Harika
+    ID: AGT-Z5A3-013
+    Area: Vivekananda Nagar (31)
+
+14. Name: Shetty Swathi
+    ID: AGT-Z5A3-014
+    Area: Vani Nagar (64)
+
+15. Name: Chary Anusha
+    ID: AGT-Z5A3-015
+    Area: Vivekananda Nagar (94)
+
+16. Name: Sai Nikhil
+    ID: AGT-Z5A3-016
+    Area: Vani Nagar (37)
+
+17. Name: Patel Tarun
+    ID: AGT-Z5A3-017
+    Area: Vivekananda Nagar (77)
+
+18. Name: Reddy Arun
+    ID: AGT-Z5A3-018
+    Area: Vani Nagar (50)
+
+19. Name: Sharma Anil
+    ID: AGT-Z5A3-019
+    Area: Vivekananda Nagar (90)
+
+20. Name: Shetty Manoj
+    ID: AGT-Z5A3-020
+    Area: Vani Nagar (23)
+
+Area 20: Ramnagar
+Executive:
+- Name: Chary Sai
+- ID: EXE-Z5A4-001
+- Role: Executive
+
+
+Zone 6: Karimnagar North
+-------------------------
+Zone Manager:
+- Name: Sharma Reddy
+- ID: ZM-Z6-001
+- Role: Zone Manager
+
+Area 21: Manakondur
+Executive:
+- Name: Patel Sai
+- ID: EXE-Z6A1-001
+- Role: Executive
+
+Agents:
+1. Name: Reddy Santosh
+   ID: AGT-Z6A1-001
+   Area: Manakondur Colony (41)
+
+2. Name: Sharma Vamshi
+   ID: AGT-Z6A1-002
+   Area: Ambedkar Nagar (73)
+
+3. Name: Shetty Divya
+   ID: AGT-Z6A1-003
+   Area: Gandhi Nagar (93)
+
+4. Name: Chary Soumya
+   ID: AGT-Z6A1-004
+   Area: Indira Nagar (26)
+
+5. Name: Sai Sneha
+   ID: AGT-Z6A1-005
+   Area: Shastri Nagar (66)
+
+6. Name: Patel Srinivas
+   ID: AGT-Z6A1-006
+   Area: Subhash Nagar (89)
+
+7. Name: Reddy Harsha
+   ID: AGT-Z6A1-007
+   Area: Tilak Nagar (39)
+
+8. Name: Sharma Bhavana
+   ID: AGT-Z6A1-008
+   Area: Azad Nagar (72)
+
+9. Name: Shetty Lavanya
+   ID: AGT-Z6A1-009
+   Area: Manakondur Colony (92)
+
+10. Name: Chary Tejaswi
+    ID: AGT-Z6A1-010
+    Area: Ambedkar Nagar (35)
+
+11. Name: Sai Harika
+    ID: AGT-Z6A1-011
+    Area: Gandhi Nagar (75)
+
+12. Name: Patel Swathi
+    ID: AGT-Z6A1-012
+    Area: Indira Nagar (48)
+
+13. Name: Reddy Anusha
+    ID: AGT-Z6A1-013
+    Area: Shastri Nagar (88)
+
+14. Name: Sharma Nikhil
+    ID: AGT-Z6A1-014
+    Area: Subhash Nagar (21)
+
+15. Name: Shetty Tarun
+    ID: AGT-Z6A1-015
+    Area: Tilak Nagar (61)
+
+16. Name: Chary Arun
+    ID: AGT-Z6A1-016
+    Area: Azad Nagar (84)
+
+17. Name: Sai Anil
+    ID: AGT-Z6A1-017
+    Area: Manakondur Colony (34)
+
+18. Name: Patel Manoj
+    ID: AGT-Z6A1-018
+    Area: Ambedkar Nagar (67)
+
+19. Name: Reddy Ramesh
+    ID: AGT-Z6A1-019
+    Area: Gandhi Nagar (97)
+
+20. Name: Sharma Kiran
+    ID: AGT-Z6A1-020
+    Area: Indira Nagar (30)
+
+Area 22: Thimmapur
+Executive:
+- Name: Shetty Reddy
+- ID: EXE-Z6A2-001
+- Role: Executive
+
+Agents:
+1. Name: Chary Santosh
+   ID: AGT-Z6A2-001
+   Area: Thimmapur Colony (27)
+
+2. Name: Sai Vamshi
+   ID: AGT-Z6A2-002
+   Area: Rajiv Nagar (60)
+
+3. Name: Patel Divya
+   ID: AGT-Z6A2-003
+   Area: Nehru Nagar (83)
+
+4. Name: Reddy Soumya
+   ID: AGT-Z6A2-004
+   Area: Thimmapur Colony (16)
+
+5. Name: Sharma Sneha
+   ID: AGT-Z6A2-005
+   Area: Rajiv Nagar (56)
+
+6. Name: Shetty Srinivas
+   ID: AGT-Z6A2-006
+   Area: Nehru Nagar (79)
+
+7. Name: Chary Harsha
+   ID: AGT-Z6A2-007
+   Area: Thimmapur Colony (29)
+
+8. Name: Sai Bhavana
+   ID: AGT-Z6A2-008
+   Area: Rajiv Nagar (62)
+
+9. Name: Patel Lavanya
+   ID: AGT-Z6A2-009
+   Area: Nehru Nagar (85)
+
+10. Name: Reddy Tejaswi
+    ID: AGT-Z6A2-010
+    Area: Thimmapur Colony (18)
+
+11. Name: Sharma Harika
+    ID: AGT-Z6A2-011
+    Area: Rajiv Nagar (58)
+
+12. Name: Shetty Swathi
+    ID: AGT-Z6A2-012
+    Area: Nehru Nagar (81)
+
+13. Name: Chary Anusha
+    ID: AGT-Z6A2-013
+    Area: Thimmapur Colony (31)
+
+14. Name: Sai Nikhil
+    ID: AGT-Z6A2-014
+    Area: Rajiv Nagar (64)
+
+15. Name: Patel Tarun
+    ID: AGT-Z6A2-015
+    Area: Nehru Nagar (94)
+
+16. Name: Reddy Arun
+    ID: AGT-Z6A2-016
+    Area: Thimmapur Colony (37)
+
+17. Name: Sharma Anil
+    ID: AGT-Z6A2-017
+    Area: Rajiv Nagar (77)
+
+18. Name: Shetty Manoj
+    ID: AGT-Z6A2-018
+    Area: Nehru Nagar (50)
+
+19. Name: Chary Ramesh
+    ID: AGT-Z6A2-019
+    Area: Thimmapur Colony (90)
+
+20. Name: Sai Kiran
+    ID: AGT-Z6A2-020
+    Area: Rajiv Nagar (23)
+
+Area 23: Choppadandi
+Executive:
+- Name: Patel Sharma
+- ID: EXE-Z6A3-001
+- Role: Executive
+
+Agents:
+1. Name: Reddy Santosh
+   ID: AGT-Z6A3-001
+   Area: Choppadandi Colony (45)
+
+2. Name: Sharma Vamshi
+   ID: AGT-Z6A3-002
+   Area: Ambedkar Nagar (78)
+
+3. Name: Shetty Divya
+   ID: AGT-Z6A3-003
+   Area: Gandhi Nagar (95)
+
+4. Name: Chary Soumya
+   ID: AGT-Z6A3-004
+   Area: Choppadandi Colony (22)
+
+5. Name: Sai Sneha
+   ID: AGT-Z6A3-005
+   Area: Ambedkar Nagar (63)
+
+6. Name: Patel Srinivas
+   ID: AGT-Z6A3-006
+   Area: Gandhi Nagar (87)
+
+7. Name: Reddy Harsha
+   ID: AGT-Z6A3-007
+   Area: Choppadandi Colony (33)
+
+8. Name: Sharma Bhavana
+   ID: AGT-Z6A3-008
+   Area: Ambedkar Nagar (70)
+
+9. Name: Shetty Lavanya
+   ID: AGT-Z6A3-009
+   Area: Gandhi Nagar (91)
+
+10. Name: Chary Tejaswi
+    ID: AGT-Z6A3-010
+    Area: Choppadandi Colony (25)
+
+11. Name: Sai Harika
+    ID: AGT-Z6A3-011
+    Area: Ambedkar Nagar (55)
+
+12. Name: Patel Swathi
+    ID: AGT-Z6A3-012
+    Area: Gandhi Nagar (82)
+
+13. Name: Reddy Anusha
+    ID: AGT-Z6A3-013
+    Area: Choppadandi Colony (36)
+
+14. Name: Sharma Nikhil
+    ID: AGT-Z6A3-014
+    Area: Ambedkar Nagar (66)
+
+15. Name: Shetty Tarun
+    ID: AGT-Z6A3-015
+    Area: Gandhi Nagar (98)
+
+16. Name: Chary Arun
+    ID: AGT-Z6A3-016
+    Area: Choppadandi Colony (42)
+
+17. Name: Sai Anil
+    ID: AGT-Z6A3-017
+    Area: Ambedkar Nagar (74)
+
+18. Name: Patel Manoj
+    ID: AGT-Z6A3-018
+    Area: Gandhi Nagar (53)
+
+19. Name: Reddy Ramesh
+    ID: AGT-Z6A3-019
+    Area: Choppadandi Colony (89)
+
+20. Name: Sharma Kiran
+    ID: AGT-Z6A3-020
+    Area: Ambedkar Nagar (27)
+
+Area 24: Gangadhara
+Executive:
+- Name: Shetty Patel
+- ID: EXE-Z6A4-001
+- Role: Executive
+
+Agents:
+1. Name: Chary Santosh
+   ID: AGT-Z6A4-001
+   Area: Gangadhara Colony (38)
+
+2. Name: Sai Vamshi
+   ID: AGT-Z6A4-002
+   Area: Shivaji Nagar (71)
+
+3. Name: Patel Divya
+   ID: AGT-Z6A4-003
+   Area: Indira Nagar (96)
+
+4. Name: Reddy Soumya
+   ID: AGT-Z6A4-004
+   Area: Gangadhara Colony (19)
+
+5. Name: Sharma Sneha
+   ID: AGT-Z6A4-005
+   Area: Shivaji Nagar (57)
+
+6. Name: Shetty Srinivas
+   ID: AGT-Z6A4-006
+   Area: Indira Nagar (86)
+
+7. Name: Chary Harsha
+   ID: AGT-Z6A4-007
+   Area: Gangadhara Colony (32)
+
+8. Name: Sai Bhavana
+   ID: AGT-Z6A4-008
+   Area: Shivaji Nagar (69)
+
+9. Name: Patel Lavanya
+   ID: AGT-Z6A4-009
+   Area: Indira Nagar (94)
+
+10. Name: Reddy Tejaswi
+    ID: AGT-Z6A4-010
+    Area: Gangadhara Colony (17)
+
+11. Name: Sharma Harika
+    ID: AGT-Z6A4-011
+    Area: Shivaji Nagar (54)
+
+12. Name: Shetty Swathi
+    ID: AGT-Z6A4-012
+    Area: Indira Nagar (80)
+
+13. Name: Chary Anusha
+    ID: AGT-Z6A4-013
+    Area: Gangadhara Colony (43)
+
+14. Name: Sai Nikhil
+    ID: AGT-Z6A4-014
+    Area: Shivaji Nagar (65)
+
+15. Name: Patel Tarun
+    ID: AGT-Z6A4-015
+    Area: Indira Nagar (99)
+
+16. Name: Reddy Arun
+    ID: AGT-Z6A4-016
+    Area: Gangadhara Colony (46)
+
+17. Name: Sharma Anil
+    ID: AGT-Z6A4-017
+    Area: Shivaji Nagar (75)
+
+18. Name: Shetty Manoj
+    ID: AGT-Z6A4-018
+    Area: Indira Nagar (51)
+
+19. Name: Chary Ramesh
+    ID: AGT-Z6A4-019
+    Area: Gangadhara Colony (88)
+
+20. Name: Sai Kiran
+    ID: AGT-Z6A4-020
+    Area: Shivaji Nagar (28)

@@ -1,55 +1,42 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-import Image from 'next/image';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { useSession, signOut } from 'next-auth/react';
+import Image from 'next/image';
+
+const getDashboardUrl = (role?: string) => {
+  switch (role) {
+    case 'management':
+      return '/management';
+    case 'agm':
+      return '/agm';
+    case 'zm':
+      return '/zm';
+    case 'executive':
+      return '/executives';
+    case 'agent':
+      return '/agents';
+    default:
+      return '/dashboard';
+  }
+};
+
+const getTextColorClass = () => {
+  return 'text-gray-600 hover:text-gray-900';
+};
 
 export default function Header() {
-  const router = useRouter();
-  const pathname = usePathname();
   const { data: session, status } = useSession();
-  const isAuthPage = pathname?.startsWith('/auth/');
-  const isHomePage = pathname === '/';
 
-  const handleLogout = async () => {
-    await signOut({ redirect: false });
-    router.push('/');
-  };
-
-  // Get dashboard URL based on user role
-  const getDashboardUrl = (role: string) => {
-    const roleMap: { [key: string]: string } = {
-      'Agent': '/agents',
-      'Executive': '/executives',
-      'ZM': '/zm',
-      'AGM': '/agm',
-      'Management': '/management'
-    };
-    return roleMap[role] || '/dashboard';
-  };
-
-  // Determine background style based on page type
-  const getNavStyle = () => {
-    if (isHomePage || isAuthPage) {
-      return "bg-white/[0.01] backdrop-blur-sm";
-    }
-    return "bg-white/95 backdrop-blur-md shadow-md";
-  };
-
-  // Determine text color based on page type
-  const getTextColorClass = () => {
-    if (isHomePage || isAuthPage) {
-      return "text-white [text-shadow:_1px_1px_1px_rgb(0_0_0_/_70%)]";
-    }
-    return "text-gray-900";
-  };
+  // Don't show anything while loading
+  if (status === 'loading') {
+    return null;
+  }
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 ${getNavStyle()}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header className="bg-white shadow-sm">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
@@ -57,47 +44,54 @@ export default function Header() {
                 alt="KDSMS Logo"
                 width={40}
                 height={40}
-                className="rounded-full"
+                className="h-10 w-auto"
               />
-              <span className={`ml-2 text-lg font-semibold ${getTextColorClass()}`}>
-                KDSMS
-              </span>
+              <span className="ml-2 text-xl font-bold text-gray-900">KDSMS</span>
             </Link>
           </div>
 
-          <div className="flex items-center space-x-4">
-            {!isAuthPage && (
-              status === 'authenticated' ? (
-                <div className="flex items-center space-x-4">
-                  <Link
-                    href={getDashboardUrl(session?.user?.role || '')}
-                    className={`text-sm ${getTextColorClass()}`}
-                  >
-                    Dashboard
-                  </Link>
-                  <span className={`text-sm ${getTextColorClass()}`}>
-                    Welcome, {session?.user?.name}
-                    {session?.user?.zone && ` (${session.user.zone})`}
-                  </span>
-                  <button
-                    onClick={handleLogout}
-                    className="text-sm bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-colors"
-                  >
-                    Logout
-                  </button>
-                </div>
-              ) : status === 'unauthenticated' && !isHomePage ? (
-                <Link
-                  href="/auth/login"
-                  className={`text-sm bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition-colors`}
+          {session?.user ? (
+            <div className="flex items-center space-x-4">
+              <Link
+                href={getDashboardUrl(session.user.role)}
+                className={`text-sm ${getTextColorClass()}`}
+              >
+                Dashboard
+              </Link>
+              <Link
+                href="/sales/daily"
+                className={`text-sm ${getTextColorClass()}`}
+              >
+                Daily Sales
+              </Link>
+              <Link
+                href="/sales/history"
+                className={`text-sm ${getTextColorClass()}`}
+              >
+                Sales History
+              </Link>
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-gray-600">
+                  {session.user.name} ({session.user.employeeId})
+                </span>
+                <button
+                  onClick={() => signOut({ callbackUrl: '/auth/login' })}
+                  className="text-sm text-red-600 hover:text-red-800"
                 >
-                  Login
-                </Link>
-              ) : null
-            )}
-          </div>
+                  Logout
+                </button>
+              </div>
+            </div>
+          ) : (
+            <Link
+              href="/auth/login"
+              className="text-sm text-blue-600 hover:text-blue-800"
+            >
+              Login
+            </Link>
+          )}
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

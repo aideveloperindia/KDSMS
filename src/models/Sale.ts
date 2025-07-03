@@ -1,10 +1,31 @@
 import mongoose from 'mongoose';
 
-const SaleSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+interface ISale {
+  agentId: string;
+  date: Date;
+  milkType: string;
+  quantityReceived: number;
+  quantitySold: number;
+  quantityExpired: number;
+  unsoldQuantity: number;
+  agentRemarks?: string;
+  executiveRemarks?: string;
+  executiveId?: string;
+  executiveRemarkTime?: Date;
+  zone: number;
+  area: number;
+  subArea: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+interface ISaleDocument extends ISale, mongoose.Document {}
+
+const SaleSchema = new mongoose.Schema<ISaleDocument>({
+  agentId: {
+    type: String,
+    required: true,
+    ref: 'User'
   },
   date: {
     type: Date,
@@ -45,23 +66,47 @@ const SaleSchema = new mongoose.Schema({
     trim: true
   },
   executiveId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: 'User'
   },
   executiveRemarkTime: {
     type: Date
   },
-  subArea: {
-    type: String,
-    required: true
+  zone: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 6
   },
   area: {
-    type: String,
-    required: true
+    type: Number,
+    required: true,
+    min: 1,
+    max: 24,
+    validate: {
+      validator: function(this: ISaleDocument, value: number): boolean {
+        if (!this.area) return true;
+        if (value < 1 || value > 24) return false;
+        const expectedZone = Math.ceil(value / 4);
+        return this.zone === expectedZone;
+      },
+      message: 'Invalid area number or area does not belong to the assigned zone'
+    }
   },
-  zone: {
-    type: String,
-    required: true
+  subArea: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 480,
+    validate: {
+      validator: function(this: ISaleDocument, value: number): boolean {
+        if (!this.subArea) return true;
+        if (value < 1 || value > 480) return false;
+        const expectedArea = Math.ceil(value / 20);
+        return this.area === expectedArea;
+      },
+      message: 'Invalid sub-area number or sub-area does not belong to the assigned area'
+    }
   },
   createdAt: {
     type: Date,
@@ -74,16 +119,16 @@ const SaleSchema = new mongoose.Schema({
 });
 
 // Calculate unsold quantity before saving
-SaleSchema.pre('save', function(next) {
+SaleSchema.pre('save', function(this: ISaleDocument, next) {
   this.unsoldQuantity = this.quantityReceived - this.quantitySold - this.quantityExpired;
   this.updatedAt = new Date();
   next();
 });
 
-// Ensure one entry per day per user per milk type
-SaleSchema.index({ userId: 1, date: 1, milkType: 1 }, { unique: true });
+// Ensure one entry per day per agent per milk type
+SaleSchema.index({ agentId: 1, date: 1, milkType: 1 }, { unique: true });
 
 // Try to get existing model, or compile new model
-const Sale = mongoose.models.Sale || mongoose.model('Sale', SaleSchema);
+const Sale = mongoose.models.Sale || mongoose.model<ISaleDocument>('Sale', SaleSchema);
 
 export default Sale; 

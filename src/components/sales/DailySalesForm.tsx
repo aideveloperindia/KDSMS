@@ -35,6 +35,12 @@ export default function DailySalesForm() {
   const unsoldQuantity = quantityReceived - quantitySold - quantityExpired;
 
   useEffect(() => {
+    // Check if user is an agent
+    if (status === 'authenticated' && session.user?.role !== 'agent') {
+      router.push('/dashboard');
+      return;
+    }
+
     // Load draft on component mount
     const savedDraft = localStorage.getItem('salesDraft');
     if (savedDraft) {
@@ -48,12 +54,17 @@ export default function DailySalesForm() {
         localStorage.removeItem('salesDraft');
       }
     }
-  }, [setValue]);
+  }, [setValue, status, session, router]);
 
   const onSubmit = async (data: DailySalesFormData) => {
     if (status !== 'authenticated') {
       setSubmitError('You must be signed in to submit sales data');
       router.push('/auth/login');
+      return;
+    }
+
+    if (session.user?.role !== 'agent') {
+      setSubmitError('Only agents can submit sales data');
       return;
     }
 
@@ -69,7 +80,11 @@ export default function DailySalesForm() {
         body: JSON.stringify({
           ...data,
           date: new Date().toISOString(),
-          unsoldQuantity
+          unsoldQuantity,
+          zone: session.user.zone,
+          area: session.user.area,
+          subArea: session.user.subArea,
+          agentId: session.user.employeeId
         }),
       });
 
@@ -89,7 +104,7 @@ export default function DailySalesForm() {
       localStorage.removeItem('salesDraft');
       
       // Show success message and redirect
-      router.push('/dashboard');
+      router.push('/sales/history');
     } catch (error) {
       console.error('Error submitting sales:', error);
       setSubmitError(error instanceof Error ? error.message : 'Failed to submit sales data');
@@ -133,9 +148,28 @@ export default function DailySalesForm() {
     );
   }
 
+  if (session?.user?.role !== 'agent') {
+    return (
+      <div className="text-center py-4">
+        <p className="text-red-600">Only agents can submit sales data</p>
+        <button
+          onClick={() => router.push('/dashboard')}
+          className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Go to Dashboard
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="card max-w-2xl mx-auto">
-      <h2 className="text-xl font-semibold mb-6">Daily Sales Entry</h2>
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold">Daily Sales Entry</h2>
+        <p className="text-sm text-gray-600 mt-1">
+          Zone {session.user.zone}, Area {session.user.area}, Sub-Area {session.user.subArea}
+        </p>
+      </div>
 
       {submitError && (
         <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded mb-6">
@@ -248,36 +282,42 @@ export default function DailySalesForm() {
           <textarea
             {...register('agentRemarks')}
             className="input-field h-24"
-            placeholder="Add your remarks about today's sales, any issues, or special observations..."
+            placeholder="Add any notes or remarks about today's sales..."
             disabled={isSubmitting}
           />
         </div>
 
         {/* Action Buttons */}
-        <div className="flex space-x-4">
-          <button
-            type="submit"
-            className="btn-primary flex-1"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Submitting...' : 'Submit Entry'}
-          </button>
+        <div className="flex justify-between items-center">
           <button
             type="button"
             onClick={saveDraft}
-            className="btn-secondary"
+            className="text-blue-600 hover:text-blue-800"
             disabled={isSubmitting}
           >
-            Save Draft
+            {isDraftSaved ? 'Draft Saved!' : 'Save as Draft'}
           </button>
-        </div>
 
-        {/* Draft Saved Notification */}
-        {isDraftSaved && (
-          <div className="text-green-600 text-sm text-center mt-2">
-            Draft saved successfully!
+          <div className="space-x-4">
+            <button
+              type="button"
+              onClick={() => router.push('/sales/history')}
+              className="px-4 py-2 text-gray-600 hover:text-gray-800"
+              disabled={isSubmitting}
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className={`px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ${
+                isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit Sales'}
+            </button>
           </div>
-        )}
+        </div>
       </form>
     </div>
   );

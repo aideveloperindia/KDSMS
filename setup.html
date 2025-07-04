@@ -1,72 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>KDSMS Setup</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDSMS User Setup</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        #result {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            display: none;
-        }
-        .error {
-            color: red;
-            margin-top: 10px;
-        }
-        .success {
-            color: green;
-        }
-        #debugInfo {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: monospace;
-            white-space: pre-wrap;
-            display: none;
-        }
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        button { background: #0070f3; color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #0051cc; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 5px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .loading { background: #fff3cd; border: 1px solid #ffeaa7; color: #856404; }
     </style>
 </head>
 <body>
-    <h1>KDSMS User Setup</h1>
-    <p>Click the button below to set up all users from NEW LOGINS.txt</p>
-    <button onclick="setupUsers()">Setup Users</button>
+    <h1>KDSMS Production User Setup</h1>
+    <p>Click the button below to create all 512 users in the production database:</p>
+    
+    <button onclick="setupUsers()">Setup All Users</button>
+    
     <div id="result"></div>
-    <div id="debugInfo"></div>
 
     <script>
         async function setupUsers() {
-            const result = document.getElementById('result');
-            const debugInfo = document.getElementById('debugInfo');
-            result.style.display = 'block';
-            debugInfo.style.display = 'block';
-            result.innerHTML = 'Setting up users...';
-            debugInfo.innerHTML = 'Starting setup process...';
-
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="loading">Setting up users... This may take a few minutes.</div>';
+            
             try {
-                debugInfo.innerHTML += '\nMaking request to: https://kdsms.vercel.app/api/auth/setup-users';
-                
-                const response = await fetch('https://kdsms.vercel.app/api/auth/setup-users', {
+                const response = await fetch('https://storiesofinfluencers.com/api/auth/setup-users', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -75,30 +37,29 @@
                         setupKey: 'kdsms-setup-2024'
                     })
                 });
-
-                debugInfo.innerHTML += '\nResponse status: ' + response.status;
-                debugInfo.innerHTML += '\nResponse status text: ' + response.statusText;
-
+                
                 const data = await response.json();
-                debugInfo.innerHTML += '\nResponse data: ' + JSON.stringify(data, null, 2);
                 
                 if (data.success) {
-                    result.innerHTML = `<div class="success">
-                        Success! Created ${data.count} users.<br><br>
-                        You can now login at: <a href="https://kdsms.vercel.app/auth/login" target="_blank">https://kdsms.vercel.app/auth/login</a><br><br>
-                        Example login:<br>
-                        Employee ID: MGMT-001<br>
-                        Password: password123
-                    </div>`;
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <h3>✅ Success!</h3>
+                            <p>Created ${data.count} users successfully!</p>
+                            <p>You can now login with credentials like:</p>
+                            <ul>
+                                <li>AGT-Z5A1-008 / password123</li>
+                                <li>EXE-Z4A3-001 / password123</li>
+                                <li>ZM-Z5-001 / password123</li>
+                                <li>AGM-001 / password123</li>
+                                <li>MGMT-001 / password123</li>
+                            </ul>
+                        </div>
+                    `;
                 } else {
-                    result.innerHTML = '<div class="error">Error: ' + (data.error || 'Unknown error occurred') + '</div>';
+                    resultDiv.innerHTML = `<div class="error">❌ Error: ${data.error}</div>`;
                 }
             } catch (error) {
-                result.innerHTML = '<div class="error">Error: ' + error.message + '</div>';
-                debugInfo.innerHTML += '\nError details: ' + error.toString();
-                if (error.stack) {
-                    debugInfo.innerHTML += '\nStack trace: ' + error.stack;
-                }
+                resultDiv.innerHTML = `<div class="error">❌ Network Error: ${error.message}</div>`;
             }
         }
     </script>

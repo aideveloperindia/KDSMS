@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
     const { employeeId, password } = await request.json();
 
     // Demo mode - accept any credentials that match the pattern
-    const demoUsers = {
+    const demoUsers: Record<string, { name: string; role: string; zone: number; area: number; subArea: number }> = {
       'MGMT-001': { name: 'Tarun', role: 'Management', zone: 0, area: 0, subArea: 0 },
       'AGM-001': { name: 'Varun', role: 'AGM', zone: 0, area: 0, subArea: 0 },
       'ZM-Z1-001': { name: 'Reddy Rajesh', role: 'Zone Manager', zone: 1, area: 0, subArea: 0 },

@@ -10,10 +10,23 @@ const publicPaths = [
   '/',
   '/_next',
   '/api/auth',
+  '/api/demo-login',
+  '/demo-login',
+  '/direct-access',
+  '/login',
   '/favicon.ico',
   '/logo.png',
   '/landing-bg.gif',
-  '/kdsms'
+  '/kdsms',
+  '/executives',
+  '/agents',
+  '/management',
+  '/agm',
+  '/zm',
+  '/sales',
+  '/zones',
+  '/reports',
+  '/settings'
 ];
 
 export async function middleware(request: NextRequest) {

@@ -11,7 +11,7 @@ export default function SetupPage() {
     setResult('Setting up users... This may take a few minutes.');
     
     try {
-      const response = await fetch('/api/auth/setup-users', {
+      const response = await fetch('/api/auth/direct-setup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

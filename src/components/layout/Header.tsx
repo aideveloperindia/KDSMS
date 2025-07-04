@@ -4,6 +4,7 @@ import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 const getDashboardUrl = (role?: string) => {
   switch (role) {
@@ -47,6 +48,26 @@ export default function Header() {
   const { data: session, status } = useSession();
   const pathname = usePathname();
   const isLandingPage = pathname === '/';
+  const isDirectAccessPage = pathname === '/direct-access';
+  const [typewriterText, setTypewriterText] = useState('');
+
+  // Typewriter effect for direct access page
+  useEffect(() => {
+    if (isDirectAccessPage) {
+      const text = "Executive Command Center";
+      let index = 0;
+      const typewriterInterval = setInterval(() => {
+        if (index < text.length) {
+          setTypewriterText(text.substring(0, index + 1));
+          index++;
+        } else {
+          clearInterval(typewriterInterval);
+        }
+      }, 100);
+
+      return () => clearInterval(typewriterInterval);
+    }
+  }, [isDirectAccessPage]);
 
   // Don't show anything while loading
   if (status === 'loading') {
@@ -54,7 +75,7 @@ export default function Header() {
   }
 
   return (
-    <header className={`${isLandingPage ? 'bg-transparent absolute w-full z-50' : 'bg-white shadow-sm'}`}>
+    <header className={`${isLandingPage || isDirectAccessPage ? 'bg-transparent absolute w-full z-50' : 'bg-white shadow-sm'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
@@ -66,15 +87,15 @@ export default function Header() {
                 height={40}
                 className="h-10 w-auto"
               />
-              <span className={`ml-2 text-xl font-bold ${isLandingPage ? 'text-white' : 'text-gray-900'}`}>KDSMS</span>
+              <span className={`ml-2 text-xl font-bold ${isLandingPage || isDirectAccessPage ? 'text-white' : 'text-gray-900'}`}>KDSMS</span>
             </Link>
           </div>
 
-          {session?.user ? (
+          {session?.user && (
             <div className="flex items-center space-x-4">
               <Link
                 href={getDashboardUrl(session.user.role)}
-                className={`text-sm ${getTextColorClass(isLandingPage)}`}
+                className={`text-sm ${getTextColorClass(isLandingPage || isDirectAccessPage)}`}
               >
                 {getDashboardLabel(session.user.role)}
               </Link>
@@ -83,20 +104,20 @@ export default function Header() {
                 <>
                   <Link
                     href="/sales/daily"
-                    className={`text-sm ${getTextColorClass(isLandingPage)}`}
+                    className={`text-sm ${getTextColorClass(isLandingPage || isDirectAccessPage)}`}
                   >
                     Daily Sales
                   </Link>
                   <Link
                     href="/sales/history"
-                    className={`text-sm ${getTextColorClass(isLandingPage)}`}
+                    className={`text-sm ${getTextColorClass(isLandingPage || isDirectAccessPage)}`}
                   >
                     Sales History
                   </Link>
                 </>
               )}
               <div className="flex items-center space-x-2">
-                <span className={`text-sm ${isLandingPage ? 'text-white' : 'text-gray-600'}`}>
+                <span className={`text-sm ${isLandingPage || isDirectAccessPage ? 'text-white' : 'text-gray-600'}`}>
                   {session.user.name} ({session.user.employeeId})
                 </span>
                 <button
@@ -107,20 +128,23 @@ export default function Header() {
                 </button>
               </div>
             </div>
-          ) : (
-                          <Link
-                href="/"
-                className={`text-sm px-6 py-2 rounded-full ${
-                  isLandingPage 
-                  ? 'bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 text-white animate-gradient-x' 
-                  : 'text-blue-600 hover:text-blue-800'
-                }`}
-              >
-                Login
-              </Link>
           )}
+
+
         </div>
       </nav>
+      
+      {/* Typewriter Effect positioned below header, aligned with content */}
+      {isDirectAccessPage && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-white bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+              {typewriterText}
+              <span className="animate-pulse">|</span>
+            </h1>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

@@ -18,6 +18,11 @@ const publicPaths = [
   '/kdsms'
 ];
 
+// Paths that should not have the layout header/footer (like landing page)
+const noLayoutPaths = [
+  '/'
+];
+
 export default function LayoutProvider({
   children,
 }: {
@@ -25,16 +30,21 @@ export default function LayoutProvider({
 }) {
   const pathname = usePathname();
   const isPublicPath = publicPaths.some(path => pathname?.startsWith(path));
+  const shouldHaveLayout = !noLayoutPaths.includes(pathname || '');
 
   return (
     <SessionProvider>
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-      </div>
+      {shouldHaveLayout ? (
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </div>
+      ) : (
+        children
+      )}
     </SessionProvider>
   );
 } 

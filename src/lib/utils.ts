@@ -5,8 +5,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+// Consistent number formatting function to avoid hydration errors
+const formatNumber = (num: number) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
 export const formatCurrency = (amount: number): string => {
-  return `₹${amount.toLocaleString('en-IN')}`;
+  return `₹${formatNumber(amount)}`;
 };
 
 export const formatQuantity = (quantity: number): string => {

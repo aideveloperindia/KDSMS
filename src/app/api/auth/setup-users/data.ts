@@ -69,13 +69,13 @@ export function parseLoginFile(): UserData[] {
         while (i < lines.length && !lines[i].startsWith('Zone')) {
           if (lines[i].startsWith('Area')) {
             const areaMatch = lines[i].match(/Area (\d+): (.+)/);
-            if (areaMatch) {
+      if (areaMatch) {
               const currentArea = parseInt(areaMatch[1]);
               const currentAreaName = areaMatch[2];
               
               i++; // Move past area line
-              
-              // Parse Executive
+        
+        // Parse Executive
               if (i < lines.length && lines[i].includes('Executive:')) {
                 i++; // Move to executive data
                 const execData = parseExecutiveBlock(lines, i, currentZone, currentZoneName, currentArea, currentAreaName);
@@ -84,8 +84,8 @@ export function parseLoginFile(): UserData[] {
                 }
                 i = execData.nextIndex;
               }
-              
-              // Parse Agents
+        
+        // Parse Agents
               if (i < lines.length && lines[i].includes('Agents:')) {
                 i++; // Move past "Agents:" line
                 const agentsData = parseAgentsBlock(lines, i, currentZone, currentZoneName, currentArea, currentAreaName);
@@ -128,10 +128,10 @@ function parseManagementBlock(lines: string[], startIndex: number): { user: User
           
           return {
             user: {
-              name,
-              employeeId,
-              password: 'password123',
-              role
+        name,
+        employeeId,
+        password: 'password123',
+        role
             },
             nextIndex: i + 1
           };
@@ -153,15 +153,15 @@ function parseZoneManagerBlock(lines: string[], startIndex: number, zone: number
       i++;
       if (i < lines.length && lines[i].includes('- ID:')) {
         const employeeId = lines[i].split(':')[1].trim();
-        
-        return {
+      
+      return {
           user: {
-            name,
-            employeeId,
-            password: 'password123',
-            role: 'zm',
-            zone,
-            zoneName
+        name,
+        employeeId,
+        password: 'password123',
+        role: 'zm',
+        zone,
+        zoneName
           },
           nextIndex: i + 1
         };
@@ -182,25 +182,25 @@ function parseExecutiveBlock(lines: string[], startIndex: number, zone: number, 
       i++;
       if (i < lines.length && lines[i].includes('- ID:')) {
         const employeeId = lines[i].split(':')[1].trim();
-        
-        return {
+      
+      return {
           user: {
-            name,
-            employeeId,
-            password: 'password123',
-            role: 'executive',
-            zone,
-            zoneName,
-            area,
-            areaName
+        name,
+        employeeId,
+        password: 'password123',
+        role: 'executive',
+        zone,
+        zoneName,
+        area,
+        areaName
           },
           nextIndex: i + 1
-        };
-      }
+      };
     }
-    i++;
   }
-  
+    i++;
+}
+
   return { user: null, nextIndex: i };
 }
 
@@ -217,14 +217,14 @@ function parseAgentsBlock(lines: string[], startIndex: number, zone: number, zon
         i++;
         if (i < lines.length && lines[i].includes('Sub Area:')) {
           const subAreaName = lines[i].split(':')[1].trim();
-          
-          agents.push({
-            name,
-            employeeId,
-            password: 'password123',
-            role: 'agent',
-            zone,
-            zoneName,
+
+      agents.push({
+        name,
+        employeeId,
+        password: 'password123',
+        role: 'agent',
+        zone,
+        zoneName,
             area,
             areaName,
             subAreaName

@@ -1,6 +1,6 @@
-# Karimnagar Dairy Sales Management System (KDSMS)
+# KDSMS - Client Demo Version
 
-A comprehensive web-based application for managing daily milk sales, tracking inventory, and analyzing sales data for Karimnagar Dairy's distribution network.
+A comprehensive web-based application for managing daily milk sales, tracking inventory, and analyzing sales data for Karimnagar Dairy's distribution network. This is the client demonstration version deployed for showcase purposes.
 
 ## Organizational Structure
 
@@ -92,6 +92,20 @@ A comprehensive web-based application for managing daily milk sales, tracking in
    ```
 
 6. Open [http://localhost:3003](http://localhost:3003) in your browser.
+
+## Deployment to Vercel
+
+This project is configured for deployment to Vercel:
+
+1. Fork or push the repository to your GitHub account
+2. Connect your GitHub repository to Vercel
+3. Add the following environment variables in Vercel:
+   - `MONGODB_URI`: Your MongoDB connection string
+   - `NEXTAUTH_SECRET`: A secure secret key (minimum 32 characters)
+   - `NEXTAUTH_URL`: Your Vercel deployment URL
+4. Deploy the project
+
+The project will be automatically deployed as "client-demo-version" on Vercel.
 
 ## Project Structure
 

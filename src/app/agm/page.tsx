@@ -1,153 +1,220 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { useSession } from 'next-auth/react';
-
-interface Zone {
-  zoneNumber: number;
-  zmName: string;
-  areas: Area[];
-}
-
-interface Area {
-  areaNumber: number;
-  executiveName: string;
-  totalAgents: number;
-  todaySales: number;
-  remarks: string;
-}
-
-interface Sale {
-  id: string;
-  date: string;
-  zone: number;
-  area: number;
-  subArea: number;
-  agentName: string;
-  executiveName: string;
-  zmName: string;
-  quantityReceived: number;
-  quantitySold: number;
-  quantityExpired: number;
-  remarks: string;
-}
 
 export default function AGMPage() {
-  const { data: session } = useSession();
+  // Demo user data - no login required
+  const userData = {
+    name: 'Suresh Reddy',
+    employeeId: 'AGM-001',
+    role: 'agm',
+    companyName: 'Karimnagar Dairy'
+  };
+
   const [selectedZone, setSelectedZone] = useState<number | null>(null);
-  const [sales, setSales] = useState<Sale[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [agmRemarks, setAgmRemarks] = useState('');
 
-  useEffect(() => {
-    const fetchSales = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch('/api/sales/with-remarks');
-        if (!response.ok) {
-          throw new Error('Failed to fetch sales data');
-        }
-        const data = await response.json();
-        setSales(data);
-      } catch (err) {
-        setError('Failed to fetch sales data');
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Consistent number formatting function to avoid hydration errors
+  const formatNumber = (num: number) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
 
-    fetchSales();
-  }, []);
+  // Demo zones data with areas
+  const zones = [
+    {
+      zoneNumber: 1,
+      zmName: 'A Rajesh',
+      zmId: 'ZM-Z1-001',
+      totalSales: 392000,
+      areas: [
+        { areaNumber: 1, executiveName: 'B Anil', sales: 98000, agents: 20 },
+        { areaNumber: 2, executiveName: 'C Sunil', sales: 95000, agents: 20 },
+        { areaNumber: 3, executiveName: 'D Ravi', sales: 105000, agents: 20 },
+        { areaNumber: 4, executiveName: 'E Kiran', sales: 94000, agents: 20 }
+      ]
+    },
+    {
+      zoneNumber: 2,
+      zmName: 'F Vikram',
+      zmId: 'ZM-Z2-001',
+      totalSales: 385000,
+      areas: [
+        { areaNumber: 1, executiveName: 'G Mahesh', sales: 96000, agents: 20 },
+        { areaNumber: 2, executiveName: 'H Naresh', sales: 92000, agents: 20 },
+        { areaNumber: 3, executiveName: 'I Venkat', sales: 99000, agents: 20 },
+        { areaNumber: 4, executiveName: 'J Ramesh', sales: 98000, agents: 20 }
+      ]
+    },
+    {
+      zoneNumber: 3,
+      zmName: 'K Ashok',
+      zmId: 'ZM-Z3-001',
+      totalSales: 378000,
+      areas: [
+        { areaNumber: 1, executiveName: 'L Praveen', sales: 94000, agents: 20 },
+        { areaNumber: 2, executiveName: 'M Dinesh', sales: 91000, agents: 20 },
+        { areaNumber: 3, executiveName: 'N Rajesh', sales: 97000, agents: 20 },
+        { areaNumber: 4, executiveName: 'O Suresh', sales: 96000, agents: 20 }
+      ]
+    },
+    {
+      zoneNumber: 4,
+      zmName: 'P Mahesh',
+      zmId: 'ZM-Z4-001',
+      totalSales: 395000,
+      areas: [
+        { areaNumber: 1, executiveName: 'Q Ganesh', sales: 99000, agents: 20 },
+        { areaNumber: 2, executiveName: 'R Lokesh', sales: 98000, agents: 20 },
+        { areaNumber: 3, executiveName: 'S Ramesh', sales: 100000, agents: 20 },
+        { areaNumber: 4, executiveName: 'T Umesh', sales: 98000, agents: 20 }
+      ]
+    },
+    {
+      zoneNumber: 5,
+      zmName: 'U Naresh',
+      zmId: 'ZM-Z5-001',
+      totalSales: 388000,
+      areas: [
+        { areaNumber: 1, executiveName: 'V Santosh', sales: 97000, agents: 20 },
+        { areaNumber: 2, executiveName: 'W Harish', sales: 96000, agents: 20 },
+        { areaNumber: 3, executiveName: 'X Girish', sales: 98000, agents: 20 },
+        { areaNumber: 4, executiveName: 'Y Nitesh', sales: 97000, agents: 20 }
+      ]
+    },
+    {
+      zoneNumber: 6,
+      zmName: 'Z Venkatesh',
+      zmId: 'ZM-Z6-001',
+      totalSales: 382000,
+      areas: [
+        { areaNumber: 1, executiveName: 'AA Kishore', sales: 95000, agents: 20 },
+        { areaNumber: 2, executiveName: 'BB Mukesh', sales: 94000, agents: 20 },
+        { areaNumber: 3, executiveName: 'CC Rakesh', sales: 97000, agents: 20 },
+        { areaNumber: 4, executiveName: 'DD Yogesh', sales: 96000, agents: 20 }
+      ]
+    }
+  ];
 
-  if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="min-h-screen flex items-center justify-center">Error: {error}</div>;
-  }
-
-  // Process sales data into zones
-  const zones: Zone[] = Array.from({ length: 6 }, (_, i) => {
-    const zoneNumber = i + 1;
-    const zoneSales = sales.filter(sale => sale.zone === zoneNumber);
-    
-    const areas: Area[] = Array.from({ length: 4 }, (_, j) => {
-      const areaNumber = (zoneNumber - 1) * 4 + (j + 1);
-      const areaSales = zoneSales.filter(sale => sale.area === areaNumber);
-      
-      return {
-        areaNumber,
-        executiveName: areaSales[0]?.executiveName || `Executive ${areaNumber}`,
-        totalAgents: 20,
-        todaySales: areaSales.reduce((sum, sale) => sum + sale.quantitySold, 0),
-        remarks: areaSales[0]?.remarks || ''
-      };
-    });
-
-    return {
-      zoneNumber,
-      zmName: zoneSales[0]?.zmName || `ZM ${zoneNumber}`,
-      areas
-    };
-  });
+  const totalCompanySales = zones.reduce((sum, zone) => sum + zone.totalSales, 0);
+  const totalAreas = zones.reduce((sum, zone) => sum + zone.areas.length, 0);
+  const totalAgents = zones.reduce((sum, zone) => sum + zone.areas.reduce((areaSum, area) => areaSum + area.agents, 0), 0);
 
   return (
     <div 
-      className="min-h-screen p-6 bg-cover bg-center bg-no-repeat bg-fixed"
+      className="min-h-screen p-6 bg-cover bg-center bg-no-repeat bg-fixed relative pt-20"
       style={{ 
         backgroundImage: 'url("/kdsms agm.png")',
         minHeight: '100vh'
       }}
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-gray-800">AGM Dashboard</h1>
+      {/* Blur overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{ 
+          backgroundImage: 'url("/kdsms agm.png")',
+          filter: 'blur(1px)',
+          zIndex: -1
+        }}
+      ></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="mb-6 bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800">AGM Dashboard</h1>
+              <p className="text-gray-600 text-lg">
+                {userData.companyName} • Managing 6 Zones • {totalAreas} Areas • {totalAgents} Agents
+              </p>
+            </div>
           <Link 
-            href="/dashboard"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              href="/direct-access"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
           >
-            Back to Dashboard
+              ← Back to Dashboard Menu
           </Link>
+          </div>
+        </div>
+
+        {/* Company Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">Total Company Sales</h3>
+            <p className="text-3xl font-bold text-green-600">₹{formatNumber(totalCompanySales)}</p>
+            <p className="text-sm text-gray-600">Today's collection</p>
+          </div>
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">Active Zones</h3>
+            <p className="text-3xl font-bold text-blue-600">{zones.length}</p>
+            <p className="text-sm text-gray-600">All operational</p>
+          </div>
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">Total Areas</h3>
+            <p className="text-3xl font-bold text-purple-600">{totalAreas}</p>
+            <p className="text-sm text-gray-600">Across all zones</p>
+          </div>
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">Total Agents</h3>
+            <p className="text-3xl font-bold text-orange-600">{totalAgents}</p>
+            <p className="text-sm text-gray-600">All active</p>
+          </div>
         </div>
 
         {/* Zones Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
           {zones.map((zone) => (
-            <div key={zone.zoneNumber} className="bg-white rounded-lg shadow p-6">
+            <div key={zone.zoneNumber} className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-semibold">Zone {zone.zoneNumber}</h2>
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-800">Zone {zone.zoneNumber}</h2>
+                  <p className="text-gray-600">ZM: {zone.zmName}</p>
+                  <p className="text-sm text-gray-500">{zone.zmId}</p>
+                </div>
                 <button
                   onClick={() => setSelectedZone(selectedZone === zone.zoneNumber ? null : zone.zoneNumber)}
-                  className="text-blue-600 hover:text-blue-800"
+                  className="text-blue-600 hover:text-blue-800 text-sm px-3 py-1 border border-blue-600 rounded hover:bg-blue-50"
                 >
-                  {selectedZone === zone.zoneNumber ? 'Hide Details' : 'View Details'}
+                  {selectedZone === zone.zoneNumber ? 'Hide' : 'View'} Areas
                 </button>
           </div>
-              <div className="text-sm text-gray-600 mb-2">Zone Manager: {zone.zmName}</div>
-              <div className="text-sm text-gray-600">Total Areas: {zone.areas.length}</div>
+              
+              <div className="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <p className="text-sm text-gray-600">Zone Sales</p>
+                  <p className="text-2xl font-bold text-green-600">₹{formatNumber(zone.totalSales)}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Areas</p>
+                  <p className="text-2xl font-bold text-blue-600">{zone.areas.length}</p>
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <div className="flex justify-between text-sm text-gray-600 mb-1">
+                  <span>Performance</span>
+                  <span>{Math.round((zone.totalSales / (totalCompanySales / zones.length)) * 100)}%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div 
+                    className="bg-green-500 h-2 rounded-full" 
+                    style={{ width: `${Math.round((zone.totalSales / (totalCompanySales / zones.length)) * 100)}%` }}
+                  ></div>
+                </div>
+              </div>
               
               {selectedZone === zone.zoneNumber && (
-                <div className="mt-4">
-                  <h3 className="font-medium mb-2">Areas Overview</h3>
-                  <div className="space-y-4">
+                <div className="border-t pt-4">
+                  <h4 className="font-semibold text-gray-800 mb-2">Areas Performance</h4>
+                  <div className="space-y-2">
                     {zone.areas.map((area) => (
-                      <div key={area.areaNumber} className="border-t pt-2">
-                        <div className="flex justify-between items-center">
-                          <span className="font-medium">Area {area.areaNumber}</span>
-                          <span>{area.executiveName}</span>
+                      <div key={area.areaNumber} className="flex justify-between items-center p-2 bg-gray-50 rounded">
+                        <div>
+                          <p className="font-medium text-sm">Area {area.areaNumber}</p>
+                          <p className="text-xs text-gray-600">{area.executiveName}</p>
           </div>
-                        <div className="text-sm text-gray-600 mt-1">
-                          <div>Total Agents: {area.totalAgents}</div>
-                          <div>Today's Sales: {area.todaySales}</div>
-                          {area.remarks && (
-                            <div className="mt-1">
-                              <span className="font-medium">Remarks:</span>
-                              <p className="text-gray-600">{area.remarks}</p>
-          </div>
-                          )}
+                        <div className="text-right">
+                          <p className="font-semibold text-green-600 text-sm">₹{formatNumber(area.sales)}</p>
+                          <p className="text-xs text-gray-600">{area.agents} agents</p>
           </div>
         </div>
                     ))}
@@ -158,23 +225,31 @@ export default function AGMPage() {
           ))}
         </div>
 
-        {/* AGM Remarks Section */}
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-4">AGM Remarks</h2>
-          <textarea
-            value={agmRemarks}
-            onChange={(e) => setAgmRemarks(e.target.value)}
-            placeholder="Enter your remarks about overall performance..."
-            className="w-full h-32 p-2 border rounded"
-          />
-          <button
-            onClick={async () => {
-              // Save AGM remarks logic here
-            }}
-            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >
-            Save Remarks
-          </button>
+        {/* Zone Performance Chart */}
+        <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">Zone Performance Comparison</h3>
+          <div className="space-y-4">
+            {zones.map((zone) => (
+              <div key={zone.zoneNumber} className="flex items-center">
+                <div className="w-20 text-sm font-medium">Zone {zone.zoneNumber}</div>
+                <div className="flex-1 mx-4">
+                  <div className="flex justify-between text-sm text-gray-600 mb-1">
+                    <span>{zone.zmName}</span>
+                    <span>₹{formatNumber(zone.totalSales)}</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div 
+                      className="bg-gradient-to-r from-blue-500 to-green-500 h-3 rounded-full" 
+                      style={{ width: `${(zone.totalSales / Math.max(...zones.map(z => z.totalSales))) * 100}%` }}
+                    ></div>
+                  </div>
+                </div>
+                <div className="w-16 text-right text-sm font-medium">
+                  {Math.round((zone.totalSales / totalCompanySales) * 100)}%
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

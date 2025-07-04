@@ -36,28 +36,51 @@ export default function SalesHistory() {
   useEffect(() => {
     const referrer = document.referrer;
     
+    // First check referrer URL
     if (referrer.includes('/executives')) {
+      console.log('Role detected from referrer: executive');
       setUserRole('executive');
     } else if (referrer.includes('/agents')) {
+      console.log('Role detected from referrer: agent');
       setUserRole('agent');
-          } else {
-        // Check localStorage for demo user data
-        const demoUser = localStorage.getItem('demoUser');
-        if (demoUser) {
+    } else {
+      // Check localStorage for demo user data
+      const demoUser = localStorage.getItem('demoUser');
+      if (demoUser) {
+        try {
           const userData = JSON.parse(demoUser);
+          console.log('Demo user data:', userData);
+          
+          // Check role from localStorage
           if (userData.role === 'Executive') {
+            console.log('Role detected from localStorage: executive');
             setUserRole('executive');
           } else if (userData.role === 'Agent') {
+            console.log('Role detected from localStorage: agent');
             setUserRole('agent');
           } else {
-            // Default to agent since sales history is also primarily used by agents
+            console.log('Unknown role in localStorage, defaulting to agent');
             setUserRole('agent');
           }
+        } catch (e) {
+          console.error('Error parsing demo user data:', e);
+          setUserRole('agent');
+        }
+      } else {
+        // Check if coming from a specific page in the current session
+        const sessionSource = sessionStorage.getItem('salesPageSource');
+        if (sessionSource === 'executive') {
+          console.log('Role detected from session: executive');
+          setUserRole('executive');
+        } else if (sessionSource === 'agent') {
+          console.log('Role detected from session: agent');
+          setUserRole('agent');
         } else {
-          // Default to agent if no clear referrer (sales history is primarily for agents)
+          console.log('No role source found, defaulting to agent');
           setUserRole('agent');
         }
       }
+    }
   }, []);
 
   const canViewZoneFilters = ['agm', 'management'].includes(userData.role);

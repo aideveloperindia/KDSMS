@@ -165,6 +165,10 @@ export default function ExecutivePage() {
           <Link 
             href="/sales/daily"
             className="bg-green-500 hover:bg-green-600 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 block text-center"
+            onClick={() => {
+              // Set session storage to indicate executive is navigating to sales page
+              sessionStorage.setItem('salesPageSource', 'executive');
+            }}
           >
             <div className="text-4xl mb-3">📝</div>
             <h3 className="text-xl font-bold mb-2">Daily Sales Entry</h3>
@@ -174,6 +178,10 @@ export default function ExecutivePage() {
           <Link 
             href="/sales/history"
             className="bg-blue-500 hover:bg-blue-600 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 block text-center"
+            onClick={() => {
+              // Set session storage to indicate executive is navigating to sales page
+              sessionStorage.setItem('salesPageSource', 'executive');
+            }}
           >
             <div className="text-4xl mb-3">📊</div>
             <h3 className="text-xl font-bold mb-2">Area Sales Report</h3>

@@ -19,10 +19,16 @@ export default function AgentPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/auth/login');
+    // Check for demo user data in localStorage first
+    const demoUser = localStorage.getItem('demoUser');
+    if (demoUser) {
+      const user = JSON.parse(demoUser);
+      setUserData(user);
+      setLoading(false);
+    } else if (status === 'unauthenticated') {
+      router.push('/');
     } else if (status === 'authenticated' && session?.user) {
-      // Use session data directly
+      // Use session data as fallback
       setUserData({
         name: session.user.name || 'Unknown User',
         employeeId: session.user.employeeId || 'Unknown ID',

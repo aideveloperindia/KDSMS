@@ -100,7 +100,7 @@ export default function Header() {
                   {session.user.name} ({session.user.employeeId})
                 </span>
                 <button
-                  onClick={() => signOut({ callbackUrl: '/auth/login' })}
+                  onClick={() => signOut({ callbackUrl: '/' })}
                   className="text-sm text-red-600 hover:text-red-800"
                 >
                   Logout
@@ -108,16 +108,16 @@ export default function Header() {
               </div>
             </div>
           ) : (
-            <Link
-              href="/auth/login"
-              className={`text-sm px-6 py-2 rounded-full ${
-                isLandingPage 
-                ? 'bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 text-white animate-gradient-x' 
-                : 'text-blue-600 hover:text-blue-800'
-              }`}
-            >
-              Login
-            </Link>
+                          <Link
+                href="/"
+                className={`text-sm px-6 py-2 rounded-full ${
+                  isLandingPage 
+                  ? 'bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 text-white animate-gradient-x' 
+                  : 'text-blue-600 hover:text-blue-800'
+                }`}
+              >
+                Login
+              </Link>
           )}
         </div>
       </nav>

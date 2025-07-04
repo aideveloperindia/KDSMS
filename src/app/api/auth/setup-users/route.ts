@@ -1,113 +1,179 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import User from '@/models/User';
-import { parseLoginFile } from './data';
 import bcrypt from 'bcryptjs';
+import fs from 'fs';
+import path from 'path';
 
-const SETUP_KEY = 'kdsms-setup-2024';
-
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
-    const { setupKey, fixSubArea } = await request.json();
-
-    if (setupKey !== SETUP_KEY) {
-      return NextResponse.json({ 
-        success: false, 
-        error: 'Invalid setup key' 
-      }, { status: 401 });
-    }
-
     await connectDB();
 
-    // If fixSubArea flag is set, just fix existing users
-    if (fixSubArea) {
-      console.log('Fixing subArea for existing users...');
-      
-      // Find all agents and executives (they need subArea)
-      const usersWithoutSubArea = await User.find({
-        role: { $in: ['Agent', 'Executive'] },
-        $or: [
-          { subArea: { $exists: false } },
-          { subArea: undefined },
-          { subArea: null }
-        ]
-      });
-      
-      console.log(`Found ${usersWithoutSubArea.length} users without subArea`);
-      
-      let fixedCount = 0;
-      
-      // Fix each user
-      for (const user of usersWithoutSubArea) {
-        console.log(`Fixing user: ${user.employeeId}`);
-        
-        let subArea = null;
-        
-        if (user.role === 'agent' || user.role === 'executive') {
-          // Parse employeeId like AGT-Z5A1-008 or EXE-Z4A3-001
-          const match = user.employeeId.match(/([A-Z]+)-Z(\d+)A(\d+)-(\d+)/);
-          if (match) {
-            const [, role, zone, area, number] = match;
-            const currentArea = parseInt(area);
-            const agentNum = parseInt(number);
-            
-            // Calculate subArea: (currentArea - 1) * 20 + agentNum
-            subArea = (currentArea - 1) * 20 + agentNum;
-            
-            console.log(`  Zone: ${zone}, Area: ${area}, Number: ${number} -> subArea: ${subArea}`);
-          }
-        }
-        
-        if (subArea !== null) {
-          // Update the user
-          await User.updateOne(
-            { _id: user._id },
-            { $set: { subArea: subArea } }
-          );
-          console.log(`  Updated ${user.employeeId} with subArea: ${subArea}`);
-          fixedCount++;
-        } else {
-          console.log(`  Skipped ${user.employeeId} (not Agent/Executive or couldn't parse)`);
-        }
-      }
-      
-      return NextResponse.json({ 
-        success: true, 
-        message: 'SubArea fix completed successfully',
-        count: fixedCount
-      });
-    }
-
-    // Original user setup logic
-    // Parse the login file
-    const users = parseLoginFile();
+    // Read the NEW LOGINS.txt file
+    const filePath = path.join(process.cwd(), 'NEW LOGINS.txt');
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
     
-    console.log(`Parsed ${users.length} users from file`);
-
+    // Parse the file content
+    const users = parseUsersFromFile(fileContent);
+    
     // Clear existing users
     await User.deleteMany({});
+    
+    // Create all users
+    const createdUsers = [];
+    for (const userData of users) {
+      const hashedPassword = await bcrypt.hash('password123', 10);
+      
+      const user = new User({
+        employeeId: userData.username,
+        name: userData.name,
+        role: userData.role,
+        zone: userData.zone,
+        area: userData.area,
+        subArea: userData.subArea,
+        subAreaName: userData.subAreaName,
+        password: hashedPassword
+      });
+      
+      await user.save();
+      createdUsers.push(user);
+    }
 
-    // Hash passwords manually before saving to avoid double hashing
-    const usersWithHashedPasswords = await Promise.all(
-      users.map(async (user) => ({
-        ...user,
-        password: await bcrypt.hash(user.password, 10)
+    return NextResponse.json({
+      success: true,
+      message: `Successfully created ${createdUsers.length} users`,
+      users: createdUsers.map(u => ({
+        username: u.employeeId,
+        name: u.name,
+        role: u.role,
+        zone: u.zone,
+        area: u.area,
+        subArea: u.subArea,
+        subAreaName: u.subAreaName
       }))
-    );
-
-    // Create new users with insertMany to bypass pre-save hooks
-    await User.insertMany(usersWithHashedPasswords);
-
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Users created successfully',
-      count: users.length
     });
+
   } catch (error) {
-    console.error('Error setting up users:', error);
-    return NextResponse.json({ 
-      success: false, 
-      error: 'Failed to setup users' 
+    console.error('Setup users error:', error);
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 });
   }
+}
+
+function parseUsersFromFile(content: string) {
+  const users = [];
+  const lines = content.split('\n');
+  
+  let currentZone = 0;
+  let currentArea = 0;
+  let globalAreaCounter = 0;
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    
+    // Parse Management
+    if (line.includes('Name: Tarun') && lines[i+1]?.includes('ID: MGMT-001')) {
+      users.push({
+        username: 'MGMT-001',
+        name: 'Tarun',
+        role: 'Management',
+        zone: 0,
+        area: 0,
+        subArea: 0,
+        subAreaName: 'Management Office'
+      });
+    }
+    
+    // Parse AGM
+    if (line.includes('Name: Varun') && lines[i+1]?.includes('ID: AGM-001')) {
+      users.push({
+        username: 'AGM-001',
+        name: 'Varun',
+        role: 'AGM',
+        zone: 0,
+        area: 0,
+        subArea: 0,
+        subAreaName: 'AGM Office'
+      });
+    }
+    
+    // Parse Zone headers
+    if (line.startsWith('Zone ') && line.includes(':')) {
+      const zoneMatch = line.match(/Zone (\d+):/);
+      if (zoneMatch) {
+        currentZone = parseInt(zoneMatch[1]);
+      }
+    }
+    
+    // Parse Zone Managers
+    if (line.includes('Zone Manager:')) {
+      const nameMatch = lines[i+1]?.match(/Name: (.+)/);
+      const idMatch = lines[i+2]?.match(/ID: (.+)/);
+      
+      if (nameMatch && idMatch) {
+        users.push({
+          username: idMatch[1].trim(),
+          name: nameMatch[1].trim(),
+          role: 'Zone Manager',
+          zone: currentZone,
+          area: 0,
+          subArea: 0,
+          subAreaName: `Zone ${currentZone} Office`
+        });
+      }
+    }
+    
+    // Parse Area headers
+    if (line.startsWith('Area ') && line.includes(':')) {
+      const areaMatch = line.match(/Area (\d+):/);
+      if (areaMatch) {
+        currentArea = parseInt(areaMatch[1]);
+        globalAreaCounter++;
+      }
+    }
+    
+    // Parse Executives
+    if (line.includes('Executive:')) {
+      const nameMatch = lines[i+1]?.match(/Name: (.+)/);
+      const idMatch = lines[i+2]?.match(/ID: (.+)/);
+      
+      if (nameMatch && idMatch) {
+        users.push({
+          username: idMatch[1].trim(),
+          name: nameMatch[1].trim(),
+          role: 'Executive',
+          zone: currentZone,
+          area: globalAreaCounter,
+          subArea: 0,
+          subAreaName: `Area ${currentArea} Office`
+        });
+      }
+    }
+    
+    // Parse Agents
+    if (line.match(/^\d+\. Name: /)) {
+      const nameMatch = line.match(/Name: (.+)/);
+      const idMatch = lines[i+1]?.match(/ID: (.+)/);
+      const subAreaMatch = lines[i+2]?.match(/Sub Area: "(.+) \((\d+)\)"/);
+      
+      if (nameMatch && idMatch && subAreaMatch) {
+        const agentNum = parseInt(idMatch[1].split('-').pop() || '0');
+        const subArea = (globalAreaCounter - 1) * 20 + agentNum;
+        
+        users.push({
+          username: idMatch[1].trim(),
+          name: nameMatch[1].trim(),
+          role: 'Agent',
+          zone: currentZone,
+          area: globalAreaCounter,
+          subArea: subArea,
+          subAreaName: subAreaMatch[1].trim()
+        });
+      }
+    }
+  }
+  
+  return users;
 }

@@ -39,13 +39,13 @@ export async function POST(request: Request) {
       
       // Fix each user
       for (const user of usersWithoutSubArea) {
-        console.log(`Fixing user: ${user.username}`);
+        console.log(`Fixing user: ${user.employeeId}`);
         
         let subArea = null;
         
-        if (user.role === 'Agent' || user.role === 'Executive') {
-          // Parse username like AGT-Z5A1-008 or EXE-Z4A3-001
-          const match = user.username.match(/([A-Z]+)-Z(\d+)A(\d+)-(\d+)/);
+        if (user.role === 'agent' || user.role === 'executive') {
+          // Parse employeeId like AGT-Z5A1-008 or EXE-Z4A3-001
+          const match = user.employeeId.match(/([A-Z]+)-Z(\d+)A(\d+)-(\d+)/);
           if (match) {
             const [, role, zone, area, number] = match;
             const currentArea = parseInt(area);
@@ -64,10 +64,10 @@ export async function POST(request: Request) {
             { _id: user._id },
             { $set: { subArea: subArea } }
           );
-          console.log(`  Updated ${user.username} with subArea: ${subArea}`);
+          console.log(`  Updated ${user.employeeId} with subArea: ${subArea}`);
           fixedCount++;
         } else {
-          console.log(`  Skipped ${user.username} (not Agent/Executive or couldn't parse)`);
+          console.log(`  Skipped ${user.employeeId} (not Agent/Executive or couldn't parse)`);
         }
       }
       

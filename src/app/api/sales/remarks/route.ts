@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth';
 import Sale from '@/models/Sale';
 import User from '@/models/User';
 import connectDB from '@/lib/db';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 import { validateHierarchy } from '@/lib/utils';
 
 type UserRole = 'agent' | 'executive' | 'zm' | 'agm' | 'management';

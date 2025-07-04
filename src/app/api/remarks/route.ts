@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
     const zoneFilter = zoneId || zone ? { zone: zoneId || zone } : {};
 
     // Fetch agent remarks (from sales)
-    let agentRemarks = [];
+    let agentRemarks: any[] = [];
     if (!authorRole || authorRole === 'agent') {
       const salesQuery = {
         remarks: { $exists: true, $ne: '' },
@@ -62,7 +62,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Fetch executive remarks
-    let executiveRemarks = [];
+    let executiveRemarks: any[] = [];
     if (!authorRole || authorRole === 'executive') {
       const executiveQuery = {
         ...(dateFilter && { date: dateFilter })

@@ -1,6 +1,6 @@
 {
-  "name": "client-demo-version",
-  "version": "1.0.0",
+  "name": "kdsms-client-demo-version",
+  "version": "1.0.0-demo",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3003",
@@ -42,7 +42,7 @@
     "eslint-config-next": "14.1.0",
     "node-fetch": "^3.3.2"
   },
-  "description": "A comprehensive web-based application for managing daily milk sales, tracking inventory, and analyzing sales data for Karimnagar Dairy's distribution network.",
+  "description": "CLIENT DEMO VERSION - A comprehensive web-based application for managing daily milk sales, tracking inventory, and analyzing sales data for Karimnagar Dairy's distribution network. THIS IS FOR DEMONSTRATION PURPOSES ONLY.",
   "main": "next.config.js",
   "keywords": [
     "dairy",

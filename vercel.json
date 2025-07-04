@@ -1,5 +1,5 @@
 {
-  "name": "client-demo-version",
+  "name": "kdsms-client-demo-version",
   "version": 2,
   "builds": [
     {
@@ -9,7 +9,7 @@
   ],
   "env": {
     "MONGODB_URI": "mongodb+srv://KDSMS:1Aditya1@kdsms.pqvq4xf.mongodb.net/kdsms",
-    "NEXTAUTH_URL": "https://client-demo-version.vercel.app",
+    "NEXTAUTH_URL": "https://kdsms-client-demo-version.vercel.app",
     "NEXTAUTH_SECRET": "your-secret-key-here"
   },
   "routes": [

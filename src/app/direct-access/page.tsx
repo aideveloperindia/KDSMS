@@ -134,11 +134,20 @@ export default function DirectAccessPage() {
 
       {/* Overlay for better text readability */}
       <div className="min-h-screen bg-black/40">
+        {/* CLIENT DEMO VERSION Banner */}
+        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-red-600 to-red-700 text-white text-center py-2 shadow-lg">
+          <div className="flex items-center justify-center space-x-2">
+            <span className="animate-pulse">🚨</span>
+            <span className="font-bold text-sm md:text-base">CLIENT DEMO VERSION - FOR DEMONSTRATION PURPOSES ONLY</span>
+            <span className="animate-pulse">🚨</span>
+          </div>
+        </div>
+
         {/* Animated Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-pulse opacity-50"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent animate-pulse opacity-30"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10" style={{ paddingTop: '140px' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10" style={{ paddingTop: '180px' }}>
           {/* Main Page Title */}
           <div className={`text-center mb-12 transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <h2 className="text-4xl font-bold text-white mb-4 bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-clip-text text-transparent animate-pulse">

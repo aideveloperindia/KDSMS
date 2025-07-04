@@ -1,6 +1,18 @@
-# KDSMS - Client Demo Version
+# 🚨 CLIENT DEMO VERSION 🚨
 
-A comprehensive web-based application for managing daily milk sales, tracking inventory, and analyzing sales data for Karimnagar Dairy's distribution network. This is the client demonstration version deployed for showcase purposes.
+# KDSMS - CLIENT DEMO VERSION
+
+⚠️ **WARNING: THIS IS A DEMONSTRATION VERSION ONLY** ⚠️
+
+This is a CLIENT DEMO VERSION of the Karimnagar Dairy Sales Management System (KDSMS). This version is created specifically for client demonstration purposes and should NOT be used for production or mixed with the actual project.
+
+**Key Points:**
+- This is a DEMO VERSION for client presentation
+- All data is simulated and for demonstration only
+- This version is separate from the main production project
+- Not intended for actual business use
+
+A comprehensive web-based application for managing daily milk sales, tracking inventory, and analyzing sales data for Karimnagar Dairy's distribution network.
 
 ## Organizational Structure
 
@@ -93,19 +105,28 @@ A comprehensive web-based application for managing daily milk sales, tracking in
 
 6. Open [http://localhost:3003](http://localhost:3003) in your browser.
 
-## Deployment to Vercel
+## Deployment to Vercel - CLIENT DEMO VERSION
 
-This project is configured for deployment to Vercel:
+⚠️ **IMPORTANT: This is the CLIENT DEMO VERSION branch** ⚠️
 
-1. Fork or push the repository to your GitHub account
-2. Connect your GitHub repository to Vercel
-3. Add the following environment variables in Vercel:
+This project is configured for deployment to Vercel as a CLIENT DEMO VERSION:
+
+1. Make sure you're on the `client-demo-version` branch
+2. Push this branch to your GitHub repository
+3. Create a NEW Vercel project (DO NOT USE THE SAME PROJECT AS PRODUCTION)
+4. Connect the `client-demo-version` branch to Vercel
+5. Add the following environment variables in Vercel:
    - `MONGODB_URI`: Your MongoDB connection string
    - `NEXTAUTH_SECRET`: A secure secret key (minimum 32 characters)
-   - `NEXTAUTH_URL`: Your Vercel deployment URL
-4. Deploy the project
+   - `NEXTAUTH_URL`: Your Vercel deployment URL (e.g., https://kdsms-client-demo-version.vercel.app)
+6. Deploy the project
 
-The project will be automatically deployed as "client-demo-version" on Vercel.
+The project will be automatically deployed as "kdsms-client-demo-version" on Vercel.
+
+**DEPLOYMENT SEPARATION:**
+- Main Production: Deploy from `main` branch
+- Client Demo: Deploy from `client-demo-version` branch
+- Keep these deployments completely separate
 
 ## Project Structure
 

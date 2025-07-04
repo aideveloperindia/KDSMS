@@ -1,6 +1,7 @@
 import { getToken } from 'next-auth/jwt';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { getRoleBasedRedirectPath } from '@/lib/utils';
 
 // Public paths that don't require authentication
 const publicPaths = [
@@ -27,8 +28,15 @@ export async function middleware(request: NextRequest) {
   }
 
   if (token && (request.nextUrl.pathname === '/auth/login' || request.nextUrl.pathname === '/auth/signup')) {
-    // Redirect to dashboard if trying to access auth pages while logged in
-    return NextResponse.redirect(new URL('/dashboard', request.url));
+    // Redirect to role-specific page if trying to access auth pages while logged in
+    const roleBasedPath = getRoleBasedRedirectPath(token.role as string);
+    return NextResponse.redirect(new URL(roleBasedPath, request.url));
+  }
+
+  // Redirect authenticated users from root path to role-specific dashboard
+  if (token && request.nextUrl.pathname === '/') {
+    const roleBasedPath = getRoleBasedRedirectPath(token.role as string);
+    return NextResponse.redirect(new URL(roleBasedPath, request.url));
   }
 
   return NextResponse.next();

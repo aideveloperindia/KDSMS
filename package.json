@@ -56,6 +56,5 @@
     "mongodb"
   ],
   "author": "Karimnagar Dairy",
-  "license": "ISC",
-  "type": "commonjs"
+  "license": "ISC"
 }

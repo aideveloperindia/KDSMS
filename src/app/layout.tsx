@@ -8,6 +8,15 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'KDSMS - Karimnagar Dairy Sales Management System',
   description: 'Manage and track dairy sales efficiently',
+  icons: {
+    icon: [
+      { url: '/favicon.png' },
+      { url: '/icon.png' }
+    ],
+    shortcut: '/favicon.png',
+    apple: '/icon.png',
+  },
+  manifest: '/manifest.json'
 };
 
 export default function RootLayout({
@@ -17,6 +26,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
+      </head>
       <body className={inter.className}>
         <LayoutProvider>
           {children}

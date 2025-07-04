@@ -1,10 +1,10 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
 async function setupUsers() {
   try {
     console.log('Setting up users...');
     
-    const response = await fetch('http://localhost:3004/api/auth/setup-users', {
+    const response = await fetch('http://localhost:3003/api/auth/setup-users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

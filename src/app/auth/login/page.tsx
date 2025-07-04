@@ -26,7 +26,8 @@ export default function LoginPage() {
       if (result?.error) {
         setError('Invalid employee ID or password');
       } else {
-        router.push('/dashboard');
+        // Force a full page reload to ensure session is properly set
+        window.location.href = '/';
       }
     } catch (error) {
       setError('An error occurred. Please try again.');

@@ -13,8 +13,11 @@ interface IUserDocument extends Document {
   employeeId: string;
   role: UserRole;
   zone?: number;
+  zoneName?: string;
   area?: number;
+  areaName?: string;
   subArea?: number;
+  subAreaName?: string;
   comparePassword(candidatePassword: string): Promise<boolean>;
 }
 
@@ -23,8 +26,11 @@ declare module 'next-auth' {
     user: {
       role?: UserRole;
       zone?: number;
+      zoneName?: string;
       area?: number;
+      areaName?: string;
       subArea?: number;
+      subAreaName?: string;
       employeeId?: string;
     } & DefaultSession['user']
   }
@@ -32,8 +38,11 @@ declare module 'next-auth' {
   interface User {
     role?: UserRole;
     zone?: number;
+    zoneName?: string;
     area?: number;
+    areaName?: string;
     subArea?: number;
+    subAreaName?: string;
     employeeId?: string;
   }
 }
@@ -85,8 +94,11 @@ export const authOptions: AuthOptions = {
             employeeId: user.employeeId,
             role: user.role,
             zone: user.zone,
+            zoneName: user.zoneName,
             area: user.area,
-            subArea: user.subArea
+            areaName: user.areaName,
+            subArea: (user as any).subArea,
+            subAreaName: user.subAreaName
           };
         } catch (error) {
           console.error('Auth error:', error);
@@ -104,7 +116,10 @@ export const authOptions: AuthOptions = {
       if (user) {
         token.role = user.role;
         token.zone = user.zone;
+        token.zoneName = user.zoneName;
         token.area = user.area;
+        token.areaName = user.areaName;
+        token.subAreaName = user.subAreaName;
         token.subArea = user.subArea;
         token.employeeId = user.employeeId;
       }
@@ -114,7 +129,10 @@ export const authOptions: AuthOptions = {
       if (token && session.user) {
         session.user.role = token.role as UserRole;
         session.user.zone = token.zone as number;
+        session.user.zoneName = token.zoneName as string;
         session.user.area = token.area as number;
+        session.user.areaName = token.areaName as string;
+        session.user.subAreaName = token.subAreaName as string;
         session.user.subArea = token.subArea as number;
         session.user.employeeId = token.employeeId as string;
       }

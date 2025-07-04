@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 interface Sale {
@@ -21,6 +22,7 @@ interface Sale {
 }
 
 export default function SalesHistory() {
+  const { data: session } = useSession();
   const [sales, setSales] = useState<Sale[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -28,6 +30,9 @@ export default function SalesHistory() {
     date: new Date().toISOString().split('T')[0],
     zone: ''
   });
+
+  // Check if user should see zone filters (only ZM, AGM, Management)
+  const canViewZoneFilters = session?.user?.role && ['zm', 'agm', 'management'].includes(session.user.role);
 
   const fetchSales = async () => {
     try {
@@ -90,14 +95,8 @@ export default function SalesHistory() {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
+        <div className="mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Sales History</h1>
-          <Link 
-            href="/dashboard"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >
-            Back to Dashboard
-          </Link>
         </div>
 
         {error && (
@@ -108,7 +107,7 @@ export default function SalesHistory() {
 
         {/* Filters */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className={`grid gap-4 ${canViewZoneFilters ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-1'}`}>
             <div>
               <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
                 Date
@@ -122,23 +121,25 @@ export default function SalesHistory() {
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            <div>
-              <label htmlFor="zone" className="block text-sm font-medium text-gray-700 mb-1">
-                Zone
-              </label>
-              <select
-                id="zone"
-                name="zone"
-                value={filter.zone}
-                onChange={handleFilterChange}
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">All Zones</option>
-                <option value="Zone A">Zone A</option>
-                <option value="Zone B">Zone B</option>
-                <option value="Zone C">Zone C</option>
-              </select>
-            </div>
+            {canViewZoneFilters && (
+              <div>
+                <label htmlFor="zone" className="block text-sm font-medium text-gray-700 mb-1">
+                  Zone
+                </label>
+                <select
+                  id="zone"
+                  name="zone"
+                  value={filter.zone}
+                  onChange={handleFilterChange}
+                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">All Zones</option>
+                  <option value="Zone A">Zone A</option>
+                  <option value="Zone B">Zone B</option>
+                  <option value="Zone C">Zone C</option>
+                </select>
+              </div>
+            )}
           </div>
         </div>
 

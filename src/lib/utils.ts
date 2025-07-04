@@ -75,13 +75,13 @@ export const getZonesForAGM = (): number[] => {
 
 export const getRoleBasedRedirectPath = (role: string): string => {
   const roleMap: { [key: string]: string } = {
-    'agent': '/sales/daily',
+    'agent': '/agents',
     'executive': '/agents',
-    'zm': '/zones',
-    'agm': '/zones',
+    'zm': '/zm',
+    'agm': '/agm',
     'management': '/management'
   };
-  return roleMap[role] || '/dashboard';
+  return roleMap[role] || '/agents';
 };
 
 export const canAccessArea = (userRole: string, userArea: number | undefined, targetArea: number): boolean => {

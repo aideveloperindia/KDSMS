@@ -21,7 +21,6 @@ interface IUser {
   areaName?: string;
   subArea?: number;
   subAreaName?: string;
-  subAreaCode?: string;
   isActive: boolean;
   lastLogin?: Date;
   createdAt: Date;
@@ -61,14 +60,6 @@ const UserSchema = new mongoose.Schema<IUserDocument>({
     type: Number,
     required: function(this: IUserDocument): boolean {
       return ['agent', 'executive', 'zm'].includes(this.role);
-    },
-    min: 1,
-    max: 6,
-    validate: {
-      validator: function(this: IUserDocument, value: number): boolean {
-        return !this.zone || (value >= 1 && value <= 6);
-      },
-      message: 'Zone number must be between 1 and 6'
     }
   },
   zoneName: {
@@ -79,17 +70,6 @@ const UserSchema = new mongoose.Schema<IUserDocument>({
     type: Number,
     required: function(this: IUserDocument): boolean {
       return ['agent', 'executive'].includes(this.role);
-    },
-    min: 1,
-    max: 24,
-    validate: {
-      validator: function(this: IUserDocument, value: number): boolean {
-        if (!this.area) return true;
-        if (value < 1 || value > 24) return false;
-        const expectedZone = Math.ceil(value / 4);
-        return this.zone === expectedZone;
-      },
-      message: 'Invalid area number or area does not belong to the assigned zone'
     }
   },
   areaName: {
@@ -100,26 +80,14 @@ const UserSchema = new mongoose.Schema<IUserDocument>({
     type: Number,
     required: function(this: IUserDocument): boolean {
       return this.role === 'agent';
-    },
-    min: 1,
-    max: 480,
-    validate: {
-      validator: function(this: IUserDocument, value: number): boolean {
-        if (!this.subArea) return true;
-        if (value < 1 || value > 480) return false;
-        const expectedArea = Math.ceil(value / 20);
-        return this.area === expectedArea;
-      },
-      message: 'Invalid sub-area number or sub-area does not belong to the assigned area'
     }
   },
   subAreaName: {
     type: String,
-    trim: true
-  },
-  subAreaCode: {
-    type: String,
-    trim: true
+    trim: true,
+    required: function(this: IUserDocument): boolean {
+      return this.role === 'agent';
+    }
   },
   isActive: {
     type: Boolean,
@@ -157,6 +125,11 @@ UserSchema.methods.comparePassword = async function(this: IUserDocument, candida
   return bcrypt.compare(candidatePassword, this.password);
 };
 
-const User = (mongoose.models.User as IUserModel) || mongoose.model<IUserDocument, IUserModel>('User', UserSchema);
+// Drop the existing model to apply schema changes
+if (mongoose.models.User) {
+  delete mongoose.models.User;
+}
+
+const User = mongoose.model<IUserDocument, IUserModel>('User', UserSchema);
 
 export default User; 

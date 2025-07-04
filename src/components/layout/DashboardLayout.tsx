@@ -12,7 +12,7 @@ interface User {
   role: 'agent' | 'executive' | 'zm' | 'agm' | 'management';
   zone?: number;
   area?: number;
-  subArea?: number;
+  subAreaName?: string;
   employeeId: string;
 }
 
@@ -33,7 +33,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         role: session.user.role || 'agent',
         zone: session.user.zone,
         area: session.user.area,
-        subArea: session.user.subArea,
+        subAreaName: session.user.subAreaName,
         employeeId: session.user.employeeId || ''
       });
     }
@@ -81,7 +81,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       { label: 'Company Sales', href: '/sales/history' }
     ],
     management: [
-      { label: 'Company Overview', href: '/dashboard' },
+      { label: 'Company Overview', href: '/management' },
       { label: 'User Management', href: '/management' },
       { label: 'Company Sales', href: '/sales/history' }
     ]
@@ -106,7 +106,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col">
-        <Header user={user} />
+        <Header />
         <div className="flex-1 flex">
           <Sidebar menuItems={currentMenuItems} user={user} />
           <main className="flex-1 p-6">

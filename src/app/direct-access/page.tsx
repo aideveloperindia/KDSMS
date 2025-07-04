@@ -157,7 +157,7 @@ export default function DirectAccessPage() {
           {/* Hierarchical Dashboard Selection */}
           <div className="mb-12">
             {/* First Row: Management, AGM, Zone Manager */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto mb-8">
               {firstRowDashboards.map((dashboard, index) => (
                 <Link
                   key={dashboard.role}
@@ -211,7 +211,7 @@ export default function DirectAccessPage() {
             </div>
 
             {/* Second Row: Executive (aligned under Management), Agent (aligned under Zone Manager) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
               {/* Executive - positioned in first column (under Management) */}
               <Link
                 href={secondRowDashboards[0].path}

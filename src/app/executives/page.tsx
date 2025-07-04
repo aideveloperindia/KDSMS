@@ -50,7 +50,7 @@ export default function ExecutivePage() {
 
   return (
     <div 
-      className="min-h-screen p-6 bg-cover bg-center bg-no-repeat bg-fixed relative pt-20"
+      className="min-h-screen p-4 sm:p-6 bg-cover bg-center bg-no-repeat bg-fixed relative pt-16 sm:pt-20"
       style={{ 
         backgroundImage: 'url("/kdsms executive.png")',
         minHeight: '100vh'
@@ -68,18 +68,18 @@ export default function ExecutivePage() {
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="mb-6 bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-          <div className="flex justify-between items-center">
+        <div className="mb-6 bg-white/80 backdrop-blur-sm rounded-lg p-4 sm:p-6 shadow-lg">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
           <div>
-              <h1 className="text-3xl font-bold text-gray-800">Executive Dashboard</h1>
-              <p className="text-gray-600 text-lg">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Executive Dashboard</h1>
+              <p className="text-gray-600 text-base sm:text-lg">
                 {userData.areaName} • Zone {userData.zone} • Area {userData.area}
               </p>
               <p className="text-gray-600">Managing 20 Agents</p>
           </div>
           <Link 
               href="/direct-access"
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors text-center sm:text-left whitespace-nowrap"
           >
               ← Back to Dashboard Menu
           </Link>
@@ -87,35 +87,35 @@ export default function ExecutivePage() {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Today's Total</h3>
-            <p className="text-3xl font-bold text-green-600">₹{formatNumber(totalSales)}</p>
-            <p className="text-sm text-gray-600">{Math.round(totalSales/100)} Liters</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-6">
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6">
+            <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">Today's Total</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-green-600">₹{formatNumber(totalSales)}</p>
+            <p className="text-xs sm:text-sm text-gray-600">{Math.round(totalSales/100)} Liters</p>
           </div>
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Active Agents</h3>
-            <p className="text-3xl font-bold text-blue-600">{agents.length}</p>
-            <p className="text-sm text-gray-600">All reporting</p>
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6">
+            <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">Active Agents</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-blue-600">{agents.length}</p>
+            <p className="text-xs sm:text-sm text-gray-600">All reporting</p>
           </div>
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Average Sales</h3>
-            <p className="text-3xl font-bold text-purple-600">₹{formatNumber(Math.round(avgSales))}</p>
-            <p className="text-sm text-gray-600">Per agent</p>
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6">
+            <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">Average Sales</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-purple-600">₹{formatNumber(Math.round(avgSales))}</p>
+            <p className="text-xs sm:text-sm text-gray-600">Per agent</p>
           </div>
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Performance</h3>
-            <p className="text-3xl font-bold text-orange-600">98%</p>
-            <p className="text-sm text-gray-600">Target achieved</p>
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6">
+            <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">Performance</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-orange-600">98%</p>
+            <p className="text-xs sm:text-sm text-gray-600">Target achieved</p>
           </div>
         </div>
 
         {/* Agents Table */}
         <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-800">My Agents - Daily Performance</h2>
+          <div className="px-4 sm:px-6 py-4 border-b border-gray-200">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-800">My Agents - Daily Performance</h2>
           </div>
-          <div className="p-6">
+          <div className="p-4 sm:p-6">
           <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -161,31 +161,31 @@ export default function ExecutivePage() {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-6">
           <Link 
             href="/sales/daily"
-            className="bg-green-500 hover:bg-green-600 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 block text-center"
+            className="bg-green-500 hover:bg-green-600 text-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 block text-center"
             onClick={() => {
               // Set session storage to indicate executive is navigating to sales page
               sessionStorage.setItem('salesPageSource', 'executive');
             }}
           >
-            <div className="text-4xl mb-3">📝</div>
-            <h3 className="text-xl font-bold mb-2">Daily Sales Entry</h3>
-            <p className="opacity-90">Record today's milk sales data</p>
+            <div className="text-3xl sm:text-4xl mb-3">📝</div>
+            <h3 className="text-lg sm:text-xl font-bold mb-2">Daily Sales Entry</h3>
+            <p className="opacity-90 text-sm sm:text-base">Record today's milk sales data</p>
           </Link>
           
           <Link 
             href="/sales/history"
-            className="bg-blue-500 hover:bg-blue-600 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 block text-center"
+            className="bg-blue-500 hover:bg-blue-600 text-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 block text-center"
             onClick={() => {
               // Set session storage to indicate executive is navigating to sales page
               sessionStorage.setItem('salesPageSource', 'executive');
             }}
           >
-            <div className="text-4xl mb-3">📊</div>
-            <h3 className="text-xl font-bold mb-2">Area Sales Report</h3>
-            <p className="opacity-90">View detailed sales analytics for your area</p>
+            <div className="text-3xl sm:text-4xl mb-3">📊</div>
+            <h3 className="text-lg sm:text-xl font-bold mb-2">Area Sales Report</h3>
+            <p className="opacity-90 text-sm sm:text-base">View detailed sales analytics for your area</p>
           </Link>
         </div>
       </div>

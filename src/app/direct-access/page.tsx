@@ -140,11 +140,11 @@ export default function DirectAccessPage() {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10" style={{ paddingTop: '140px' }}>
           {/* Main Page Title */}
-          <div className={`text-center mb-12 transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h2 className="text-4xl font-bold text-white mb-4 bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-clip-text text-transparent animate-pulse">
+          <div className={`text-center mb-8 md:mb-12 transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} px-4 sm:px-0`}>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-clip-text text-transparent animate-pulse">
               Business Leadership Hierarchy
             </h2>
-            <p className="text-xl text-white/80 animate-fade-in mb-6">
+            <p className="text-lg sm:text-xl text-white/80 animate-fade-in mb-6 leading-relaxed">
               Each role engineered for maximum business impact and strategic control
             </p>
             
@@ -157,7 +157,7 @@ export default function DirectAccessPage() {
           {/* Hierarchical Dashboard Selection */}
           <div className="mb-12">
             {/* First Row: Management, AGM, Zone Manager */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-8">
               {firstRowDashboards.map((dashboard, index) => (
                 <Link
                   key={dashboard.role}
@@ -173,7 +173,7 @@ export default function DirectAccessPage() {
                     <span className="text-xs font-semibold">{dashboard.hierarchy}</span>
                   </div>
 
-                  <div className="p-8 relative z-10">
+                  <div className="p-6 sm:p-8 relative z-10">
                     <div className="flex items-center mb-6">
                       <div className="p-3 bg-white/20 rounded-xl mr-4 backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
                         {dashboard.icon}
@@ -211,7 +211,7 @@ export default function DirectAccessPage() {
             </div>
 
             {/* Second Row: Executive (aligned under Management), Agent (aligned under Zone Manager) */}
-            <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
               {/* Executive - positioned in first column (under Management) */}
               <Link
                 href={secondRowDashboards[0].path}

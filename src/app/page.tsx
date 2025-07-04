@@ -46,10 +46,10 @@ export default function LandingPage() {
                 <span className="ml-2 text-xl font-bold text-white">KDSMS</span>
               </div>
               
-              <nav className="hidden md:flex space-x-8">
-                <Link href="#features" className="text-white/80 hover:text-white transition-colors">Features</Link>
-                <Link href="#about" className="text-white/80 hover:text-white transition-colors">About</Link>
-                <Link href="#contact" className="text-white/80 hover:text-white transition-colors">Contact</Link>
+              <nav className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-8 text-sm sm:text-base">
+                <Link href="#features" className="text-white/80 hover:text-white transition-colors text-center sm:text-left">Features</Link>
+                <Link href="#about" className="text-white/80 hover:text-white transition-colors text-center sm:text-left">About</Link>
+                <Link href="#contact" className="text-white/80 hover:text-white transition-colors text-center sm:text-left">Contact</Link>
               </nav>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function LandingPage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className={`transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               {/* Hero Title */}
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
                 Karimnagar Dairy
                 <br />
                 <span className="bg-gradient-to-r from-yellow-200 via-white to-yellow-200 bg-clip-text text-transparent">
@@ -69,9 +69,9 @@ export default function LandingPage() {
               </h1>
               
               {/* Hero Subtitle */}
-              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 leading-relaxed px-4 sm:px-0">
                 Revolutionary sales tracking and management system powering
-                <br />
+                <br className="hidden sm:block" />
                 <span className="font-semibold text-yellow-200">dairy sales operations</span> across multiple regions
               </p>
               
@@ -92,12 +92,12 @@ export default function LandingPage() {
               </div>
               
               {/* Call to Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 sm:px-0">
                 <Link
                   href="/demo-login"
-                  className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-blue-500 hover:border-blue-400"
+                  className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-6 sm:px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-blue-500 hover:border-blue-400 w-full sm:w-auto text-center"
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center justify-center">
                     <svg className="w-5 h-5 mr-2 group-hover:animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
@@ -107,8 +107,8 @@ export default function LandingPage() {
               </div>
               
               {/* Features Preview */}
-              <div className="mt-16 text-white/60 text-sm">
-                <p>✨ Real-time sales tracking • 📊 Advanced analytics • 🎯 Performance monitoring • 🚀 Instant reporting</p>
+              <div className="mt-16 text-white/60 text-xs sm:text-sm px-4 sm:px-0">
+                <p className="text-center leading-relaxed">✨ Real-time sales tracking • 📊 Advanced analytics • 🎯 Performance monitoring • 🚀 Instant reporting</p>
               </div>
             </div>
           </div>

@@ -49,7 +49,7 @@ declare module 'next-auth' {
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: 'Credentials',

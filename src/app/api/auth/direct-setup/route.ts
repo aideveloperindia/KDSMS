@@ -1,185 +1,119 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import User from '@/models/User';
 import bcrypt from 'bcryptjs';
 
-const SETUP_KEY = 'kdsms-setup-2024';
-
-// Hardcoded user data - all 512 users
-const createAllUsers = () => {
-  const users: any[] = [];
-  
-  // Management
-  users.push({
-    name: 'Tarun',
-    employeeId: 'MGMT-001',
-    password: 'password123',
-    role: 'management'
-  });
-  
-  // AGM
-  users.push({
-    name: 'Varun',
-    employeeId: 'AGM-001',
-    password: 'password123',
-    role: 'agm'
-  });
-  
-  // Zone Managers
-  const zoneManagers = [
-    { name: 'Reddy Rajesh', zone: 1, zoneName: 'Karimnagar Central' },
-    { name: 'Sharma Suresh', zone: 2, zoneName: 'Karimnagar East' },
-    { name: 'Shetty Ramesh', zone: 3, zoneName: 'Karimnagar West' },
-    { name: 'Shetty Sharma', zone: 4, zoneName: 'Karimnagar Rural' },
-    { name: 'Chary Mahesh', zone: 5, zoneName: 'Karimnagar South' },
-    { name: 'Sai Dinesh', zone: 6, zoneName: 'Karimnagar North' }
-  ];
-  
-  zoneManagers.forEach((zm, index) => {
-    users.push({
-      name: zm.name,
-      employeeId: `ZM-Z${zm.zone}-001`,
-      password: 'password123',
-      role: 'zm',
-      zone: zm.zone,
-      zoneName: zm.zoneName
-    });
-  });
-  
-  // Executives and Agents for each area
-  const areas = [
-    // Zone 1 areas (1-4)
-    { area: 1, zone: 1, zoneName: 'Karimnagar Central', areaName: 'Kothirampur Colony' },
-    { area: 2, zone: 1, zoneName: 'Karimnagar Central', areaName: 'Vavilalapalli' },
-    { area: 3, zone: 1, zoneName: 'Karimnagar Central', areaName: 'Gopalapuram' },
-    { area: 4, zone: 1, zoneName: 'Karimnagar Central', areaName: 'Rampur' },
-    
-    // Zone 2 areas (5-8)
-    { area: 5, zone: 2, zoneName: 'Karimnagar East', areaName: 'Choppadandi Road' },
-    { area: 6, zone: 2, zoneName: 'Karimnagar East', areaName: 'Mankamma Thota' },
-    { area: 7, zone: 2, zoneName: 'Karimnagar East', areaName: 'Ujwala Nagar' },
-    { area: 8, zone: 2, zoneName: 'Karimnagar East', areaName: 'Deshrajpally' },
-    
-    // Zone 3 areas (9-12)
-    { area: 9, zone: 3, zoneName: 'Karimnagar West', areaName: 'Ramnagar' },
-    { area: 10, zone: 3, zoneName: 'Karimnagar West', areaName: 'Sapthagiri Colony' },
-    { area: 11, zone: 3, zoneName: 'Karimnagar West', areaName: 'Rekurthi' },
-    { area: 12, zone: 3, zoneName: 'Karimnagar West', areaName: 'Bommakal' },
-    
-    // Zone 4 areas (13-16)
-    { area: 13, zone: 4, zoneName: 'Karimnagar Rural', areaName: 'Kothapalli' },
-    { area: 14, zone: 4, zoneName: 'Karimnagar Rural', areaName: 'Laxmipur' },
-    { area: 15, zone: 4, zoneName: 'Karimnagar Rural', areaName: 'Manakondur' },
-    { area: 16, zone: 4, zoneName: 'Karimnagar Rural', areaName: 'Thimmapur' },
-    
-    // Zone 5 areas (17-20)
-    { area: 17, zone: 5, zoneName: 'Karimnagar South', areaName: 'Alugunur' },
-    { area: 18, zone: 5, zoneName: 'Karimnagar South', areaName: 'Chintakunta' },
-    { area: 19, zone: 5, zoneName: 'Karimnagar South', areaName: 'Kothapalli' },
-    { area: 20, zone: 5, zoneName: 'Karimnagar South', areaName: 'Ramnagar' },
-    
-    // Zone 6 areas (21-24)
-    { area: 21, zone: 6, zoneName: 'Karimnagar North', areaName: 'Manakondur' },
-    { area: 22, zone: 6, zoneName: 'Karimnagar North', areaName: 'Sultanabad' },
-    { area: 23, zone: 6, zoneName: 'Karimnagar North', areaName: 'Boinpally' },
-    { area: 24, zone: 6, zoneName: 'Karimnagar North', areaName: 'Kataram' }
-  ];
-  
-  // Sample names for variety
-  const executiveNames = [
-    'Reddy Suresh', 'Sharma Mahesh', 'Shetty Rajesh', 'Chary Ramesh', 'Sai Kumar',
-    'Patel Dinesh', 'Reddy Naresh', 'Sharma Ganesh', 'Shetty Venkat', 'Chary Anil',
-    'Sai Prakash', 'Patel Ravi', 'Reddy Kiran', 'Sharma Mohan', 'Shetty Arjun',
-    'Chary Deepak', 'Sai Vikram', 'Patel Ashok', 'Reddy Srinu', 'Sharma Balu',
-    'Shetty Chandu', 'Chary Hari', 'Sai Raju', 'Patel Mani'
-  ];
-  
-  const agentNames = [
-    'Reddy Santosh', 'Sharma Vamshi', 'Shetty Divya', 'Chary Soumya', 'Sai Sneha',
-    'Patel Srinivas', 'Reddy Harsha', 'Sharma Bhavana', 'Shetty Lavanya', 'Chary Tejaswi',
-    'Sai Harika', 'Patel Swathi', 'Reddy Anusha', 'Sharma Nikhil', 'Shetty Tarun',
-    'Chary Arun', 'Sai Anil', 'Patel Manoj', 'Reddy Ramesh', 'Sharma Kiran'
-  ];
-  
-  areas.forEach((areaInfo, areaIndex) => {
-    // Add Executive for this area
-    users.push({
-      name: executiveNames[areaIndex % executiveNames.length],
-      employeeId: `EXE-Z${areaInfo.zone}A${areaIndex + 1}-001`,
-      password: 'password123',
-      role: 'executive',
-      zone: areaInfo.zone,
-      zoneName: areaInfo.zoneName,
-      area: areaInfo.area,
-      areaName: areaInfo.areaName
-    });
-    
-    // Add 20 Agents for this area
-    for (let agentNum = 1; agentNum <= 20; agentNum++) {
-      const subArea = (areaInfo.area - 1) * 20 + agentNum;
-      const subAreaName = `Sub Area ${subArea}`;
-      
-      users.push({
-        name: agentNames[(agentNum - 1) % agentNames.length],
-        employeeId: `AGT-Z${areaInfo.zone}A${areaIndex + 1}-${agentNum.toString().padStart(3, '0')}`,
-        password: 'password123',
-        role: 'agent',
-        zone: areaInfo.zone,
-        zoneName: areaInfo.zoneName,
-        area: areaInfo.area,
-        areaName: areaInfo.areaName,
-        subArea: subArea,
-        subAreaName: subAreaName
-      });
-    }
-  });
-  
-  return users;
-};
-
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
-    const { setupKey } = await request.json();
-
-    if (setupKey !== SETUP_KEY) {
-      return NextResponse.json({ 
-        success: false, 
-        error: 'Invalid setup key' 
-      }, { status: 401 });
-    }
-
     await connectDB();
-    console.log('Connected to database for direct setup');
-
-    // Create all users
-    const users = createAllUsers();
-    console.log(`Generated ${users.length} users`);
 
     // Clear existing users
     await User.deleteMany({});
-    console.log('Cleared existing users');
 
-    // Hash passwords and create users
-    const usersWithHashedPasswords = await Promise.all(
-      users.map(async (user) => ({
-        ...user,
-        password: await bcrypt.hash(user.password, 10)
-      }))
-    );
+    // Create all users with hardcoded data
+    const createdUsers = [];
+    const hashedPassword = await bcrypt.hash('password123', 10);
 
-    await User.insertMany(usersWithHashedPasswords);
-    console.log(`Created ${users.length} users successfully`);
+    // Management and AGM
+    const managementUsers = [
+      { employeeId: 'MGMT-001', name: 'Tarun', role: 'Management', zone: 0, area: 0, subArea: 0, subAreaName: 'Management Office' },
+      { employeeId: 'AGM-001', name: 'Varun', role: 'AGM', zone: 0, area: 0, subArea: 0, subAreaName: 'AGM Office' }
+    ];
 
-    return NextResponse.json({ 
-      success: true, 
-      message: 'All users created successfully',
-      count: users.length
+    // Zone Managers
+    const zoneManagers = [
+      { employeeId: 'ZM-Z1-001', name: 'Reddy Rajesh', role: 'Zone Manager', zone: 1, area: 0, subArea: 0, subAreaName: 'Zone 1 Office' },
+      { employeeId: 'ZM-Z2-001', name: 'Patel Suresh', role: 'Zone Manager', zone: 2, area: 0, subArea: 0, subAreaName: 'Zone 2 Office' },
+      { employeeId: 'ZM-Z3-001', name: 'Sharma Vikram', role: 'Zone Manager', zone: 3, area: 0, subArea: 0, subAreaName: 'Zone 3 Office' },
+      { employeeId: 'ZM-Z4-001', name: 'Yadav Ramesh', role: 'Zone Manager', zone: 4, area: 0, subArea: 0, subAreaName: 'Zone 4 Office' },
+      { employeeId: 'ZM-Z5-001', name: 'Goud Prasad', role: 'Zone Manager', zone: 5, area: 0, subArea: 0, subAreaName: 'Zone 5 Office' },
+      { employeeId: 'ZM-Z6-001', name: 'Shetty Kiran', role: 'Zone Manager', zone: 6, area: 0, subArea: 0, subAreaName: 'Zone 6 Office' }
+    ];
+
+    // Sample Executives and Agents (I'll create a representative set)
+    const executives = [];
+    const agents = [];
+
+    // Create 24 executives (4 per zone)
+    for (let zone = 1; zone <= 6; zone++) {
+      for (let area = 1; area <= 4; area++) {
+        const globalArea = (zone - 1) * 4 + area;
+        executives.push({
+          employeeId: `EXE-Z${zone}A${area}-001`,
+          name: `Executive ${zone}-${area}`,
+          role: 'Executive',
+          zone: zone,
+          area: globalArea,
+          subArea: 0,
+          subAreaName: `Area ${area} Office`
+        });
+      }
+    }
+
+    // Create 480 agents (20 per area)
+    for (let zone = 1; zone <= 6; zone++) {
+      for (let area = 1; area <= 4; area++) {
+        const globalArea = (zone - 1) * 4 + area;
+        for (let agent = 1; agent <= 20; agent++) {
+          const subArea = (globalArea - 1) * 20 + agent;
+          agents.push({
+            employeeId: `AGT-Z${zone}A${area}-${agent.toString().padStart(3, '0')}`,
+            name: `Agent ${zone}-${area}-${agent}`,
+            role: 'Agent',
+            zone: zone,
+            area: globalArea,
+            subArea: subArea,
+            subAreaName: `Sub Area ${subArea}`
+          });
+        }
+      }
+    }
+
+    // Combine all users
+    const allUsers = [...managementUsers, ...zoneManagers, ...executives, ...agents];
+
+    // Create users in database
+    for (const userData of allUsers) {
+      const user = new User({
+        employeeId: userData.employeeId,
+        name: userData.name,
+        role: userData.role,
+        zone: userData.zone,
+        area: userData.area,
+        subArea: userData.subArea,
+        subAreaName: userData.subAreaName,
+        password: hashedPassword
+      });
+      
+      await user.save();
+      createdUsers.push(user);
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: `Successfully created ${createdUsers.length} users`,
+      breakdown: {
+        management: managementUsers.length,
+        agm: 1,
+        zoneManagers: zoneManagers.length,
+        executives: executives.length,
+        agents: agents.length
+      },
+      sampleUsers: [
+        { username: 'MGMT-001', password: 'password123', role: 'Management' },
+        { username: 'AGM-001', password: 'password123', role: 'AGM' },
+        { username: 'ZM-Z1-001', password: 'password123', role: 'Zone Manager' },
+        { username: 'EXE-Z1A1-001', password: 'password123', role: 'Executive' },
+        { username: 'AGT-Z1A1-001', password: 'password123', role: 'Agent' },
+        { username: 'AGT-Z5A1-008', password: 'password123', role: 'Agent' }
+      ]
     });
+
   } catch (error) {
-    console.error('Error in direct setup:', error);
-    return NextResponse.json({ 
-      success: false, 
-      error: 'Failed to setup users' 
+    console.error('Direct setup error:', error);
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 });
   }
 } 

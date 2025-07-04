@@ -31,17 +31,8 @@ export default function LandingPage() {
 
       {/* Overlay for better text readability */}
       <div className="min-h-screen bg-black/40">
-        {/* CLIENT DEMO VERSION Banner */}
-        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-red-600 to-red-700 text-white text-center py-2 shadow-lg">
-          <div className="flex items-center justify-center space-x-2">
-            <span className="animate-pulse">🚨</span>
-            <span className="font-bold text-sm md:text-base">CLIENT DEMO VERSION - FOR DEMONSTRATION PURPOSES ONLY</span>
-            <span className="animate-pulse">🚨</span>
-          </div>
-        </div>
-
         {/* Navigation Header */}
-        <header className="absolute top-12 left-0 right-0 z-40">
+        <header className="absolute top-0 left-0 right-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-6">
               <div className="flex items-center">

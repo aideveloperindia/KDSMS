@@ -179,20 +179,20 @@ export default function DirectAccessPage() {
                         {dashboard.icon}
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold group-hover:text-white transition-colors duration-300">{dashboard.role}</h3>
+                        <h3 className="text-xl sm:text-2xl font-bold group-hover:text-white transition-colors duration-300">{dashboard.role}</h3>
                         <p className={`text-sm ${dashboard.textColor} opacity-90 group-hover:opacity-100 transition-opacity duration-300`}>
                           {dashboard.hierarchy}
                         </p>
                       </div>
                     </div>
                     
-                    <p className="text-white/90 text-base leading-relaxed mb-4 group-hover:text-white transition-colors duration-300">
+                    <p className="text-white/90 text-sm sm:text-base leading-relaxed mb-4 group-hover:text-white transition-colors duration-300">
                       {dashboard.description}
                     </p>
                     
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300">
-                      <p className="text-sm font-medium text-white/80 mb-1 group-hover:text-white transition-colors duration-300">Business Authority:</p>
-                      <p className="text-sm text-white/90 leading-relaxed group-hover:text-white transition-colors duration-300">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300">
+                      <p className="text-xs sm:text-sm font-medium text-white/80 mb-1 group-hover:text-white transition-colors duration-300">Business Authority:</p>
+                      <p className="text-xs sm:text-sm text-white/90 leading-relaxed group-hover:text-white transition-colors duration-300">
                         {dashboard.access}
                       </p>
                     </div>
@@ -226,31 +226,31 @@ export default function DirectAccessPage() {
                   <span className="text-xs font-semibold">{secondRowDashboards[0].hierarchy}</span>
                 </div>
 
-                <div className="p-8 relative z-10">
+                <div className="p-6 sm:p-8 relative z-10">
                   <div className="flex items-center mb-6">
                     <div className="p-3 bg-white/20 rounded-xl mr-4 backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
                       {secondRowDashboards[0].icon}
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold group-hover:text-white transition-colors duration-300">{secondRowDashboards[0].role}</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold group-hover:text-white transition-colors duration-300">{secondRowDashboards[0].role}</h3>
                       <p className={`text-sm ${secondRowDashboards[0].textColor} opacity-90 group-hover:opacity-100 transition-opacity duration-300`}>
                         {secondRowDashboards[0].hierarchy}
                       </p>
                     </div>
                   </div>
                   
-                  <p className="text-white/90 text-base leading-relaxed mb-4 group-hover:text-white transition-colors duration-300">
+                  <p className="text-white/90 text-sm sm:text-base leading-relaxed mb-4 group-hover:text-white transition-colors duration-300">
                     {secondRowDashboards[0].description}
                   </p>
                   
                   {/* Executive Features */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300 mb-4">
-                    <div className="space-y-3">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300 mb-4">
+                    <div className="space-y-2 sm:space-y-3">
                       {secondRowDashboards[0].features.map((feature, index) => (
                         <div key={index} className="flex items-center justify-between p-2 bg-white/5 rounded-lg group-hover:bg-white/10 transition-all duration-300">
                           <div className="flex items-center space-x-3">
                             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                            <div className="text-sm">
+                            <div className="text-xs sm:text-sm">
                               <span className="font-medium text-white/90">{feature.name}</span>
                             </div>
                           </div>
@@ -261,8 +261,8 @@ export default function DirectAccessPage() {
                   </div>
                   
                   {/* Executive Stats */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300">
-                    <p className="text-sm font-medium text-white/80 mb-2 group-hover:text-white transition-colors duration-300">Performance Target:</p>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300">
+                    <p className="text-xs sm:text-sm font-medium text-white/80 mb-2 group-hover:text-white transition-colors duration-300">Performance Target:</p>
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       <div className="text-center">
                         <div className="text-white/90 font-medium animate-pulse">{secondRowDashboards[0].stats.primary}</div>
@@ -286,257 +286,85 @@ export default function DirectAccessPage() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-white/10 via-white/20 to-white/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
               </Link>
 
-              {/* Compact System Demo - positioned in middle column (under AGM) */}
+              {/* System Demo - Middle Column */}
               <div className="group relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-indigo-800 hover:from-indigo-700 hover:via-indigo-800 hover:to-indigo-900 text-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 overflow-hidden border border-white/20 hover:border-white/40 animate-fade-in-up"
                 style={{ animationDelay: '700ms' }}
               >
-                {/* Animated Border Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
                 
-                {/* Demo Badge with Glow */}
                 <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 shadow-lg group-hover:bg-white/30 transition-all duration-300 animate-pulse">
                   <span className="text-xs font-semibold">Live Demo</span>
                 </div>
 
-                <div className="p-6 relative z-10">
+                <div className="p-4 sm:p-6 relative z-10">
                   <div className="flex items-center mb-4">
                     <div className="p-2 bg-white/20 rounded-lg mr-3 backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
-                      <svg className="w-6 h-6 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold group-hover:text-white transition-colors duration-300">
-                        System Flow
+                      <h3 className="text-lg sm:text-xl font-bold group-hover:text-white transition-colors duration-300">
+                        System Flow ✨
                       </h3>
-                      <p className="text-sm text-indigo-100 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-                        Live Data Processing
+                      <p className="text-xs sm:text-sm text-indigo-100 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                        Live Data Magic
                       </p>
                     </div>
                   </div>
                   
                   {/* Extended Auto-Scrolling Data Flow */}
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300 overflow-hidden mb-3">
-                    <div className="h-64 overflow-hidden relative">
+                    <div className="h-48 sm:h-64 overflow-hidden relative">
                       <div className="absolute inset-0">
                         <div className="space-y-2 animate-scroll-escalator">
-                          {/* First Set of Items */}
                           {/* Sales Entry Animation */}
                           <div className="flex items-center justify-between p-2 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg border border-green-400/30">
                             <div className="flex items-center space-x-2">
                               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-green-200">Sales Entry</span>
+                              <span className="text-xs sm:text-sm font-medium text-green-200">Sales Entry</span>
                             </div>
-                            <span className="text-sm font-bold text-green-200 animate-pulse">₹2,917</span>
+                            <span className="text-xs sm:text-sm font-bold text-green-200 animate-pulse">₹2,917</span>
                           </div>
                           
-                          {/* Validation Animation */}
+                          {/* More demo items would continue here */}
                           <div className="flex items-center justify-between p-2 bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 rounded-lg border border-cyan-400/30">
                             <div className="flex items-center space-x-2">
                               <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-cyan-200">Validation</span>
+                              <span className="text-xs sm:text-sm font-medium text-cyan-200">Validation</span>
                             </div>
-                            <span className="text-sm font-bold text-cyan-200 animate-pulse">✓ Valid</span>
+                            <span className="text-xs sm:text-sm font-bold text-cyan-200 animate-pulse">✓ Valid</span>
                           </div>
                           
-                          {/* Processing Animation */}
                           <div className="flex items-center justify-between p-2 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg border border-blue-400/30">
                             <div className="flex items-center space-x-2">
                               <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-blue-200">Processing</span>
+                              <span className="text-xs sm:text-sm font-medium text-blue-200">Processing</span>
                             </div>
-                            <span className="text-sm font-bold text-blue-200 animate-pulse">₹58,340</span>
-                          </div>
-                          
-                          {/* Team Aggregation */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-indigo-500/20 to-indigo-600/20 rounded-lg border border-indigo-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-indigo-200">Team Total</span>
-                            </div>
-                            <span className="text-sm font-bold text-indigo-200 animate-pulse">₹1.16L</span>
-                          </div>
-                          
-                          {/* Zone Aggregation */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-lg border border-purple-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-purple-200">Zone Total</span>
-                            </div>
-                            <span className="text-sm font-bold text-purple-200 animate-pulse">₹7.5L</span>
-                          </div>
-                          
-                          {/* Regional Analytics */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-lg border border-orange-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-orange-200">Regional</span>
-                            </div>
-                            <span className="text-sm font-bold text-orange-200 animate-pulse">₹45L</span>
-                          </div>
-                          
-                          {/* Final Consolidation */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-lg border border-red-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-red-200">Total Revenue</span>
-                            </div>
-                            <span className="text-sm font-bold text-red-200 animate-pulse">₹2.7Cr</span>
-                          </div>
-                          
-                          {/* System Sync */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-pink-500/20 to-pink-600/20 rounded-lg border border-pink-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-pink-200">System Sync</span>
-                            </div>
-                            <span className="text-sm font-bold text-pink-200 animate-pulse">✓ Complete</span>
-                          </div>
-                          
-                          {/* Agent Review */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 rounded-lg border border-emerald-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-emerald-200">Agent Review</span>
-                            </div>
-                            <span className="text-sm font-bold text-emerald-200 animate-pulse">✓ Approved</span>
-                          </div>
-                          
-                          {/* Quality Check */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-teal-500/20 to-teal-600/20 rounded-lg border border-teal-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-teal-200">Quality Check</span>
-                            </div>
-                            <span className="text-sm font-bold text-teal-200 animate-pulse">95% Grade</span>
-                          </div>
-                          
-                          {/* Second Set of Items (Duplicate for continuous scrolling) */}
-                          {/* Sales Entry Animation */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg border border-green-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-green-200">Sales Entry</span>
-                            </div>
-                            <span className="text-sm font-bold text-green-200 animate-pulse">₹3,142</span>
-                          </div>
-                          
-                          {/* Validation Animation */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 rounded-lg border border-cyan-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-cyan-200">Validation</span>
-                            </div>
-                            <span className="text-sm font-bold text-cyan-200 animate-pulse">✓ Valid</span>
-                          </div>
-                          
-                          {/* Processing Animation */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg border border-blue-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-blue-200">Processing</span>
-                            </div>
-                            <span className="text-sm font-bold text-blue-200 animate-pulse">₹62,840</span>
-                          </div>
-                          
-                          {/* Team Aggregation */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-indigo-500/20 to-indigo-600/20 rounded-lg border border-indigo-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-indigo-200">Team Total</span>
-                            </div>
-                            <span className="text-sm font-bold text-indigo-200 animate-pulse">₹1.25L</span>
-                          </div>
-                          
-                          {/* Zone Aggregation */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-lg border border-purple-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-purple-200">Zone Total</span>
-                            </div>
-                            <span className="text-sm font-bold text-purple-200 animate-pulse">₹8.1L</span>
-                          </div>
-                          
-                          {/* Regional Analytics */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-lg border border-orange-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-orange-200">Regional</span>
-                            </div>
-                            <span className="text-sm font-bold text-orange-200 animate-pulse">₹48.5L</span>
-                          </div>
-                          
-                          {/* Final Consolidation */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-lg border border-red-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-red-200">Total Revenue</span>
-                            </div>
-                            <span className="text-sm font-bold text-red-200 animate-pulse">₹2.9Cr</span>
-                          </div>
-                          
-                          {/* System Sync */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-pink-500/20 to-pink-600/20 rounded-lg border border-pink-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-pink-200">System Sync</span>
-                            </div>
-                            <span className="text-sm font-bold text-pink-200 animate-pulse">✓ Complete</span>
-                          </div>
-                          
-                          {/* Agent Review */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 rounded-lg border border-emerald-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-emerald-200">Agent Review</span>
-                            </div>
-                            <span className="text-sm font-bold text-emerald-200 animate-pulse">✓ Approved</span>
-                          </div>
-                          
-                          {/* Quality Check */}
-                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-teal-500/20 to-teal-600/20 rounded-lg border border-teal-400/30">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></div>
-                              <span className="text-sm font-medium text-teal-200">Quality Check</span>
-                            </div>
-                            <span className="text-sm font-bold text-teal-200 animate-pulse">98% Grade</span>
+                            <span className="text-xs sm:text-sm font-bold text-blue-200 animate-pulse">₹58,340</span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Enhanced Performance Grid */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300">
-                    <div className="grid grid-cols-2 gap-2 text-xs">
-                      <div className="text-center">
-                        <div className="text-green-300 font-bold animate-pulse">10L+</div>
-                        <div className="text-white/70">Milk Sold</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-blue-300 font-bold animate-pulse">500 KG</div>
-                        <div className="text-white/70">Curd Sold</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-yellow-300 font-bold animate-pulse">1.5 T</div>
-                        <div className="text-white/70">Sweets Sold</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-purple-300 font-bold animate-pulse">25%</div>
-                        <div className="text-white/70">Growth</div>
-                      </div>
+                  {/* Performance Grid */}
+                  <div className="grid grid-cols-2 gap-2 text-center">
+                    <div className="bg-white/5 rounded-lg p-2 border border-white/10">
+                      <div className="text-xs sm:text-sm font-bold text-green-300 animate-bounce">10L+ Milk Sold</div>
+                      <div className="text-xs text-white/70">Daily Volume</div>
                     </div>
-                  </div>
-                  
-                  {/* Compact Progress Bar */}
-                  <div className="mt-3">
-                    <div className="w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
-                      <div className="bg-gradient-to-r from-green-400 via-blue-500 via-purple-500 via-orange-500 to-red-500 h-1.5 rounded-full animate-pulse" 
-                           style={{ 
-                             width: '100%',
-                             animation: 'shimmer 2s ease-in-out infinite'
-                           }}>
-                      </div>
+                    <div className="bg-white/5 rounded-lg p-2 border border-white/10">
+                      <div className="text-xs sm:text-sm font-bold text-blue-300 animate-pulse">50K L Curd Sold</div>
+                      <div className="text-xs text-white/70">Production</div>
+                    </div>
+                    <div className="bg-white/5 rounded-lg p-2 border border-white/10">
+                      <div className="text-xs sm:text-sm font-bold text-purple-300 animate-ping">1.5 T Sweets Sold</div>
+                      <div className="text-xs text-white/70">Manufacturing</div>
+                    </div>
+                    <div className="bg-white/5 rounded-lg p-2 border border-white/10">
+                      <div className="text-xs sm:text-sm font-bold text-orange-300 animate-bounce">25% Growth</div>
+                      <div className="text-xs text-white/70">Business</div>
                     </div>
                   </div>
                 </div>
@@ -545,7 +373,7 @@ export default function DirectAccessPage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 {/* Animated Bottom Border Accent */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 via-blue-500 via-purple-500 via-orange-500 to-red-500 group-hover:via-white/80 transition-all duration-500 animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white/20 via-white/60 to-white/20 group-hover:via-white/80 transition-all duration-500 animate-pulse"></div>
                 
                 {/* Floating Glow Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-white/10 via-white/20 to-white/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
@@ -557,39 +385,37 @@ export default function DirectAccessPage() {
                 className={`group relative bg-gradient-to-br ${secondRowDashboards[1].color} text-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 block overflow-hidden border border-white/20 hover:border-white/40 animate-fade-in-up`}
                 style={{ animationDelay: '800ms' }}
               >
-                {/* Animated Border Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
                 
-                {/* Hierarchy Badge with Glow */}
                 <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 shadow-lg group-hover:bg-white/30 transition-all duration-300 animate-pulse">
                   <span className="text-xs font-semibold">{secondRowDashboards[1].hierarchy}</span>
                 </div>
 
-                <div className="p-8 relative z-10">
+                <div className="p-6 sm:p-8 relative z-10">
                   <div className="flex items-center mb-6">
                     <div className="p-3 bg-white/20 rounded-xl mr-4 backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
                       {secondRowDashboards[1].icon}
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold group-hover:text-white transition-colors duration-300">{secondRowDashboards[1].role}</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold group-hover:text-white transition-colors duration-300">{secondRowDashboards[1].role}</h3>
                       <p className={`text-sm ${secondRowDashboards[1].textColor} opacity-90 group-hover:opacity-100 transition-opacity duration-300`}>
                         {secondRowDashboards[1].hierarchy}
                       </p>
                     </div>
                   </div>
                   
-                  <p className="text-white/90 text-base leading-relaxed mb-4 group-hover:text-white transition-colors duration-300">
+                  <p className="text-white/90 text-sm sm:text-base leading-relaxed mb-4 group-hover:text-white transition-colors duration-300">
                     {secondRowDashboards[1].description}
                   </p>
                   
                   {/* Agent Features */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300 mb-4">
-                    <div className="space-y-3">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300 mb-4">
+                    <div className="space-y-2 sm:space-y-3">
                       {secondRowDashboards[1].features.map((feature, index) => (
                         <div key={index} className="flex items-center justify-between p-2 bg-white/5 rounded-lg group-hover:bg-white/10 transition-all duration-300">
                           <div className="flex items-center space-x-3">
                             <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                            <div className="text-sm">
+                            <div className="text-xs sm:text-sm">
                               <span className="font-medium text-white/90">{feature.name}</span>
                             </div>
                           </div>
@@ -600,8 +426,8 @@ export default function DirectAccessPage() {
                   </div>
                   
                   {/* Agent Stats */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300">
-                    <p className="text-sm font-medium text-white/80 mb-2 group-hover:text-white transition-colors duration-300">Performance Target:</p>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300">
+                    <p className="text-xs sm:text-sm font-medium text-white/80 mb-2 group-hover:text-white transition-colors duration-300">Monthly Target:</p>
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       <div className="text-center">
                         <div className="text-white/90 font-medium animate-pulse">{secondRowDashboards[1].stats.primary}</div>
@@ -628,83 +454,6 @@ export default function DirectAccessPage() {
           </div>
         </div>
       </div>
-      
-      {/* Custom CSS Animations */}
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-        
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out forwards;
-          opacity: 0;
-        }
-        
-        .animate-fade-in {
-          animation: fade-in 1s ease-out forwards;
-          animation-delay: 0.5s;
-          opacity: 0;
-        }
-        
-        @keyframes animate-scroll-escalator {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(-440px);
-          }
-        }
-        
-        .animate-scroll-escalator {
-          animation: animate-scroll-escalator 20s linear infinite;
-        }
-        
-        @keyframes hierarchyScroll {
-          0% {
-            transform: translateY(0);
-          }
-          20% {
-            transform: translateY(-60px);
-          }
-          40% {
-            transform: translateY(-120px);
-          }
-          60% {
-            transform: translateY(-180px);
-          }
-          80% {
-            transform: translateY(-240px);
-          }
-          100% {
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-      `}</style>
     </div>
   );
 } 

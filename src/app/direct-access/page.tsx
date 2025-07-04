@@ -211,7 +211,7 @@ export default function DirectAccessPage() {
             </div>
 
             {/* Second Row: Executive (aligned under Management), Agent (aligned under Zone Manager) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
               {/* Executive - positioned in first column (under Management) */}
               <Link
                 href={secondRowDashboards[0].path}

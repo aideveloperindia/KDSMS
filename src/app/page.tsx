@@ -34,22 +34,30 @@ export default function LandingPage() {
         {/* Navigation Header */}
         <header className="absolute top-0 left-0 right-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 sm:py-6 gap-4 sm:gap-0">
-              <div className="flex items-center">
-                <Image
-                  src="/icon.png"
-                  alt="KDSMS Logo"
-                  width={40}
-                  height={40}
-                  className="h-10 w-auto"
-                />
-                <span className="ml-2 text-xl font-bold text-white">KDSMS</span>
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 sm:py-6 gap-2 sm:gap-0">
+              <div className="flex items-center justify-between sm:justify-start">
+                <div className="flex items-center">
+                  <Image
+                    src="/icon.png"
+                    alt="KDSMS Logo"
+                    width={40}
+                    height={40}
+                    className="h-10 w-auto"
+                  />
+                  <span className="ml-2 text-xl font-bold text-white">KDSMS</span>
+                </div>
+                
+                <nav className="flex sm:hidden flex-row space-x-3 text-xs">
+                  <Link href="#features" className="text-white/80 hover:text-white transition-colors">Features</Link>
+                  <Link href="#about" className="text-white/80 hover:text-white transition-colors">About</Link>
+                  <Link href="#contact" className="text-white/80 hover:text-white transition-colors">Contact</Link>
+                </nav>
               </div>
               
-              <nav className="flex flex-row sm:flex-row space-x-4 sm:space-x-8 text-sm sm:text-base justify-center sm:justify-end">
-                <Link href="#features" className="text-white/80 hover:text-white transition-colors text-center sm:text-left">Features</Link>
-                <Link href="#about" className="text-white/80 hover:text-white transition-colors text-center sm:text-left">About</Link>
-                <Link href="#contact" className="text-white/80 hover:text-white transition-colors text-center sm:text-left">Contact</Link>
+              <nav className="hidden sm:flex flex-row space-x-8 text-base">
+                <Link href="#features" className="text-white/80 hover:text-white transition-colors">Features</Link>
+                <Link href="#about" className="text-white/80 hover:text-white transition-colors">About</Link>
+                <Link href="#contact" className="text-white/80 hover:text-white transition-colors">Contact</Link>
               </nav>
             </div>
           </div>

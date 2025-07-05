@@ -462,13 +462,13 @@ export default function ProjectQuotationPage() {
               </ul>
             </div>
             <div className="bg-white/20 rounded-lg p-6">
-              <h4 className="text-xl font-semibold mb-4">🎁 Special Offer</h4>
+              <h4 className="text-xl font-semibold mb-4">🎁 Complimentary Service</h4>
               <div className="text-2xl font-bold mb-4">FREE Demo Website!</div>
               <p className="text-lg mb-4">
-                <strong>Condition:</strong> Choose Quotation I or Quotation II
+                Professional demo website development is included at no additional cost with any project quotation.
               </p>
               <div className="bg-green-500 text-white px-4 py-2 rounded-lg text-center font-semibold">
-                ₹50,000 Savings when you select our recommended solutions!
+                ₹50,000 Value - Completely FREE!
               </div>
             </div>
           </div>
@@ -501,22 +501,155 @@ export default function ProjectQuotationPage() {
                   <td className="px-4 py-3 text-center">₹1,500</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3">Demo Website (if separate)</td>
+                  <td className="px-4 py-3">Demo Website</td>
                   <td className="px-4 py-3 text-center text-green-600">FREE</td>
                   <td className="px-4 py-3 text-center text-green-600">FREE</td>
-                  <td className="px-4 py-3 text-center">₹50,000</td>
+                  <td className="px-4 py-3 text-center text-green-600">FREE</td>
                 </tr>
                 <tr className="bg-yellow-50">
                   <td className="px-4 py-3 font-semibold">First Year Total</td>
                   <td className="px-4 py-3 text-center font-bold text-indigo-700">₹9,96,000</td>
                   <td className="px-4 py-3 text-center font-bold text-green-700">₹5,50,500</td>
-                  <td className="px-4 py-3 text-center font-bold text-orange-700">₹2,31,500</td>
+                  <td className="px-4 py-3 text-center font-bold text-orange-700">₹1,81,500</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-semibold">Subsequent Years</td>
                   <td className="px-4 py-3 text-center font-semibold">₹1,16,000</td>
                   <td className="px-4 py-3 text-center font-semibold">₹10,500</td>
                   <td className="px-4 py-3 text-center font-semibold">₹1,500</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Feature Comparison Table */}
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">📊 Detailed Feature Comparison</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full table-auto">
+              <thead>
+                <tr className="bg-gray-50">
+                  <th className="px-4 py-3 text-left font-semibold">Features</th>
+                  <th className="px-4 py-3 text-center font-semibold">Quotation I</th>
+                  <th className="px-4 py-3 text-center font-semibold">Quotation II</th>
+                  <th className="px-4 py-3 text-center font-semibold">Quotation III</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-4 py-3 font-medium">Agent Daily Sales Entry</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Executive Visit Tracking</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Role-based Hierarchy Access</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Mobile-Responsive Design</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Export Capabilities (Excel/CSV)</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Admin Panel (Master Control)</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Real-time GPS Tracking</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Photo Capture with Geo-tagging</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">AI Sales Forecasting</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">ChatGPT Management Assistant</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Advanced Analytics & Graphs</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Predictive Analytics & Alerts</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Multi-zone Comparison Dashboards</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Custom Report Generation</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Offline Support (PWA)</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Incentive Tracking</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Attendance Reports</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Audit Logs & Backup Tools</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                  <td className="px-4 py-3 text-center text-2xl">❌</td>
+                </tr>
+                <tr className="bg-blue-50">
+                  <td className="px-4 py-3 font-medium">Demo Website (FREE)</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
+                  <td className="px-4 py-3 text-center text-2xl">✅</td>
                 </tr>
               </tbody>
             </table>

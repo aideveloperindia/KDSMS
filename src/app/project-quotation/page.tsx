@@ -35,15 +35,15 @@ export default function ProjectQuotationPage() {
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div className="bg-indigo-50 p-6 rounded-lg">
               <h4 className="text-xl font-semibold text-indigo-900 mb-4">Investment Details</h4>
-              <div className="text-3xl font-bold text-indigo-700 mb-2">₹9,80,000 + GST</div>
+              <div className="text-3xl font-bold text-indigo-700 mb-2">₹8,80,000 + GST</div>
               <div className="text-sm text-gray-600 mb-4">Timeline: 3.5 months + 2 weeks buffer</div>
               
               <h5 className="font-semibold text-gray-900 mb-2">Payment Schedule:</h5>
               <ul className="text-sm text-gray-700 space-y-1">
-                <li>• ₹3,50,000 on contract signing</li>
-                <li>• ₹2,50,000 on executive & ZM dashboard demo</li>
-                <li>• ₹2,50,000 after complete internal testing</li>
-                <li>• ₹1,30,000 on final deployment & handover</li>
+                <li>• ₹3,20,000 on contract signing</li>
+                <li>• ₹2,20,000 on executive & ZM dashboard demo</li>
+                <li>• ₹2,20,000 after complete internal testing</li>
+                <li>• ₹1,20,000 on final deployment & handover</li>
               </ul>
             </div>
 

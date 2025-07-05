@@ -367,15 +367,15 @@ export default function DirectAccessPage() {
                   {/* Performance Grid */}
                   <div className="grid grid-cols-2 gap-2 text-center">
                     <div className="bg-white/5 rounded-lg p-2 border border-white/10">
-                      <div className="text-xs sm:text-sm font-bold text-green-300 animate-bounce">10L+ Milk Sold</div>
+                                                  <div className="text-xs sm:text-sm font-bold text-green-300 animate-bounce">1 Lakh Litres Milk Sold</div>
                       <div className="text-xs text-white/70">Daily Volume</div>
                     </div>
                     <div className="bg-white/5 rounded-lg p-2 border border-white/10">
-                      <div className="text-xs sm:text-sm font-bold text-blue-300 animate-pulse">50K L Curd Sold</div>
+                                                  <div className="text-xs sm:text-sm font-bold text-blue-300 animate-pulse">500 KG Curd Sold</div>
                       <div className="text-xs text-white/70">Production</div>
                     </div>
                     <div className="bg-white/5 rounded-lg p-2 border border-white/10">
-                      <div className="text-xs sm:text-sm font-bold text-purple-300">1.5 T Sweets Sold</div>
+                                                  <div className="text-xs sm:text-sm font-bold text-purple-300">1500 KG Sweets Sold</div>
                       <div className="text-xs text-white/70">Manufacturing</div>
                     </div>
                     <div className="bg-white/5 rounded-lg p-2 border border-white/10">

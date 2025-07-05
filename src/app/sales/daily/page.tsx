@@ -158,14 +158,14 @@ export default function DailySalesEntry() {
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-6 bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800">Daily Sales Entry</h1>
-              <p className="text-gray-600">Record your daily milk sales data</p>
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Daily Sales Entry</h1>
+              <p className="text-gray-600 text-base sm:text-lg">Record your daily milk sales data</p>
             </div>
             <Link 
               href={getBackButtonDestination()}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors text-center sm:text-left whitespace-nowrap"
             >
               {getBackButtonLabel()}
             </Link>

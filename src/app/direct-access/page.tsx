@@ -516,7 +516,7 @@ export default function DirectAccessPage() {
         }
         
         .animate-scroll-vertical {
-          animation: scroll-vertical 4s ease-in-out infinite;
+          animation: scroll-vertical 20s ease-in-out infinite;
         }
         
         .animate-scroll-vertical > div {

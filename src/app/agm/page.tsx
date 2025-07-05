@@ -120,16 +120,16 @@ export default function AGMPage() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-6 bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800">AGM Dashboard</h1>
-              <p className="text-gray-600 text-lg">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">AGM Dashboard</h1>
+              <p className="text-gray-600 text-base sm:text-lg">
                 {userData.companyName} • Managing 6 Zones • {totalAreas} Areas • {totalAgents} Agents
               </p>
             </div>
           <Link 
               href="/direct-access"
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors text-center sm:text-left whitespace-nowrap"
           >
               ← Back to Dashboard Menu
           </Link>

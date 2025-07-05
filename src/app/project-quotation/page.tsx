@@ -108,6 +108,15 @@ export default function ProjectQuotationPage() {
                     <li>• Custom report generation</li>
                   </ul>
                 </div>
+                <div>
+                  <strong className="text-indigo-700">Admin Panel (Master Control)</strong>
+                  <ul className="ml-4 mt-1 space-y-1 text-gray-600">
+                    <li>• Add/edit/delete employee profiles</li>
+                    <li>• Assign roles & generate employee IDs</li>
+                    <li>• Manage zones, areas, sub-areas</li>
+                    <li>• Password reset & user management</li>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -180,14 +189,14 @@ export default function ProjectQuotationPage() {
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div className="bg-green-50 p-6 rounded-lg">
               <h4 className="text-xl font-semibold text-green-900 mb-4">Investment Details</h4>
-              <div className="text-3xl font-bold text-green-700 mb-2">₹4,80,000 + GST</div>
+              <div className="text-3xl font-bold text-green-700 mb-2">₹5,40,000 + GST</div>
               <div className="text-sm text-gray-600 mb-4">Timeline: 2 months + 2 weeks buffer</div>
               
               <h5 className="font-semibold text-gray-900 mb-2">Payment Schedule:</h5>
               <ul className="text-sm text-gray-700 space-y-1">
-                <li>• ₹2,00,000 on agreement signing</li>
-                <li>• ₹1,50,000 on agent & executive module completion</li>
-                <li>• ₹1,30,000 on final testing & deployment</li>
+                <li>• ₹2,20,000 on agreement signing</li>
+                <li>• ₹1,70,000 on agent & executive module completion</li>
+                <li>• ₹1,50,000 on final testing & deployment</li>
               </ul>
             </div>
 
@@ -205,6 +214,10 @@ export default function ProjectQuotationPage() {
                 <div className="flex justify-between">
                   <span>UI/UX Integration Expert</span>
                   <span className="font-semibold">₹90,000</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Admin Panel Developer</span>
+                  <span className="font-semibold">₹60,000</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Deployment Specialist</span>
@@ -238,6 +251,15 @@ export default function ProjectQuotationPage() {
                     <li>• Mobile-responsive design</li>
                     <li>• Professional dashboard interfaces</li>
                     <li>• Export capabilities</li>
+                  </ul>
+                </div>
+                <div>
+                  <strong className="text-green-700">Admin Panel (Master Control)</strong>
+                  <ul className="ml-4 mt-1 space-y-1 text-gray-600">
+                    <li>• Employee management with role assignment</li>
+                    <li>• Zone/area/sub-area management</li>
+                    <li>• Automatic employee ID generation</li>
+                    <li>• Password reset & user deactivation</li>
                   </ul>
                 </div>
               </div>
@@ -411,7 +433,7 @@ export default function ProjectQuotationPage() {
                   <td className="px-4 py-3 text-center text-sm">Balanced, structured, production-ready</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-semibold text-orange-700">III – Starter Demo Tool</td>
+                  <td className="px-4 py-3 font-semibold text-orange-700">III – Basic Website</td>
                   <td className="px-4 py-3 text-center">2–3 weeks (few hours/week)</td>
                   <td className="px-4 py-3 text-center">Small utility team</td>
                   <td className="px-4 py-3 text-center text-sm">Lightweight app for temporary or internal use only</td>
@@ -469,7 +491,7 @@ export default function ProjectQuotationPage() {
                 <tr>
                   <td className="px-4 py-3">Development Team</td>
                   <td className="px-4 py-3 text-center">₹8,80,000</td>
-                  <td className="px-4 py-3 text-center">₹4,80,000</td>
+                  <td className="px-4 py-3 text-center">₹5,40,000</td>
                   <td className="px-4 py-3 text-center">₹1,80,000</td>
                 </tr>
                 <tr>
@@ -487,7 +509,7 @@ export default function ProjectQuotationPage() {
                 <tr className="bg-yellow-50">
                   <td className="px-4 py-3 font-semibold">First Year Total</td>
                   <td className="px-4 py-3 text-center font-bold text-indigo-700">₹9,96,000</td>
-                  <td className="px-4 py-3 text-center font-bold text-green-700">₹4,90,500</td>
+                  <td className="px-4 py-3 text-center font-bold text-green-700">₹5,50,500</td>
                   <td className="px-4 py-3 text-center font-bold text-orange-700">₹2,31,500</td>
                 </tr>
                 <tr>

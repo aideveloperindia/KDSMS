@@ -30,7 +30,7 @@ export default function LandingPage() {
       </div>
 
       {/* Overlay for better text readability */}
-      <div className="min-h-screen bg-black/40">
+      <div className="min-h-screen bg-black/10">
         {/* Navigation Header */}
         <header className="absolute top-0 left-0 right-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,7 +80,7 @@ export default function LandingPage() {
               <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 leading-relaxed px-4 sm:px-0">
                 Revolutionary sales tracking and management system powering
                 <br className="hidden sm:block" />
-                <span className="font-semibold text-yellow-200">dairy sales operations</span> across multiple regions
+                <span className="sm:hidden"> </span><span className="font-semibold text-yellow-200">dairy sales operations</span> across multiple regions
               </p>
               
               {/* Key Stats */}

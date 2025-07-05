@@ -9,8 +9,10 @@ export default function DemoLoginPage() {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  const handleLogin = () => {
-    if (!employeeId.trim()) {
+  const handleLogin = (idToUse?: string) => {
+    const currentEmployeeId = idToUse || employeeId;
+    
+    if (!currentEmployeeId.trim()) {
       setError('Please enter an Employee ID');
       return;
     }
@@ -22,9 +24,9 @@ export default function DemoLoginPage() {
     let userData;
     let redirectPath;
 
-    if (employeeId.includes('MGMT')) {
+    if (currentEmployeeId.includes('MGMT')) {
       userData = {
-        employeeId: employeeId,
+        employeeId: currentEmployeeId,
         name: 'Tarun (Management)',
         role: 'Management',
         zone: 0,
@@ -32,9 +34,9 @@ export default function DemoLoginPage() {
         subArea: 0
       };
       redirectPath = '/management';
-    } else if (employeeId.includes('AGM')) {
+    } else if (currentEmployeeId.includes('AGM')) {
       userData = {
-        employeeId: employeeId,
+        employeeId: currentEmployeeId,
         name: 'Varun (AGM)',
         role: 'AGM',
         zone: 0,
@@ -42,11 +44,11 @@ export default function DemoLoginPage() {
         subArea: 0
       };
       redirectPath = '/agm';
-    } else if (employeeId.includes('ZM')) {
-      const zoneMatch = employeeId.match(/Z(\d+)/);
+    } else if (currentEmployeeId.includes('ZM')) {
+      const zoneMatch = currentEmployeeId.match(/Z(\d+)/);
       const zone = zoneMatch ? parseInt(zoneMatch[1]) : 1;
       userData = {
-        employeeId: employeeId,
+        employeeId: currentEmployeeId,
         name: `Zone Manager ${zone}`,
         role: 'Zone Manager',
         zone: zone,
@@ -54,13 +56,13 @@ export default function DemoLoginPage() {
         subArea: 0
       };
       redirectPath = '/zm';
-    } else if (employeeId.includes('EXE')) {
-      const match = employeeId.match(/Z(\d+)A(\d+)/);
+    } else if (currentEmployeeId.includes('EXE')) {
+      const match = currentEmployeeId.match(/Z(\d+)A(\d+)/);
       const zone = match ? parseInt(match[1]) : 1;
       const area = match ? parseInt(match[2]) : 1;
       const globalArea = (zone - 1) * 4 + area;
       userData = {
-        employeeId: employeeId,
+        employeeId: currentEmployeeId,
         name: `Executive ${zone}-${area}`,
         role: 'Executive',
         zone: zone,
@@ -68,15 +70,15 @@ export default function DemoLoginPage() {
         subArea: 0
       };
       redirectPath = '/executives';
-    } else if (employeeId.includes('AGT')) {
-      const match = employeeId.match(/Z(\d+)A(\d+)-(\d+)/);
+    } else if (currentEmployeeId.includes('AGT')) {
+      const match = currentEmployeeId.match(/Z(\d+)A(\d+)-(\d+)/);
       const zone = match ? parseInt(match[1]) : 1;
       const area = match ? parseInt(match[2]) : 1;
       const agentNum = match ? parseInt(match[3]) : 1;
       const globalArea = (zone - 1) * 4 + area;
       const subArea = (globalArea - 1) * 20 + agentNum;
       userData = {
-        employeeId: employeeId,
+        employeeId: currentEmployeeId,
         name: `Agent ${zone}-${area}-${agentNum}`,
         role: 'Agent',
         zone: zone,
@@ -99,15 +101,17 @@ export default function DemoLoginPage() {
   const quickLogin = (id: string) => {
     setEmployeeId(id);
     setError(''); // Clear any existing error
-    setTimeout(() => {
-      const event = { target: { value: id } };
-      setEmployeeId(id);
-      setTimeout(handleLogin, 100);
-    }, 100);
+    handleLogin(id); // Pass the ID directly instead of relying on state
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div 
+      className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed flex flex-col justify-center py-12 sm:px-6 lg:px-8"
+      style={{ 
+        backgroundImage: 'url("/kdsms demo-login page.png")',
+        minHeight: '100vh'
+      }}
+    >
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="text-center">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -136,92 +140,98 @@ export default function DemoLoginPage() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <div className="space-y-6">
-            <div>
-              <label htmlFor="employeeId" className="block text-sm font-medium text-gray-700">
-                Employee ID
-              </label>
-              <div className="mt-1">
-                <input
-                  id="employeeId"
-                  name="employeeId"
-                  type="text"
-                  value={employeeId}
-                  onChange={(e) => setEmployeeId(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  placeholder="e.g., AGT-Z5A1-008"
-                />
-              </div>
-              {error && (
-                <div className="mt-2 text-sm text-red-600">
-                  {error}
+        {/* Overlay positioned only over the login form */}
+        <div className="relative">
+          {/* Small overlay for just the login form area */}
+          <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
+          
+          <div className="relative bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <div className="space-y-6">
+              <div>
+                <label htmlFor="employeeId" className="block text-sm font-medium text-gray-700">
+                  Employee ID
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="employeeId"
+                    name="employeeId"
+                    type="text"
+                    value={employeeId}
+                    onChange={(e) => setEmployeeId(e.target.value)}
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    placeholder="e.g., AGT-Z5A1-008"
+                  />
                 </div>
-              )}
-            </div>
-
-            <div>
-              <button
-                onClick={handleLogin}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-              >
-                Login to Dashboard
-              </button>
-            </div>
-          </div>
-
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
+                {error && (
+                  <div className="mt-2 text-sm text-red-600">
+                    {error}
+                  </div>
+                )}
               </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Quick Login</span>
+
+              <div>
+                <button
+                  onClick={() => handleLogin()}
+                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Login to Dashboard
+                </button>
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-1 gap-3">
-              <button
-                onClick={() => quickLogin('MGMT-001')}
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-              >
-                Management (MGMT-001)
-              </button>
-              <button
-                onClick={() => quickLogin('AGM-001')}
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-              >
-                AGM (AGM-001)
-              </button>
-              <button
-                onClick={() => quickLogin('ZM-Z1-001')}
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-              >
-                Zone Manager (ZM-Z1-001)
-              </button>
-              <button
-                onClick={() => quickLogin('EXE-Z1A1-001')}
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-              >
-                Executive (EXE-Z1A1-001)
-              </button>
-              <button
-                onClick={() => quickLogin('AGT-Z1A1-001')}
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-              >
-                Agent (AGT-Z1A1-001)
-              </button>
-            </div>
-          </div>
+            <div className="mt-6">
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-300" />
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-white text-gray-500">Quick Login</span>
+                </div>
+              </div>
 
-          {/* Back to Home */}
-          <div className="mt-6 text-center">
-            <Link 
-              href="/"
-              className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              ← Back to Home
-            </Link>
+              <div className="mt-6 grid grid-cols-1 gap-3">
+                <button
+                  onClick={() => quickLogin('MGMT-001')}
+                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                >
+                  Management (MGMT-001)
+                </button>
+                <button
+                  onClick={() => quickLogin('AGM-001')}
+                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                >
+                  AGM (AGM-001)
+                </button>
+                <button
+                  onClick={() => quickLogin('ZM-Z1-001')}
+                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                >
+                  Zone Manager (ZM-Z1-001)
+                </button>
+                <button
+                  onClick={() => quickLogin('EXE-Z1A1-001')}
+                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                >
+                  Executive (EXE-Z1A1-001)
+                </button>
+                <button
+                  onClick={() => quickLogin('AGT-Z1A1-001')}
+                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                >
+                  Agent (AGT-Z1A1-001)
+                </button>
+              </div>
+            </div>
+
+            {/* Back to Home */}
+            <div className="mt-6 text-center">
+              <Link 
+                href="/"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                ← Back to Home
+              </Link>
+            </div>
           </div>
         </div>
       </div>

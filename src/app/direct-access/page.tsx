@@ -6,24 +6,9 @@ import { useState, useEffect } from 'react';
 export default function DirectAccessPage() {
   const [selectedRole, setSelectedRole] = useState<string>('');
   const [isLoaded, setIsLoaded] = useState(false);
-  const [typewriterText, setTypewriterText] = useState('');
 
   useEffect(() => {
     setIsLoaded(true);
-    
-    // Typewriter animation
-    const text = "Executive Command Center";
-    let index = 0;
-    const typewriterInterval = setInterval(() => {
-      if (index < text.length) {
-        setTypewriterText(text.substring(0, index + 1));
-        index++;
-      } else {
-        clearInterval(typewriterInterval);
-      }
-    }, 100);
-
-    return () => clearInterval(typewriterInterval);
   }, []);
 
   const firstRowDashboards = [
@@ -119,7 +104,7 @@ export default function DirectAccessPage() {
     <div 
       className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed relative overflow-hidden"
       style={{ 
-        backgroundImage: 'url("/landing-bg.gif")',
+        backgroundImage: 'url("/kdsms direct-access  page background.png")',
         minHeight: '100vh'
       }}
     >
@@ -210,9 +195,9 @@ export default function DirectAccessPage() {
               ))}
             </div>
 
-            {/* Second Row: Executive (aligned under Management), Agent (aligned under Zone Manager) */}
+            {/* Second Row: Executive, Demo, Agent - All in responsive grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
-              {/* Executive - positioned in first column (under Management) */}
+              {/* Executive - positioned in first column */}
               <Link
                 href={secondRowDashboards[0].path}
                 className={`group relative bg-gradient-to-br ${secondRowDashboards[0].color} text-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 block overflow-hidden border border-white/20 hover:border-white/40 animate-fade-in-up`}
@@ -359,7 +344,7 @@ export default function DirectAccessPage() {
                       <div className="text-xs text-white/70">Production</div>
                     </div>
                     <div className="bg-white/5 rounded-lg p-2 border border-white/10">
-                      <div className="text-xs sm:text-sm font-bold text-purple-300 animate-ping">1.5 T Sweets Sold</div>
+                      <div className="text-xs sm:text-sm font-bold text-purple-300">1.5 T Sweets Sold</div>
                       <div className="text-xs text-white/70">Manufacturing</div>
                     </div>
                     <div className="bg-white/5 rounded-lg p-2 border border-white/10">
@@ -379,7 +364,7 @@ export default function DirectAccessPage() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-white/10 via-white/20 to-white/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
               </div>
 
-              {/* Agent - positioned in third column (under Zone Manager) */}
+              {/* Agent - positioned in third column */}
               <Link
                 href={secondRowDashboards[1].path}
                 className={`group relative bg-gradient-to-br ${secondRowDashboards[1].color} text-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 block overflow-hidden border border-white/20 hover:border-white/40 animate-fade-in-up`}

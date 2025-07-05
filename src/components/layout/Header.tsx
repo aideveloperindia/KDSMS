@@ -4,7 +4,6 @@ import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
 
 const getDashboardUrl = (role?: string) => {
   switch (role) {
@@ -49,25 +48,6 @@ export default function Header() {
   const pathname = usePathname();
   const isLandingPage = pathname === '/';
   const isDirectAccessPage = pathname === '/direct-access';
-  const [typewriterText, setTypewriterText] = useState('');
-
-  // Typewriter effect for direct access page
-  useEffect(() => {
-    if (isDirectAccessPage) {
-      const text = "Executive Command Center";
-      let index = 0;
-      const typewriterInterval = setInterval(() => {
-        if (index < text.length) {
-          setTypewriterText(text.substring(0, index + 1));
-          index++;
-        } else {
-          clearInterval(typewriterInterval);
-        }
-      }, 100);
-
-      return () => clearInterval(typewriterInterval);
-    }
-  }, [isDirectAccessPage]);
 
   // Don't show anything while loading
   if (status === 'loading') {
@@ -129,22 +109,8 @@ export default function Header() {
               </div>
             </div>
           )}
-
-
         </div>
       </nav>
-      
-      {/* Typewriter Effect positioned below header, aligned with content */}
-      {isDirectAccessPage && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-white bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-              {typewriterText}
-              <span className="animate-pulse">|</span>
-            </h1>
-          </div>
-        </div>
-      )}
     </header>
   );
 }

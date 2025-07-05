@@ -96,7 +96,7 @@ export default function ProjectQuotationPage() {
                     <li>• Real-time GPS tracking for executives</li>
                     <li>• Visit photo capture with geo-tagging</li>
                     <li>• AI-powered sales forecasting</li>
-                    <li>• ChatGPT management assistant</li>
+                    <li>• AI-powered management assistant</li>
                   </ul>
                 </div>
                 <div>
@@ -152,7 +152,7 @@ export default function ProjectQuotationPage() {
                   <span>₹12,000</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>ChatGPT API</span>
+                  <span>AI Assistant API</span>
                   <span>₹20,000</span>
                 </div>
                 <div className="flex justify-between">
@@ -333,7 +333,7 @@ export default function ProjectQuotationPage() {
               <h4 className="text-xl font-semibold text-gray-900 mb-4">Development Team (4 people)</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span>UI Developer using Cursor</span>
+                  <span>UI Developer</span>
                   <span className="font-semibold">₹70,000</span>
                 </div>
                 <div className="flex justify-between">
@@ -592,7 +592,7 @@ export default function ProjectQuotationPage() {
                   <td className="px-4 py-3 text-center text-2xl">❌</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-medium">ChatGPT Management Assistant</td>
+                  <td className="px-4 py-3 font-medium">AI Management Assistant</td>
                   <td className="px-4 py-3 text-center text-2xl">✅</td>
                   <td className="px-4 py-3 text-center text-2xl">❌</td>
                   <td className="px-4 py-3 text-center text-2xl">❌</td>

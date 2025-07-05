@@ -302,7 +302,7 @@ export default function DirectAccessPage() {
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-300 overflow-hidden mb-3">
                     <div className="h-48 sm:h-64 overflow-hidden relative">
                       <div className="absolute inset-0">
-                        <div className="space-y-2 animate-scroll-escalator">
+                        <div className="space-y-2 overflow-y-auto scroll-smooth animate-scroll-vertical">
                           {/* Sales Entry Animation */}
                           <div className="flex items-center justify-between p-2 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg border border-green-400/30">
                             <div className="flex items-center space-x-2">
@@ -312,7 +312,6 @@ export default function DirectAccessPage() {
                             <span className="text-xs sm:text-sm font-bold text-green-200 animate-pulse">₹2,917</span>
                           </div>
                           
-                          {/* More demo items would continue here */}
                           <div className="flex items-center justify-between p-2 bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 rounded-lg border border-cyan-400/30">
                             <div className="flex items-center space-x-2">
                               <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
@@ -327,6 +326,38 @@ export default function DirectAccessPage() {
                               <span className="text-xs sm:text-sm font-medium text-blue-200">Processing</span>
                             </div>
                             <span className="text-xs sm:text-sm font-bold text-blue-200 animate-pulse">₹58,340</span>
+                          </div>
+                          
+                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-lg border border-purple-400/30">
+                            <div className="flex items-center space-x-2">
+                              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+                              <span className="text-xs sm:text-sm font-medium text-purple-200">Report Gen</span>
+                            </div>
+                            <span className="text-xs sm:text-sm font-bold text-purple-200 animate-pulse">✓ Done</span>
+                          </div>
+                          
+                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-lg border border-orange-400/30">
+                            <div className="flex items-center space-x-2">
+                              <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                              <span className="text-xs sm:text-sm font-medium text-orange-200">Analytics</span>
+                            </div>
+                            <span className="text-xs sm:text-sm font-bold text-orange-200 animate-pulse">Live</span>
+                          </div>
+                          
+                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 rounded-lg border border-yellow-400/30">
+                            <div className="flex items-center space-x-2">
+                              <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+                              <span className="text-xs sm:text-sm font-medium text-yellow-200">Inventory</span>
+                            </div>
+                            <span className="text-xs sm:text-sm font-bold text-yellow-200 animate-pulse">₹1,24,500</span>
+                          </div>
+                          
+                          <div className="flex items-center justify-between p-2 bg-gradient-to-r from-pink-500/20 to-pink-600/20 rounded-lg border border-pink-400/30">
+                            <div className="flex items-center space-x-2">
+                              <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
+                              <span className="text-xs sm:text-sm font-medium text-pink-200">Monthly Total</span>
+                            </div>
+                            <span className="text-xs sm:text-sm font-bold text-pink-200 animate-pulse">₹2,50,000</span>
                           </div>
                         </div>
                       </div>
@@ -439,6 +470,59 @@ export default function DirectAccessPage() {
           </div>
         </div>
       </div>
+      
+      {/* Custom CSS Animations */}
+      <style jsx global>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+        
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 1s ease-out;
+        }
+        
+        @keyframes scroll-vertical {
+          0% {
+            transform: translateY(0);
+          }
+          25% {
+            transform: translateY(-20px);
+          }
+          50% {
+            transform: translateY(-40px);
+          }
+          75% {
+            transform: translateY(-20px);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-scroll-vertical {
+          animation: scroll-vertical 4s ease-in-out infinite;
+        }
+        
+        .animate-scroll-vertical > div {
+          margin-bottom: 8px;
+        }
+      `}</style>
     </div>
   );
 } 

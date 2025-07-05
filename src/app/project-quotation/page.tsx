@@ -281,9 +281,180 @@ export default function ProjectQuotationPage() {
           </div>
         </div>
 
-        {/* Comparison Table */}
+        {/* Quotation III */}
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-orange-500">
+          <div className="flex items-center mb-6">
+            <span className="text-3xl mr-4">🚀</span>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900">
+                Quotation III – Demo / Starter Dairy Entry System
+              </h3>
+              <p className="text-lg text-gray-600">(Basic Entry Tool)</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-orange-50 p-6 rounded-lg">
+              <h4 className="text-xl font-semibold text-orange-900 mb-4">Investment Details</h4>
+              <div className="text-3xl font-bold text-orange-700 mb-2">₹1,80,000 + GST</div>
+              <div className="text-sm text-gray-600 mb-4">Timeline: 3 weeks + 1 week buffer</div>
+              
+              <h5 className="font-semibold text-gray-900 mb-2">Payment Schedule:</h5>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>• ₹90,000 on project start</li>
+                <li>• ₹60,000 on completion & testing</li>
+                <li>• ₹30,000 on final delivery</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-4">Development Team (4 people)</h4>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span>UI Developer using Cursor</span>
+                  <span className="font-semibold">₹70,000</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Backend data flow developer</span>
+                  <span className="font-semibold">₹60,000</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Export + filter logic</span>
+                  <span className="font-semibold">₹30,000</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Tester & uploader</span>
+                  <span className="font-semibold">₹20,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-4">✅ Basic Features Included</h4>
+              <div className="space-y-3 text-sm">
+                <div>
+                  <strong className="text-orange-700">Simple Operations</strong>
+                  <ul className="ml-4 mt-1 space-y-1 text-gray-600">
+                    <li>• Static login links (agent/viewer)</li>
+                    <li>• Zone → Area → Sub-area selection dropdowns</li>
+                    <li>• Agent daily form: quantity + remarks</li>
+                    <li>• Viewer access to all entries live</li>
+                  </ul>
+                </div>
+                <div>
+                  <strong className="text-orange-700">Basic Reporting</strong>
+                  <ul className="ml-4 mt-1 space-y-1 text-gray-600">
+                    <li>• Daily Excel/CSV export of sales</li>
+                    <li>• Minimal role-based data separation</li>
+                    <li>• Basic data entry interface</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-4">Platform & Service Costs (Annual)</h4>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span>Vercel Hosting (Free tier)</span>
+                  <span>₹0</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>JSON/MongoDB Backend</span>
+                  <span>₹0</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Basic Domain (optional)</span>
+                  <span>₹1,500</span>
+                </div>
+                <div className="border-t pt-2 mt-2 font-semibold flex justify-between">
+                  <span>Platform Fees Total</span>
+                  <span>₹1,500/year</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 p-4 bg-orange-50 rounded-lg">
+            <p className="text-sm text-gray-700">
+              📝 <strong>Note:</strong> This is a lightweight data entry tool suitable for temporary use or internal testing only. Not recommended for production operations.
+            </p>
+          </div>
+        </div>
+
+        {/* Engineering Commitment Comparison */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">💰 Cost Comparison Summary</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">🔧 Engineering Commitment Comparison</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full table-auto">
+              <thead>
+                <tr className="bg-gray-50">
+                  <th className="px-4 py-3 text-left font-semibold">Quotation</th>
+                  <th className="px-4 py-3 text-center font-semibold">Development Time</th>
+                  <th className="px-4 py-3 text-center font-semibold">Team Engagement</th>
+                  <th className="px-4 py-3 text-center font-semibold">Notes</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-4 py-3 font-semibold text-indigo-700">I – Enterprise Platform</td>
+                  <td className="px-4 py-3 text-center">3.5 months full-time</td>
+                  <td className="px-4 py-3 text-center">8 dedicated engineers</td>
+                  <td className="px-4 py-3 text-center text-sm">Full-cycle development, scalable nationwide</td>
+                </tr>
+                <tr className="bg-green-50">
+                  <td className="px-4 py-3 font-semibold text-green-700">II – Core Sales System</td>
+                  <td className="px-4 py-3 text-center">~2 months part-time</td>
+                  <td className="px-4 py-3 text-center">5 focused contributors</td>
+                  <td className="px-4 py-3 text-center text-sm">Balanced, structured, production-ready</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-semibold text-orange-700">III – Starter Demo Tool</td>
+                  <td className="px-4 py-3 text-center">2–3 weeks (few hours/week)</td>
+                  <td className="px-4 py-3 text-center">Small utility team</td>
+                  <td className="px-4 py-3 text-center text-sm">Lightweight app for temporary or internal use only</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Demo Website Fee */}
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl p-8 mb-8">
+          <h3 className="text-2xl font-bold mb-4">🎯 Demo Website Development Fee</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="text-xl font-semibold mb-2">Current Demo Website Cost</h4>
+              <div className="text-3xl font-bold mb-2">₹50,000 + GST</div>
+              <p className="text-lg mb-4">
+                Professional demo website development including:
+              </p>
+              <ul className="space-y-2 text-sm">
+                <li>• Complete UI/UX design and development</li>
+                <li>• Role-based demo login system</li>
+                <li>• Interactive dashboards for all hierarchy levels</li>
+                <li>• Professional presentation-ready interface</li>
+                <li>• Deployment and hosting setup</li>
+              </ul>
+            </div>
+            <div className="bg-white/20 rounded-lg p-6">
+              <h4 className="text-xl font-semibold mb-4">🎁 Special Offer</h4>
+              <div className="text-2xl font-bold mb-4">FREE Demo Website!</div>
+              <p className="text-lg mb-4">
+                <strong>Condition:</strong> Choose Quotation I or Quotation II
+              </p>
+              <div className="bg-green-500 text-white px-4 py-2 rounded-lg text-center font-semibold">
+                ₹50,000 Savings when you select our recommended solutions!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Updated Comparison Table */}
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">💰 Complete Cost Comparison</h3>
           <div className="overflow-x-auto">
             <table className="w-full table-auto">
               <thead>
@@ -291,6 +462,7 @@ export default function ProjectQuotationPage() {
                   <th className="px-4 py-3 text-left font-semibold">Component</th>
                   <th className="px-4 py-3 text-center font-semibold">Quotation I</th>
                   <th className="px-4 py-3 text-center font-semibold">Quotation II</th>
+                  <th className="px-4 py-3 text-center font-semibold">Quotation III</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -298,39 +470,35 @@ export default function ProjectQuotationPage() {
                   <td className="px-4 py-3">Development Team</td>
                   <td className="px-4 py-3 text-center">₹8,80,000</td>
                   <td className="px-4 py-3 text-center">₹4,80,000</td>
+                  <td className="px-4 py-3 text-center">₹1,80,000</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3">Annual Platform Costs</td>
                   <td className="px-4 py-3 text-center">₹1,16,000</td>
                   <td className="px-4 py-3 text-center">₹10,500</td>
+                  <td className="px-4 py-3 text-center">₹1,500</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3">Demo Website (if separate)</td>
+                  <td className="px-4 py-3 text-center text-green-600">FREE</td>
+                  <td className="px-4 py-3 text-center text-green-600">FREE</td>
+                  <td className="px-4 py-3 text-center">₹50,000</td>
                 </tr>
                 <tr className="bg-yellow-50">
                   <td className="px-4 py-3 font-semibold">First Year Total</td>
-                  <td className="px-4 py-3 text-center font-bold text-indigo-700">₹10,96,000</td>
+                  <td className="px-4 py-3 text-center font-bold text-indigo-700">₹9,96,000</td>
                   <td className="px-4 py-3 text-center font-bold text-green-700">₹4,90,500</td>
+                  <td className="px-4 py-3 text-center font-bold text-orange-700">₹2,31,500</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-semibold">Subsequent Years</td>
                   <td className="px-4 py-3 text-center font-semibold">₹1,16,000</td>
                   <td className="px-4 py-3 text-center font-semibold">₹10,500</td>
+                  <td className="px-4 py-3 text-center font-semibold">₹1,500</td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </div>
-
-        {/* Recommendation */}
-        <div className="bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-2xl p-8 mb-8">
-          <h3 className="text-2xl font-bold mb-4">💡 Our Recommendation</h3>
-          <p className="text-lg mb-4">
-            <strong>Quotation II</strong> is specifically designed for your dairy's current operational needs. 
-            It delivers exactly what you discussed - no over-engineering, no unnecessary complexity, 
-            just a robust system that grows with your business.
-          </p>
-          <p className="text-lg">
-            <strong>Quotation I</strong> is ideal for multi-location dairy cooperatives or 
-            state-level operations planning rapid expansion.
-          </p>
         </div>
 
         {/* Guarantees */}

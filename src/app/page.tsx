@@ -34,7 +34,7 @@ export default function LandingPage() {
         {/* Navigation Header */}
         <header className="absolute top-0 left-0 right-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center py-6">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 sm:py-6 gap-4 sm:gap-0">
               <div className="flex items-center">
                 <Image
                   src="/icon.png"
@@ -46,7 +46,7 @@ export default function LandingPage() {
                 <span className="ml-2 text-xl font-bold text-white">KDSMS</span>
               </div>
               
-              <nav className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-8 text-sm sm:text-base">
+              <nav className="flex flex-row sm:flex-row space-x-4 sm:space-x-8 text-sm sm:text-base justify-center sm:justify-end">
                 <Link href="#features" className="text-white/80 hover:text-white transition-colors text-center sm:text-left">Features</Link>
                 <Link href="#about" className="text-white/80 hover:text-white transition-colors text-center sm:text-left">About</Link>
                 <Link href="#contact" className="text-white/80 hover:text-white transition-colors text-center sm:text-left">Contact</Link>
@@ -56,7 +56,7 @@ export default function LandingPage() {
         </header>
 
         {/* Hero Section */}
-        <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 sm:pt-20">
           <div className="max-w-4xl mx-auto text-center">
             <div className={`transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               {/* Hero Title */}
